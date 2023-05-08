@@ -257,3 +257,20 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
     - Retention period can be specified
         - From 1 day to 1 year
 
+### Amazon Machine Image (AMI) Overview
+- AMI are a customization of an EC2 instance
+    - You can add your own software, configuration, operating system, etc.
+    - Faster boot/configuration time because all your software is pre-packaged.
+- AMI are built for a specific region, and can be copied across regions.
+- You can launch EC2 instances from
+    - Public AMI: AWS provided
+    - Your own AMI: You make and maintain them yourself.
+    - AWS Marketplace AMI: An AMI someone else made, and potentially sells
+
+- AMI Process
+    - Start an EC2 instance and customize it
+    - Stop the instance for data integrity
+    - Build an AMI, which will also create EBS snapshots
+    - Launch instances from other AMIs
+
+### EC2 Image Builder
