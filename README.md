@@ -52,7 +52,7 @@
 ### EC2 Instance types
 #### Instance Costs
 1. Free Tiers
-- t2.micro (Free for up to 750h/month)
+- t2.micro (Free for up to 750hours/month)
 
 2. Paid Tiers
 - t2.xlarge
@@ -69,7 +69,7 @@
 #### General Purpose Instance Types
 - Great for a diversity of workloads such as web servers or code repositories
 - Balance between Compute, Memory and Networking
-- Most general purpose instance types have the `T, M, A` name
+- Most general purpose instance types have the *T, M, A* name
 
 #### Compute Optimized Instance Types
 - Great for Compute-intensive tasks that require high performance processors:
@@ -79,7 +79,7 @@
     - High performance computing
     - Scientific modeling & machine learning
     - Dedicated gaming servers
-- Most compute optimized instance types have the `C` name
+- Most compute optimized instance types have the *C* name
 
 #### Memory Optimized Instance Types
 - Fast performance for workloads that process large data sets in memory:
@@ -87,7 +87,7 @@
     - Distributed web scale cache stores
     - In-memory databases optimized for Business Intelligence
     - Applications performing real-time processing of big unstructured data
-- Most memory optimized instance types have the `R, X, z` name
+- Most memory optimized instance types have the *R, X, z* name
 
 #### Storage Optimized Instance Types
 - Great for storage-intensive tasks that require high, sequential read and write access to large data sets on local storage:
@@ -96,7 +96,7 @@
     - Cache for in-memory databases
     - Data warehousing applications
     - Distributed file systems
-- Most storage optimized instance types have the `I, D, H` name
+- Most storage optimized instance types have the *I, D, H* name
 
 ### Security Groups
 #### Introduction to Security Groups
