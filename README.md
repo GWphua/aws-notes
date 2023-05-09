@@ -275,7 +275,7 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 
 ### EC2 Image Builder
 - Used to automate the creation of VMs or Container Images
-    - Automate creation, maintainenance, validation and testing of EC2 AMIs
+    - Automatically bild, test, and distribute AMIs
     - Example automated workflow for EC2 Image Builder:
         1. Creates a Builder EC2 instance that builds the components applied as specified on the recipe
         2. A New AMI is created out of this EC2 Instance
@@ -302,19 +302,36 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
     - Highly scalable
     - Very expensive, and metered payment
     - No capacity planning
-- EFS Infrequent Access (EFS-IA)
-    - Storage class that is cost-optimized for files not accessed every day.
-    - Heavily discounted cost compared to EFS standard
-    - EFS will automaticall move your files to EFS-IA based on the last time they were accessed.
-        - Determined by a Lifecycle Policy
-        - e.g. Lifecycle Policy: Move files that are not accessed for 60 days to EFS-IA
-    - Transparent to the applications accessing EFS.
-        - Behind-the-scenes cost optimization done by Amazon
+#### EFS Infrequent Access (EFS-IA)
+- Storage class that is cost-optimized for files not accessed every day.
+- Heavily discounted cost compared to EFS standard
+- EFS will automaticall move your files to EFS-IA based on the last time they were accessed.
+    - Determined by a Lifecycle Policy
+    - e.g. Lifecycle Policy: Move files that are not accessed for 60 days to EFS-IA
+- Transparent to the applications accessing EFS.
+    - Behind-the-scenes cost optimization done by Amazon
 
 ### Shared Responsiblity Model for EC2 Storage
-| AWS | User |
-|-----|------|
-|Infrastructure|Setting up backup/snapshot procedures|
-|Replication for data for EBS volumes & EFS drives|Setting up data encryption|
-|Replacing faulty hardware|Responsibility of any data on the drives|
-|Ensuring employees cannot access your data|Understanding the risk of using EC2 Instance Store|
+|AWS                                              |User                                              |
+|-------------------------------------------------|--------------------------------------------------|
+|Infrastructure                                   |Setting up backup/snapshot procedures             |
+|Replication for data for EBS volumes & EFS drives|Setting up data encryption                        |
+|Replacing faulty hardware                        |Responsibility of any data on the drives          |
+|Ensuring employees cannot access your data       |Understanding the risk of using EC2 Instance Store|
+
+### Amazon FSx
+- Launch 3rd party *high-performance file systems* on AWS
+- Fully managed service
+
+#### Amazon FSx for Windows File Server
+- A Fully managed, highly reliable, and scalable Windows native shared file system.
+- Built on Windows File Server
+- Integrated with Microsoft Active Directory for user security.
+- Can be accessed from AWS or your on-premise infrastructure.
+
+#### Amazon FSx for Lustre
+- Fully managed, high-performance, scalable file storage for *High Performance Computing*
+    - Good for ML, Analytics, Video PRocesing, Financial Modelling
+    - Scales up to 100s GB/s, millions of IO/s, sub-ms latencies
+
+## Elastic Load Balancing & Auto-Scaling Groups
