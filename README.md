@@ -382,4 +382,35 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 
 ## Elastic Load Balancing & Auto-Scaling Groups
 
-### ELB Overview
+### Technical Terms: Availability, Scalability and Elasticity, Agility
+
+#### Availability
+
+- High availability means running your application / system in at least 2 AZs.
+- The goal of high availability is to survive a data center loss, either to natural disasters or power outages.
+- High availability usually goes hand in hand with horizontal scaling.
+
+#### Scalability
+
+- Scalability means that an application / system can handle greater loads by adapting
+- Vertical Scalability
+  - Increasing the size of the instance.
+  - Very common for non-distributed systems, such as a database
+  - Vertical scaling is limited by the hardware
+
+- Horizontal Scalability
+  - Increasing the number of instances / systems for your application
+  - Very common for distributed systems, such as web applications
+  - Easy to scale horizontally thanks to the cloud offerings such as Amazon EC2
+
+#### Elasticity
+
+- Once a system is scalable, there will be some *auto-scaling* so that the system can scale based on the load.
+- Complements the metered-payment cloud services very well.
+
+#### Agility
+
+- Reduced time to make resources available to developers.
+- Cloud : New IT resources are only a click away.
+
+### Load Balancers, and the Elastic Load Balancer
