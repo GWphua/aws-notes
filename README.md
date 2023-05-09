@@ -414,3 +414,25 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 - Cloud : New IT resources are only a click away.
 
 ### Load Balancers, and the Elastic Load Balancer
+
+#### Load Balancer
+
+- Servers that forward internet traffic to multiple services ( EC2 Instances ) downstream
+- Spread load across multiple downstream instances
+- Expose a single point of access ( DNS ) to your application
+- Seamlessly handle failures of downstream instances
+- Do regular health checks to your instances
+- Provide SSL termination ( HTTPS ) for your websites.
+- High availability across zones.
+
+#### Elastic Load Balancer
+
+- Managed load balancer by AWS
+  - AWS guarantees that it will be working
+  - AWS takes care of upgrades, maintenance, high availability
+  - AWS provides only a few configuration knobs
+- 4 kinds of load balancers offered by AWS
+  - Application Load Balancer
+  - Network Load Balancer
+  - Gateway Load Balancer
+  - Classic Load Balancer
