@@ -454,7 +454,7 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 
 ### Auto-Scaling Group (ASG)
 
-- Saves costs as we run only at optimal capacity.
+- Ensures cost effectiveness by running at optimal capacity.
   - Scales out to match an increased load.
   - Scales in to match a decreased load.
 - Ensure we have a minimum and maximum number of machines running.
@@ -479,3 +479,81 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
       - Useful when your load has predictable time-based patterns
 
 ## Amazon S3
+
+- Advertised as an _infinitely scaling storage_
+- Amazon S3 Use Cases
+  - Backup and storage
+  - Disaster Recovery
+  - Archive
+  - Hybrid Cloud storage
+  - Application hosting
+  - Media hosting
+  - Data lakes and Big Data Analytics
+  - Software Delivery
+  - Static website
+
+### Amazon S3 Buckets
+
+- S3 allows people to store _objects_ (files) in _buckets_ (directories)
+- Buckets must have a globally unique name across all regions and all accounts
+- S3 is a global service, but the buckets are created in a region.
+- Naming Convention for buckets:
+  - No uppercase, No underscore
+  - 3-63 characters long
+  - Not an IP
+  - Must start with lowercase letter or number
+  - Must not start with the prefix `xn--`
+  - Must not end with the suffix `-s3alias`
+
+### Amazon S3 Objects
+
+- Each object has a key.
+- The key is composed of `prefix` + `object name`
+- There are no concept of _directories_ within buckets, just keys with very long names that contain slashes ( `/` ).
+- The key is the full path to the object
+  - e.g. `s3://my-bucket/my_file.txt`
+  - e.g. `s3://my-bucket/another_folder/my_file.txt`
+- Each object value contains
+  - Metadata
+    - List of text key / value pairs
+    - System or user metadata
+  - Tags
+    - Unicode key / value pair, up to 10
+    - Useful for security / lifecycle
+  - Version ID
+    - Only present if versioning is enabled.
+  - Value
+    - Content of the body.
+    - Maximum object size is 5TB
+    - If uploading more than 5GB, must use `multi-part upload`.
+
+### Amazon S3 Security
+
+#### Types of S3 Securities
+
+- User-Based
+  - IAM Policies
+    - Which API calls should be allowed for a specific user from IAM
+    - An IAM principal can access an S3 object if all of the following conditions are met:
+      - The user IAM permissions _or_ the resource policy _allows_ it
+      - There is no explicit _deny_  
+- Resource-Based
+  - Bucket Policies
+    - Bucket-wide rules from the S3 console, which is applied across accounts
+    - Object Access Control List (ACL)
+    - Bucket Access Control List (ACL)
+- Encryption
+  - Encrypt objects in Amazon S3 using encryption keys.
+
+#### S3 Bucket Policies
+
+- JSON based policies
+  - Resources: Buckets and Objects
+  - Effect: Allow / Deny
+  - Actions: Set of API to Allow / Deny
+  - Principal : Account or user to apply the policy to
+
+- Use S3 bucket for policy to:
+  - Grant public access to the bucket
+  - Force objects to be encrypted at upload
+  - Grant access to another account
