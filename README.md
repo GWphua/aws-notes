@@ -263,7 +263,7 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
     - Faster boot/configuration time because all your software is pre-packaged.
 - AMI are built for a specific region, and can be copied across regions.
 - You can launch EC2 instances from
-    - Public AMI: AWS provided
+    - Public AMI: Provided by AWS
     - Your own AMI: You make and maintain them yourself.
     - AWS Marketplace AMI: An AMI someone else made, and potentially sells
 
@@ -274,3 +274,25 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
     - Launch instances from other AMIs
 
 ### EC2 Image Builder
+- Used to automate the creation of VMs or Container Images
+    - Automate creation, maintain, validate and test EC2 AMIs
+- Can be run on a schedule specified by the user
+- Free service
+    - Pay only for the underlying resources
+
+### EC2 Instance Store
+- EC2 Instance Store is a high-performance hardware disk with better I/O performance than EBS volumes
+- EC2 Instance Store lose their storage if they are stopped
+    - Risk of data loss if hardware fails
+    - Backups and Replications are your responsibility
+    - Good for buffer / cache / scratch data / temporary content
+    
+### Elastic File System (EFS)
+- Managed network file system that can be mounted on multiple EC2
+    - Usually 100s of EC2s
+- EFS works with *Linux* EC2 instances
+    - Can work with EC2 instances in multiple AZs
+    - Highly available
+    - Highly scalable
+    - Very expensive, and pay per use
+    - No capacity planning
