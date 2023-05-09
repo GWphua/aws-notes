@@ -5,27 +5,27 @@
 - One of the most popular of AWS' offering
 - EC2 : Elastic Compute Cloud = IAAS
 - Mainly consists in the capability of
-    1. Renting virtual machines (EC2)
-    2. Storing data on virtual drives (EBS)
-    3. Distributing load across machines (ELB)
-    4. Scaling the services using an auto-scaling group (ASG)
+  1. Renting virtual machines (EC2)
+  2. Storing data on virtual drives (EBS)
+  3. Distributing load across machines (ELB)
+  4. Scaling the services using an auto-scaling group (ASG)
 
 ### EC2 sizing and configuration options
 
 1. Operating System (OS):
-    - Linux
-    - Windows
-    - Mac OS
+   - Linux
+   - Windows
+   - Mac OS
 2. How much compute power and cores (CPU)
 3. How much random-access memory (RAM)
 4. How much storage space:
-    - Network-attached (EBS/EFS)
-    - Hardware (EC2 Instance Store)
+   - Network-attached (EBS/EFS)
+   - Hardware (EC2 Instance Store)
 5. Network card
-    - Speed of the card, Public IP Address
+   - Speed of the card, Public IP Address
 6. Firewall rules
 7. Bootstrap Script
-    - EC2 User Data Script
+   - EC2 User Data Script
 
 ### EC2 User Data Script
 
@@ -33,8 +33,8 @@
   1. Launching commands when our EC2 instance starts.
   2. That script is only run once at the instance first start.
   3. EC2 User Data is used to automate book tasks, such as:
-      - Installing updates, software.
-      - Downloading common files from the internet.
+     - Installing updates, software.
+     - Downloading common files from the internet.
 
 ### Key Pair
 
@@ -46,13 +46,13 @@
 ### Instance Details
 
 1. Instance summary
-    - Instance ID: Unique identifier for the instance.
-    - Public IPv4P address: What we are going to use to access EC2 instance.
-        - Public IP may be changed when we stop, and then start an instance.
-    - Private IPv4 address: How to access the instance internally in the AWS network.
+   - Instance ID: Unique identifier for the instance.
+   - Public IPv4P address: What we are going to use to access EC2 instance.
+     - Public IP may be changed when we stop, and then start an instance.
+   - Private IPv4 address: How to access the instance internally in the AWS network.
 2. Security
-    - Information on the security group.
-    - Inbound and outbound rules: Rules controlling communication inwards and outwards.
+   - Information on the security group.
+   - Inbound and outbound rules: Rules controlling communication inwards and outwards.
 
 ### EC2 Instance types
 
@@ -81,7 +81,7 @@
 
 - Great for a diversity of workloads such as web servers or code repositories
 - Balance between Compute, Memory and Networking
-- Most general purpose instance types have the *T, M, A* name
+- Most general purpose instance types have the _T, M, A_ name
 
 #### Compute Optimized Instance Types
 
@@ -92,7 +92,7 @@
   - High performance computing
   - Scientific modeling & machine learning
   - Dedicated gaming servers
-- Most compute optimized instance types have the *C* name
+- Most compute optimized instance types have the _C_ name
 
 #### Memory Optimized Instance Types
 
@@ -101,7 +101,7 @@
   - Distributed web scale cache stores
   - In-memory databases optimized for Business Intelligence
   - Applications performing real-time processing of big unstructured data
-- Most memory optimized instance types have the *R, X, z* name
+- Most memory optimized instance types have the _R, X, z_ name
 
 #### Storage Optimized Instance Types
 
@@ -111,7 +111,7 @@
   - Cache for in-memory databases
   - Data warehousing applications
   - Distributed file systems
-- Most storage optimized instance types have the *I, D, H* name
+- Most storage optimized instance types have the _I, D, H_ name
 
 ### Security Groups
 
@@ -119,7 +119,7 @@
 
 - Security Groups are the fundamental of network security in AWS
 - They control how traffic is allowed into or out of our EC2 instance
-- Security groups only contain *allow* rules
+- Security groups only contain _allow_ rules
 - Security groups rules can reference by IP or by security group
 - Security groups can be attached to multiple instances
 
@@ -127,14 +127,14 @@
 
 - Security groups are acting as a firewall on EC2 instances.
 - They regulate
-    1. Access to Ports
-    2. Authorized IP ranges - IPv4, IPv6
-    3. Control of inbound network
-    4. Control of outbound network
+  1. Access to Ports
+  2. Authorized IP ranges - IPv4, IPv6
+  3. Control of inbound network
+  4. Control of outbound network
 - All inbound traffic is blocked by default
 - All outbound traffic is authorized by default
 - Security groups are locked down to a region/VPC combination
-- Lives *outside* the EC2 instance
+- Lives _outside_ the EC2 instance
   - If traffic is blocked, the EC2 instance cannot see the inbound network
 - Common errors for EC2 instances:
   - Application timeout: Security group issue
@@ -143,17 +143,17 @@
 
 ### Classic ports to know
 
-- FTP (File Transfer Protocol): *21*
+- FTP (File Transfer Protocol): _21_
   - Upload files into a file share
-- SFTP (Secure File Transfer Protocol): *22*
+- SFTP (Secure File Transfer Protocol): _22_
   - Upload files using SSH
-- SSH (Secure Shell): *22*
+- SSH (Secure Shell): _22_
   - Logs into a Linux Instance
-- HTTP: *80*
+- HTTP: _80_
   - Access unsecured websites
-- HTTPS: *443*
+- HTTPS: _443_
   - Access secured websites
-- RDP (Remote Desktop Protocol): *3389*
+- RDP (Remote Desktop Protocol): _3389_
   - Log into a Windows Instance
 
 ### SSH
@@ -162,18 +162,18 @@
 
 EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only works with Amazon Linux 2.
 
-|            |SSH |PuTTY|EC2 Instance Connect|
-|------------|----|-----|--------------------|
-|Mac         |X   |     |X                   |
-|Linux       |X   |     |X                   |
-|Windows <10 |    |X    |X                   |
-|Windows >=10|X   |X    |X                   |
+|              | SSH | PuTTY | EC2 Instance Connect |
+| ------------ | --- | ----- | -------------------- |
+| Mac          | X   |       | X                    |
+| Linux        | X   |       | X                    |
+| Windows <10  |     | X     | X                    |
+| Windows >=10 | X   | X     | X                    |
 
 #### SSH using Linux or Mac or Windows >= 10
 
 - SSH using .pem Key Pair: Navigate to the directory containing the .pem file, and enter:
 
-    `ssh -i <File Name> ec2-user@<Public IP>`
+  `ssh -i <File Name> ec2-user@<Public IP>`
 
 #### SSH using Windows with PuTTY
 
@@ -243,13 +243,13 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 
 ### Shared Responsibility Model for EC2
 
-|AWS                            |User                                                  |
-|-------------------------------|------------------------------------------------------|
-|Infrastructure                 |Security Groups rules                                 |
-|Isolation on physical hosts    |OS patches and updates                                |
-|Replacing faulty hardware      |Software and utilities installed on the EC2 instance  |
-|Compliance validation          |IAM Roles assigned to EC2 & IAM user access management|
-|                               |Data security on your instance                        |
+| AWS                         | User                                                   |
+| --------------------------- | ------------------------------------------------------ |
+| Infrastructure              | Security Groups rules                                  |
+| Isolation on physical hosts | OS patches and updates                                 |
+| Replacing faulty hardware   | Software and utilities installed on the EC2 instance   |
+| Compliance validation       | IAM Roles assigned to EC2 & IAM user access management |
+|                             | Data security on your instance                         |
 
 ## EC2 Instance Storage
 
@@ -260,10 +260,10 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
   - Can be detached from an EC2 instance, and attached to another one quickly
   - We can also leave them unattached on creation, and attach them on-demand
 - Allows your instances to persist data, even after their termination
-- Can only be mounted to *one instance at a time*
-  - EBS Volume types *io1, io2* are exceptions to this rule, with them providing a EBS Multi-Attach feature.
+- Can only be mounted to _one instance at a time_
+  - EBS Volume types _io1, io2_ are exceptions to this rule, with them providing a EBS Multi-Attach feature.
 - Bound to a specific AZ (Availability Zone)
-  - An EBS Volume in *us-east-1a* cannot be attached to an EC2 instance in *us-east-1b*
+  - An EBS Volume in _us-east-1a_ cannot be attached to an EC2 instance in _us-east-1b_
   - To move a volume across, you first need to snapshot it
 - Free tier provides 30GB of free EBS storage of type SSD, or Magnetic Disk, per month
   - Has a provisioned capacity, meaning that we specify how much storage we want beforehand
@@ -285,8 +285,9 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 #### EBS Snapshot Features
 
 - EBS Snapshot Archive
-  - Move a Snapshot to an *archive tier*, that is 75% cheaper.
-  - Takes within *24 to 72 hours* for restoring the archive
+
+  - Move a Snapshot to an _archive tier_, that is 75% cheaper.
+  - Takes within _24 to 72 hours_ for restoring the archive
 
 - Recycle Bin for EBS Snapshots
   - Setup rules to retain deleted snapshots so you can recover them after an accidental deletion
@@ -300,6 +301,7 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
   - Faster boot/configuration time because all your software is pre-packaged.
 - AMI are built for a specific region, and can be copied across regions.
 - You can launch EC2 instances from
+
   - Public AMI: Provided by AWS
   - Your own AMI: You make and maintain them yourself.
   - AWS Marketplace AMI: An AMI someone else made, and potentially sells
@@ -315,17 +317,17 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 - Used to automate the creation of VMs or Container Images
   - Automatically build, test, and distribute AMIs
   - Example automated workflow for EC2 Image Builder:
-        1. Creates a Builder EC2 instance that builds the components applied as specified on the recipe
-        2. A New AMI is created out of this EC2 Instance
-        3. A Test EC2 Instance is created, and test suite is run to ensure AMI is working
-        4. AMI is distributed, possibly to multiple regions
+    1. Creates a Builder EC2 instance that builds the components applied as specified on the recipe
+    2. A New AMI is created out of this EC2 Instance
+    3. A Test EC2 Instance is created, and test suite is run to ensure AMI is working
+    4. AMI is distributed, possibly to multiple regions
 - Can be run on a schedule specified by the user
 - Free service
   - Pay only for the underlying resources ( EC2 Instances, storage for AMI, etc. )
 
 ### EC2 Instance Store
 
-- EC2 Instance Store is a *high-performance hardware disk* with better I/O performance than EBS volumes
+- EC2 Instance Store is a _high-performance hardware disk_ with better I/O performance than EBS volumes
 - EC2 Instance Store lose their storage if they are stopped ( Ephemeral storage )
   - Risk of data loss if hardware fails
   - Backups and Replications are your responsibility
@@ -333,10 +335,10 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 
 ### Elastic File System (EFS)
 
-- Managed *network file system* that can be mounted on multiple EC2
+- Managed _network file system_ that can be mounted on multiple EC2
   - Usually 100s of EC2s
   - Instances that mount the same EFS drive, using the EFS Mount Target, will be able to see the same files in EFS
-- EFS works with *Linux* EC2 instances
+- EFS works with _Linux_ EC2 instances
   - Can work across multiple Availability Zones
   - Highly available
   - Highly scalable
@@ -355,16 +357,16 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 
 ### Shared Responsibility Model for EC2 Storage
 
-|AWS                                              |User                                              |
-|-------------------------------------------------|--------------------------------------------------|
-|Infrastructure                                   |Setting up backup/snapshot procedures             |
-|Replication for data for EBS volumes & EFS drives|Setting up data encryption                        |
-|Replacing faulty hardware                        |Responsibility of any data on the drives          |
-|Ensuring employees cannot access your data       |Understanding the risk of using EC2 Instance Store|
+| AWS                                               | User                                               |
+| ------------------------------------------------- | -------------------------------------------------- |
+| Infrastructure                                    | Setting up backup/snapshot procedures              |
+| Replication for data for EBS volumes & EFS drives | Setting up data encryption                         |
+| Replacing faulty hardware                         | Responsibility of any data on the drives           |
+| Ensuring employees cannot access your data        | Understanding the risk of using EC2 Instance Store |
 
 ### Amazon FSx
 
-- Launch 3rd party *high-performance file systems* on AWS
+- Launch 3rd party _high-performance file systems_ on AWS
 - Fully managed by AWS
 
 #### Amazon FSx for Windows File Server
@@ -376,7 +378,7 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 
 #### Amazon FSx for Lustre
 
-- Fully managed, high-performance, scalable file storage for *High Performance Computing*
+- Fully managed, high-performance, scalable file storage for _High Performance Computing_
   - Good for ML, Analytics, Video Processing, Financial Modelling
   - Scales up to 100s GB/s, millions of IO/s, sub-ms latencies
 
@@ -394,6 +396,7 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 
 - Scalability means that an application / system can handle greater loads by adapting
 - Vertical Scalability
+
   - Increasing the size of the instance.
   - Very common for non-distributed systems, such as a database
   - Vertical scaling is limited by the hardware
@@ -405,7 +408,7 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 
 #### Elasticity
 
-- Once a system is scalable, there will be some *auto-scaling* so that the system can scale based on the load.
+- Once a system is scalable, there will be some _auto-scaling_ so that the system can scale based on the load.
 - Complements the metered-payment cloud services very well.
 
 #### Agility
@@ -425,14 +428,54 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 - Provide SSL termination ( HTTPS ) for your websites.
 - High availability across zones.
 
-#### Elastic Load Balancer
+#### Elastic Load Balancer (ELB)
 
 - Managed load balancer by AWS
   - AWS guarantees that it will be working
   - AWS takes care of upgrades, maintenance, high availability
   - AWS provides only a few configuration knobs
+- It is less expensive to setup load balancer on your own, but it will take a lot more effort on your end.
 - 4 kinds of load balancers offered by AWS
-  - Application Load Balancer
-  - Network Load Balancer
-  - Gateway Load Balancer
-  - Classic Load Balancer
+  - Application Load Balancer _(Layer 7)_
+    - For HTTP / HTTPS only traffic
+    - Static DNS (URL)
+  - Network Load Balancer _(Layer 4)_
+    - _Ultra-high performance_, allows for TCP and UDP only
+    - Millions of requests per seconds, while maintaining ultra-low latency
+    - Static IP through Elastic IP
+  - Gateway Load Balancer _(Layer 3)_
+    - GENEVE Protocol on IP Packets
+    - Use Case: Route Traffic to Firewalls that you manage on EC2 Instances
+    - Balances the load of the traffic to the virtual appliances that we run the EC2 Instances so that you can analyze the traffic or perform Firewall operations.
+    - Traffic then sent back to the Gateway Load Balancer after analyzing the traffic.
+    - The traffic is then forwarded to the Application.
+  - Classic Load Balancer _(Layers 4 & 7)_
+    - _To be replaced_ by the Application Load Balancer and Network Load Balancer in 2023.
+
+### Auto-Scaling Group (ASG)
+
+- Saves costs as we run only at optimal capacity.
+  - Scales out to match an increased load.
+  - Scales in to match a decreased load.
+- Ensure we have a minimum and maximum number of machines running.
+  - Minimum and maximum size specified by the user
+- Automatically register new instances to a load balancer.
+- Detect and replace unhealthy instances automatically.
+
+#### Scaling Strategies
+
+- Manual Scaling - Update the size of an ASG manually
+- Dynamic Scaling - Respond to changing demand
+  1. Simple / Step Scaling
+      - When a CloudWatch alarm is triggered, then add 2 units / remove 1 unit.
+  2. Target Tracking Scaling
+      - Set the average ASG CPU to stay at around a target value.
+  3. Scheduled Scaling
+      - Anticipate a scaling based on known usage patterns
+      - Increasing the capacity at certain timings
+  4. Predictive Scaling
+      - Uses ML to predict future traffic ahead of time.
+      - Automatically provisions the right number of EC2 instances in advance to the predicted period
+      - Useful when your load has predictable time-based patterns
+
+## Amazon S3
