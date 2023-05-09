@@ -275,24 +275,46 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 
 ### EC2 Image Builder
 - Used to automate the creation of VMs or Container Images
-    - Automate creation, maintain, validate and test EC2 AMIs
+    - Automate creation, maintainenance, validation and testing of EC2 AMIs
+    - Example automated workflow for EC2 Image Builder:
+        1. Creates a Builder EC2 instance that builds the components applied as specified on the recipe
+        2. A New AMI is created out of this EC2 Instance
+        3. A Test EC2 Instance is created, and test suite is run to ensure AMI is working
+        4. AMI is distributed, possibly to multiple regions
 - Can be run on a schedule specified by the user
 - Free service
-    - Pay only for the underlying resources
+    - Pay only for the underlying resources ( EC2 Instances, storage for AMI, etc. )
 
 ### EC2 Instance Store
-- EC2 Instance Store is a high-performance hardware disk with better I/O performance than EBS volumes
-- EC2 Instance Store lose their storage if they are stopped
+- EC2 Instance Store is a *high-performance hardware disk* with better I/O performance than EBS volumes
+- EC2 Instance Store lose their storage if they are stopped ( Ephemeral storage )
     - Risk of data loss if hardware fails
     - Backups and Replications are your responsibility
     - Good for buffer / cache / scratch data / temporary content
     
 ### Elastic File System (EFS)
-- Managed network file system that can be mounted on multiple EC2
+- Managed *network file system* that can be mounted on multiple EC2
     - Usually 100s of EC2s
+    - Instances that mount the same EFS drive, using the EFS Mount Target, will be able to see the same files in EFS
 - EFS works with *Linux* EC2 instances
-    - Can work with EC2 instances in multiple AZs
+    - Can work across multiple Availability Zones
     - Highly available
     - Highly scalable
-    - Very expensive, and pay per use
+    - Very expensive, and metered payment
     - No capacity planning
+- EFS Infrequent Access (EFS-IA)
+    - Storage class that is cost-optimized for files not accessed every day.
+    - Heavily discounted cost compared to EFS standard
+    - EFS will automaticall move your files to EFS-IA based on the last time they were accessed.
+        - Determined by a Lifecycle Policy
+        - e.g. Lifecycle Policy: Move files that are not accessed for 60 days to EFS-IA
+    - Transparent to the applications accessing EFS.
+        - Behind-the-scenes cost optimization done by Amazon
+
+### Shared Responsiblity Model for EC2 Storage
+| AWS | User |
+|-----|------|
+|Infrastructure|Setting up backup/snapshot procedures|
+|Replication for data for EBS volumes & EFS drives|Setting up data encryption|
+|Replacing faulty hardware|Responsibility of any data on the drives|
+|Ensuring employees cannot access your data|Understanding the risk of using EC2 Instance Store|
