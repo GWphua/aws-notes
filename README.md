@@ -881,12 +881,14 @@ When we define our objects, we choose its storage class.
   - Can create up to 15 Read Replicas
   - Data is only written to the main DB
 - Multi-AZ
-  - Failover in case of AZ outage
+  - Failover is triggered in case of AZ outage, and application will failover to the failover database.
   - Data is only read / written to the main database
   - Can only have 1 other AZ as failover
-- Multi-Region ( _Read Replicas_ )
+- Multi-Region
+  - For Read Replicas only
+    - Local performance for global reads
+    - Data is written only to the main DB
   - Disaster recovery in case of region issue
-  - Local performance for global reads
   - Replication cost
 
 ### AWS Aurora
@@ -910,6 +912,7 @@ When we define our objects, we choose its storage class.
 ### Amazon ElastiCache
 
 - Manages Redis or Memcached
+  - Caches are _in-memory_ databases with high performance, and low latency
 - Helps reduce load off databases for read-intensive workloads
 - AWS takes care of:
   - OS maintenance / patching
@@ -938,7 +941,7 @@ When we define our objects, we choose its storage class.
   - Single-digit millisecond latency to microseconds latency
 - Secure, highly scalable and highly available
 - Difference with ElastiCache:
-  - DAX is only used for and is integrated with DynamoDB
+  - DAX is only used for and is integrated really well with DynamoDB
   - ElastiCache can be used for other databases
 
 #### DynamoDB - Global Tables
@@ -977,9 +980,11 @@ When we define our objects, we choose its storage class.
 ### Amazon Athena
 
 - Serverless query service to analyze data stored in Amazon S3
+- Built on the Presto engine
 - Use standard SQL language to query the files
 - Supports CSV, JSON, ORC, Avro, Parquet
 - Use compressed or columnar data for cost-savings
+  - $5 per TB of data scanned
   - Less scanning required
 - Use Cases:
   - Business Intelligence
@@ -999,3 +1004,47 @@ When we define our objects, we choose its storage class.
   - Building visualizations
   - Perform ad-hoc analysis
   - Get business insights using data
+
+### Amazon Neptune
+
+- Fully-managed graph NoSQL database
+  - Build and run applications working with highly connected datasets - Optimized for these complex and hard queries.
+  - Can store up to billions of relations and query the graph with milliseconds latency
+- Highly available across 3 AZ, with up to 15 read replicas.
+- Great for knowledge graphs, fraud detection, recommendation engines, social networking, etc.
+
+### Amazon Managed Blockchain
+
+- Blockchain makes it possible to build applications where multiple parts can execute transactions without the need for a trusted, central authority.
+- Managed service to
+  - Join public blockchain networks
+  - Create your own scalable private network
+- Compatible with the frameworks Hyperledger Fabric & Ethereum
+
+### Amazon Quantum Ledger Database (QLDB)
+
+- A ledger is a book recording financial transactions
+- Fully-managed, Serverless, highly available, replication across 3 AZ
+- Used to review history of all the changes made to your application data over time
+- Immutable System
+  - No entry can be removed or modified, cryptographically verifiable
+- Better performance than common ledger blockchain frameworks, manipulate data using SQL.
+- Difference with Amazon Managed Blockchain: No decentralization component, in accordance with financial regulation rules.
+
+### AWS Glue
+
+- Managed extract, transform, and load (ETL) service
+- Useful to prepare and transform data for analytics
+- Fully serverless service
+- Glue Data Catalog
+  - Catalog of datasets
+  - Can be used by Athena, Redshift, EMR
+
+### Database Migration Service (DMS)
+
+- Quickly and securely migrate databases to AWS
+- Resilient and Self-healing
+- The source database remains available during the migration
+- Supports both Homogeneous and heterogeneous migrations
+
+## Other Compute Services: ECS, Lambda, Batch, Lightsail
