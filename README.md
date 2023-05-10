@@ -746,7 +746,7 @@ When we define our objects, we choose its storage class.
 
 #### Snowmobile
 
-- Can transfer up to exabytes of data
+- An actual truck, which can help with transferring up to exabytes of data
 - Each Snowmobile has 100PB of capacity
   - Can use multiple Snowmobiles in parallel
 - High security
@@ -761,13 +761,13 @@ When we define our objects, we choose its storage class.
   - A truck on the road
   - A ship on the sea
   - A mining station underground
-- These locations may have 
+- These locations may have:
   - Limited to no internet access
   - Limited to no easy access to computing power
 - We can setup a Snowball Edge / Snowcone device to do edge computing
   - All of these devices can run EC2 Instances & AWS Lambda functions using AWS IoT Greengrass
   - Long-term deployment options are available:
-    - 1 and 3 years of use at discounted pricing
+    - Borrow for 1 or 3 years at discounted pricing
 - Use Cases of Edge Computing:
   - Pre-process data
   - Machine learning at the edge
@@ -776,7 +776,7 @@ When we define our objects, we choose its storage class.
 
 #### AWS OpsHub
 
-- A software to be installed on your computer / laptop to manage your Snow Family Device
+- A software to be installed on your computer / laptop to manage your Snow Family Device through a GUI
   - Unlocking and configuring single or clustered devices
   - Transferring files
   - Launching and managing instances running on Snow Family Devices
@@ -787,3 +787,29 @@ When we define our objects, we choose its storage class.
     - Amazon EC2 instances
     - AWS DataSync
     - Network File system
+
+### Hybrid Cloud for Storage
+
+- Part of your infrastructure is on-premises
+- Part of your infrastructure is on the cloud
+- This can be due to
+  - Long cloud migrations
+  - Security requirement
+  - Compliance requirement
+  - IT strategy
+- S3 is a proprietary storage technology, so we expose the S3 data on-premise using the AWS Storage Gateway
+
+### AWS Storage Gateway
+
+- Bridge between on-premise data and cloud data in S3
+- Hybrid storage service to allow on-premises to seamlessly use the AWS Cloud
+- Use Cases
+  - Disaster recovery
+  - Backup & Restore
+  - Tiered storage
+- Types of Storage Gateway
+  1. File Gateway
+  2. Volume Gateway
+  3. Tape Gateway
+
+## Databases & Analytics
