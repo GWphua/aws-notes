@@ -891,13 +891,21 @@ When we define our objects, we choose its storage class.
 
 ### AWS Aurora
 
+- An _AWS-implementation_ of PostgreSQL / MySQL
 - Aurora is a proprietary technology from AWS
   - Not open-sourced
   - Not in free tier
   - Aurora costs more than RDS (20% more), but is more efficient
-- PostgreSQL and MySQL are both supported as Aurora DB
 - Aurora is _AWS cloud optimized_ and claims 5x performance improvement over MySQL on RDS, over 3x the performance of Postgres on RDS
 - Aurora storage automatically grows in increments of 10GB, up to 128TB
+
+### DocumentDB
+
+- An _AWS-implementation_ of MongoDB
+  - Store, query, and index JSON data
+- Fully-managed, highly available with replication across 3 AZ
+- Automatically scales to workloads with millions of requests per seconds.
+- Storage automatically grows in increments of 10GB, up to 64TB
 
 ### Amazon ElastiCache
 
@@ -981,4 +989,13 @@ When we define our objects, we choose its storage class.
   - ELB Logs
   - CloudTrail trails
 
-  
+### Amazon Quicksight
+
+- Serverless machine learning-powered business intelligence service to create interactive dashboards
+- Fast, automatically scalable, embed-able, with per-session pricing
+- Integrated with other services such as RDS, Aurora, Athena, Redshift, S3
+- Use Cases:
+  - Business Analytics
+  - Building visualizations
+  - Perform ad-hoc analysis
+  - Get business insights using data
