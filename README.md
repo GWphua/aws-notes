@@ -592,6 +592,12 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 
 ### S3 Storage Classes
 
+When we define our objects, we choose its storage class.
+
+- Amazon S3 Lifecycle configurations
+  - Defined by the user
+  - Automatically moves objects across the different storage classes after a period of time has passed.
+
 #### Durability and Availability
 
 - High durability means that we can expect to incur loss of a single object with a very low probability.
@@ -603,13 +609,13 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 - 99.99% Availability
 - Used for frequently accessed data
 - Low latency and high throughput
-- Sustain 2 concurrent facility failures
+- Sustain 2 concurrent facility failures on the side of AWS
 - Use Cases: Big Data Analytics, Mobile & Gaming Applications, Content Distribution, etc.
 
 #### S3 Infrequent Access (IA) Storage Classes
 
 - For Data that is less frequently accessed, but requires rapid access when needed
-- Lower cost than S3 Standard
+- Lower cost than S3 Standard, but there is a cost-on-retrieval
 
 - S3 Standard - Infrequent Access
   - 99.9% Availability
@@ -622,9 +628,46 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 
 #### S3 Glacier Storage Classes
 
+- Low-cost object storage meant for archiving / backup
+- Pricing Scheme
+  - Price for storage
+  - Object retrieval cost
+- Amazon S3 Glacier Instant Retrieval
+  - Millisecond retrieval
+  - Great for data accessed once a quarter
+  - Minimum storage duration of 90 days
+- Amazon S3 Glacier Flexible Retrieval
+  - Formerly known as Amazon S3 Glacier
+  - Three levels of retrieval time
+    1. Expedited : 1~5 minutes
+    2. Standard : 3~5 hours
+    3. Bulk: 5~12 hours (free)
+  - Minimum storage duration of 90 days
+- Amazon S3 Glacier Deep Archive
+  - Two levels of retrieval time
+    1. Standard: ~12 hours
+    2. Bulk: ~48 hours
+  - Minimum storage duration of 180 days
+
 #### S3 Intelligent-Tiering
 
+- Small monthly monitoring and auto-tiering fee
+- Moves objects automatically between Access Tiers based on usage
+- There are _no_ retrieval charges in S3 Intelligent-Tiering
+- Tiers that are configurable under Intelligent-Tiering:
+  1. Frequent Access tier : Default tier
+  2. Infrequent Access tier: Objects not accessed for 30 days
+  3. Archive Instant Access tier: Objects not accessed for 90 days
+  4. Archive Access tier: Configurable from 90 days to 700+ days _(Optional)_
+  5. Deep Archive Access tier: Configurable from 180 days to 700+ days _(Optional)_
+
 ### S3 Encryption
+
+- Server-side Encryption
+  - Server encrypts the file after receiving it
+  - Always active
+- User-side Encryption
+  - User encrypts the file before uploading it
 
 ### Shared Responsibility Model for S3
 
@@ -636,3 +679,4 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 |                                          | Logging and Monitoring                 |
 |                                          | S3 Storage Classes                     |
 |                                          | Data encryption at rest and in transit |
+
