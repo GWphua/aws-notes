@@ -106,7 +106,7 @@
 #### Storage Optimized Instance Types
 
 - Great for storage-intensive tasks that require high, sequential read and write access to large data sets on local storage:
-  - High frequency online transaction processing systems (OLTP)
+  - High frequency Online Transaction Processing (_OLTP_) Systems
   - Relational & NoSQL databases
   - Cache for in-memory databases
   - Data warehousing applications
@@ -845,12 +845,12 @@ When we define our objects, we choose its storage class.
 | Monitoring, alerting                               |                     |
 | Automated Backup and Restore, Operations, Upgrades |                     |
 
-- Note that many databases technologies could be run on EC2, but you must handle yourself the resiliency, backup, patching, high availability, fault tolerance, scaling, etc.
+- Note that you can run your own database technology on EC2, but you must handle the resiliency, backup, patching, high availability, fault tolerance, scaling, etc.
 
 ### AWS Relational Database Service (RDS) Overview
 
 - Managed Database service, using SQL as a query language
-- Allows users to create databases in the clud that are managed by AWS using
+- Allows users to create databases in the cloud that are managed by AWS using
   - Postgres
   - MySQL
   - MariaDB
@@ -858,27 +858,21 @@ When we define our objects, we choose its storage class.
   - Microsoft SQL Server
   - Aurora (AWS Proprietary database)
 
-#### Aurora Overview
-
-- Aurora is a proprietary technology from AWS
-  - Not in free tier
-- PostgreSQL and MySQL are both supported as Aurora DB
-- Aurora is _AWS cloud optimized_ and claims 5x performance improvement over MySQL on RDS, over 3x the performance of Postgres on RDS
-- Aurora storage automatically grows in increments of 10GB, up to 128TB
-- Aurora costs more than RDS (20% more), but is more efficient
-
 #### Advantage over using RDS versus deploying DB on EC2
 
 - RDS is a managed service
   - Automated provisioning, OS patching
   - Continuous backups and restore to specific timestamp
+    - Point in Time Restore
   - Monitoring dashboards
   - Read replicas for improved read performance
-  - Multi AZ setup for Disaster Recovery
+  - Multi-AZ setup for Disaster Recovery
   - Maintenance windows for upgrades
   - Vertical and horizontal scaling capability
-  - Storage backed by EB2 (_gp2_ or _io1_)
-- Only downside: you cannot SSH into your EC2 instances
+  - Storage backed by EB2
+    - _gp2_
+    - _io1_
+- Only downside: you cannot SSH into your AWS RDS instances
 
 #### RDS Deployments
 
@@ -894,3 +888,97 @@ When we define our objects, we choose its storage class.
   - Disaster recovery in case of region issue
   - Local performance for global reads
   - Replication cost
+
+### AWS Aurora
+
+- Aurora is a proprietary technology from AWS
+  - Not open-sourced
+  - Not in free tier
+  - Aurora costs more than RDS (20% more), but is more efficient
+- PostgreSQL and MySQL are both supported as Aurora DB
+- Aurora is _AWS cloud optimized_ and claims 5x performance improvement over MySQL on RDS, over 3x the performance of Postgres on RDS
+- Aurora storage automatically grows in increments of 10GB, up to 128TB
+
+### Amazon ElastiCache
+
+- Manages Redis or Memcached
+- Helps reduce load off databases for read-intensive workloads
+- AWS takes care of:
+  - OS maintenance / patching
+  - Optimizations
+  - Setup
+  - Configuration
+  - Monitoring
+  - Failure recovery
+  - Backups
+
+### DynamoDB
+
+- Fully-managed highly available database with replication across 3 AZ
+  - Key/Value NoSQL Database
+- Scales to massive workloads, distributed _serverless_ database.
+  - Millions of requests per seconds, trillions of rows, 100s of TB of storage
+  - Fast and consistent in performance
+  - Single-digit millisecond latency
+- Integrated with IAM for security, authorization and administration
+- Low cost, and auto-scaling capabilities
+
+#### DynamoDB Accelerator - DAX
+
+- Fully-managed in-memory cache for DynamoDB
+- 10x performance improvement when accessing DynamoDB tables
+  - Single-digit millisecond latency to microseconds latency
+- Secure, highly scalable and highly available
+- Difference with ElastiCache:
+  - DAX is only used for and is integrated with DynamoDB
+  - ElastiCache can be used for other databases
+
+#### DynamoDB - Global Tables
+
+- Makes a DynamoDB table accessible with low latency in multiple regions
+- Active-Active replication
+  - Read / Write to any AWS Region
+
+### Redshift
+
+- Based on PostgreSQL, but it is not used for Online Transaction Processing (OLTP)
+- Online Analytical Processing (OLAP)
+  - Analytics and Data Warehousing
+- Load data once every hour, not every second
+- 10x better performance than other data warehouses, scales to PBs of data.
+- Columnar storage of data
+  - Instead of row-based
+- Massively Parallel Query Execution, Highly available
+- Pay-as-you-go based on the instances provisioned
+- Has a SQL interface for performing the queries
+- Business Intelligence tools such as AWS Quicksight or Tableau integrate with it.
+
+### Amazon Elastic MapReduce (EMR)
+
+- EMR helps creating Hadoop clusters to analyze and process vast amount of data
+- Clusters can be made of 100s of EC2 instances
+- Supports Apache Spark, HBase, Presto, Flink, etc.
+- EMR takes care of all the provisioning and configuration
+- Auto-scaling and integrated with Spot instances
+- Use Cases:
+  - Data processing
+  - Machine Learning
+  - Web indexing
+  - Big Data
+
+### Amazon Athena
+
+- Serverless query service to analyze data stored in Amazon S3
+- Use standard SQL language to query the files
+- Supports CSV, JSON, ORC, Avro, Parquet
+- Use compressed or columnar data for cost-savings
+  - Less scanning required
+- Use Cases:
+  - Business Intelligence
+  - Business Analytics
+  - Business Reporting
+  - Analyze and Query VPC Flow Logs
+  - ELB Logs
+  - CloudTrail trails
+
+  
