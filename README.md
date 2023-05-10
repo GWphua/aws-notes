@@ -577,6 +577,56 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 - Any file that is not versioned prior to enabling versioning will have version `null`
 - Suspending versioning does not delete the previous versions
 
+### S3 Replication
+
+- Must enable Versioning in source and destination buckets
+- Buckets can be in different AWS accounts
+- Copying is asynchronous
+- Must be given proper IAM permissions to S3 to do replication
+- Cross-Regional Replication
+  - Regions must be different
+  - Useful for compliance, lower latency access across regions, and replication across accounts
+- Same-Regional Replication
+  - Regions must be the same
+  - Useful for log aggregation, live replication between production and test accounts so that we have our own test environment.
+
+### S3 Storage Classes
+
+#### Durability and Availability
+
+- High durability means that we can expect to incur loss of a single object with a very low probability.
+- Availability measures how readily available a service is.
+  - S3 has 99.99% availability, meaning that the service is unavailable 53 minutes a year.
+
+#### S3 Standard - General Purpose
+
+- 99.99% Availability
+- Used for frequently accessed data
+- Low latency and high throughput
+- Sustain 2 concurrent facility failures
+- Use Cases: Big Data Analytics, Mobile & Gaming Applications, Content Distribution, etc.
+
+#### S3 Infrequent Access (IA) Storage Classes
+
+- For Data that is less frequently accessed, but requires rapid access when needed
+- Lower cost than S3 Standard
+
+- S3 Standard - Infrequent Access
+  - 99.9% Availability
+  - Use Cases: Disaster Recovery, Backups
+- S3 One Zone - Infrequent Access
+  - 99.5% Availability
+  - Extremely high durability (Almost 100%) in a single AZ
+  - Data lost when AZ is destroyed
+  - Use Cases: Storage secondary backup copies of on-premise data, or re-creatable data.
+
+#### S3 Glacier Storage Classes
+
+#### S3 Intelligent-Tiering
+
+### S3 Encryption
+
+### Shared Responsibility Model for S3
 
 | AWS                                      | User                                   |
 | ---------------------------------------- | -------------------------------------- |
