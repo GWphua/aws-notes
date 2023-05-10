@@ -562,6 +562,21 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
   - If you know your bucket should never be public, leave these on.
   - Can be set at the account level.
 
+### S3 Static Website Hosting
+
+- S3 can host static websites and have them accessible on the Internet.
+  - Website URL created depends on the region.
+- If a `403 Forbidden Error` is thrown when you enter the URL, make sure the bucket policy allows public reads.
+
+### S3 Versioning
+
+- Enabled at the bucket level
+- Same key overwrite will change the version number.
+  - Protect against unintended deletes (Ability to restore a version)
+  - Easy roll back to previous version
+- Any file that is not versioned prior to enabling versioning will have version `null`
+- Suspending versioning does not delete the previous versions
+
 
 | AWS                                      | User                                   |
 | ---------------------------------------- | -------------------------------------- |
