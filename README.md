@@ -1034,8 +1034,9 @@ When we define our objects, we choose its storage class.
 ### AWS Glue
 
 - Managed extract, transform, and load (ETL) service
-- Useful to prepare and transform data for analytics
+  - Useful to prepare and transform data for analytics
 - Fully serverless service
+  - Only need to worry about actual data transformation
 - Glue Data Catalog
   - Catalog of datasets
   - Can be used by Athena, Redshift, EMR
@@ -1046,5 +1047,25 @@ When we define our objects, we choose its storage class.
 - Resilient and Self-healing
 - The source database remains available during the migration
 - Supports both Homogeneous and heterogeneous migrations
+  - Homogenous: Source and target database are the same
+  - Heterogeneous: Source and target database are different
+
+### Databases & Analytics Summary
+
+| Requirement                               | AWS                       |
+| ----------------------------------------- | ------------------------- |
+| In-memory Database                        | ElastiCache               |
+| Relational Databases - OLTP               | RDS & Aurora (SQL)        |
+| Relational Databases - OLAP               | Redshift (SQL)            |
+| Aurora for MongoDB                        | DocumentDB                |
+| Key/Value Database                        | DynamoDB & DAX            |
+| Graph Database                            | Neptune                   |
+| Hadoop Cluster                            | EMR                       |
+| Query data on Amazon S3                   | Athena                    |
+| Dashboards on your data                   | QuickSight                |
+| Financial Transactions Ledger             | Amazon QLDB               |
+| Hyperledger Fabric & Ethereum blockchains | Amazon Managed Blockchain |
+| Managed ETL and Data Catalog              | Glue                      |
+| Database Migration                        | DMS                       |
 
 ## Other Compute Services: ECS, Lambda, Batch, Lightsail
