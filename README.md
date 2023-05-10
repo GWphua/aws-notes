@@ -467,16 +467,16 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 - Manual Scaling - Update the size of an ASG manually
 - Dynamic Scaling - Respond to changing demand
   1. Simple / Step Scaling
-      - When a CloudWatch alarm is triggered, then add 2 units / remove 1 unit.
+     - When a CloudWatch alarm is triggered, then add 2 units / remove 1 unit.
   2. Target Tracking Scaling
-      - Set the average ASG CPU to stay at around a target value.
+     - Set the average ASG CPU to stay at around a target value.
   3. Scheduled Scaling
-      - Anticipate a scaling based on known usage patterns
-      - Increasing the capacity at certain timings
+     - Anticipate a scaling based on known usage patterns
+     - Increasing the capacity at certain timings
   4. Predictive Scaling
-      - Uses ML to predict future traffic ahead of time.
-      - Automatically provisions the right number of EC2 instances in advance to the predicted period
-      - Useful when your load has predictable time-based patterns
+     - Uses ML to predict future traffic ahead of time.
+     - Automatically provisions the right number of EC2 instances in advance to the predicted period
+     - Useful when your load has predictable time-based patterns
 
 ## Amazon S3
 
@@ -536,7 +536,7 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
     - Which API calls should be allowed for a specific user from IAM
     - An IAM principal can access an S3 object if all of the following conditions are met:
       - The user IAM permissions _or_ the resource policy _allows_ it
-      - There is no explicit _deny_  
+      - There is no explicit _deny_ in the action
 - Resource-Based
   - Bucket Policies
     - Bucket-wide rules from the S3 console, which is applied across accounts
@@ -552,8 +552,22 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
   - Effect: Allow / Deny
   - Actions: Set of API to Allow / Deny
   - Principal : Account or user to apply the policy to
-
 - Use S3 bucket for policy to:
   - Grant public access to the bucket
   - Force objects to be encrypted at upload
   - Grant access to another account
+- Bucket settings for Block Public Access
+  - Should only be disable if you want to set your own public bucket policy.
+  - Used to prevent company data leaks
+  - If you know your bucket should never be public, leave these on.
+  - Can be set at the account level.
+
+
+| AWS                                      | User                                   |
+| ---------------------------------------- | -------------------------------------- |
+| Infrastructure                           | S3 Versioning                          |
+| Configuration and Vulnerability Analysis | S3 Bucket Policies                     |
+| Compliance Validation                    | S3 Replication Setup                   |
+|                                          | Logging and Monitoring                 |
+|                                          | S3 Storage Classes                     |
+|                                          | Data encryption at rest and in transit |
