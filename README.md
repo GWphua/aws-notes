@@ -682,7 +682,7 @@ When we define our objects, we choose its storage class.
 
 ### AWS Snow Family
 
-- Highly-secure, portable devices to:
+- Highly-secure, physical, portable devices to:
   1. Collect and process data at the edge
   2. Migrate data into and out of AWS
 - Data migration
@@ -695,7 +695,6 @@ When we define our objects, we choose its storage class.
 
 #### Data Migrations with AWS Snow Family
 
-- AWS Snow Family are offline devices to perform data migrations
 - If it takes more than a week to transfer data over the network, it is advisable to use Snowball devices
 - Targets the following challenges:
   1. Limited connectivity
@@ -813,3 +812,85 @@ When we define our objects, we choose its storage class.
   3. Tape Gateway
 
 ## Databases & Analytics
+
+### Databases Introduction
+
+- Storing data on disk can have its limits
+- Sometimes, you want to store data in a database
+  - Structure the data
+  - Build indexes to efficiently query the data
+  - Define relationships between your datasets
+- Databases are optimized for a purpose and come with different features, shapes and constraints.
+
+#### Relational Databases
+
+- Table-structured
+- Can use the SQL language to perform queries / lookups
+
+#### NoSQL Databases
+
+- NoSQL databases are purpose-built for specific data models and have flexible schemas for building modern applications
+- Benefits of using NoSQL over Relational Databases
+  - Flexibility: Easy to evolve data model
+  - Scalability: Designed to scale-out by using distributed clusters
+  - High-performance: Optimized for a specific data model
+  - Highly functional: Types optimized for the data model
+
+#### Databases and Shared Responsibility
+
+| AWS                                                | User                |
+| -------------------------------------------------- | ------------------- |
+| Quick provisioning, High availability, Scaling     | Input data to store |
+| OS Patching                                        |                     |
+| Monitoring, alerting                               |                     |
+| Automated Backup and Restore, Operations, Upgrades |                     |
+
+- Note that many databases technologies could be run on EC2, but you must handle yourself the resiliency, backup, patching, high availability, fault tolerance, scaling, etc.
+
+### AWS Relational Database Service (RDS) Overview
+
+- Managed Database service, using SQL as a query language
+- Allows users to create databases in the clud that are managed by AWS using
+  - Postgres
+  - MySQL
+  - MariaDB
+  - Oracle
+  - Microsoft SQL Server
+  - Aurora (AWS Proprietary database)
+
+#### Aurora Overview
+
+- Aurora is a proprietary technology from AWS
+  - Not in free tier
+- PostgreSQL and MySQL are both supported as Aurora DB
+- Aurora is _AWS cloud optimized_ and claims 5x performance improvement over MySQL on RDS, over 3x the performance of Postgres on RDS
+- Aurora storage automatically grows in increments of 10GB, up to 128TB
+- Aurora costs more than RDS (20% more), but is more efficient
+
+#### Advantage over using RDS versus deploying DB on EC2
+
+- RDS is a managed service
+  - Automated provisioning, OS patching
+  - Continuous backups and restore to specific timestamp
+  - Monitoring dashboards
+  - Read replicas for improved read performance
+  - Multi AZ setup for Disaster Recovery
+  - Maintenance windows for upgrades
+  - Vertical and horizontal scaling capability
+  - Storage backed by EB2 (_gp2_ or _io1_)
+- Only downside: you cannot SSH into your EC2 instances
+
+#### RDS Deployments
+
+- Read Replicas
+  - Scale the read workload of your DB
+  - Can create up to 15 Read Replicas
+  - Data is only written to the main DB
+- Multi-AZ
+  - Failover in case of AZ outage
+  - Data is only read / written to the main database
+  - Can only have 1 other AZ as failover
+- Multi-Region ( _Read Replicas_ )
+  - Disaster recovery in case of region issue
+  - Local performance for global reads
+  - Replication cost
