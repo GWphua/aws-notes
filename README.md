@@ -1069,3 +1069,77 @@ When we define our objects, we choose its storage class.
 | Database Migration                        | DMS                       |
 
 ## Other Compute Services: ECS, Lambda, Batch, Lightsail
+
+### Elastic Container Service (ECS)
+
+- Launch Docker containers on AWS
+- Must provision and maintain the infrastructure (EC2 Instances)
+  - AWS takes care of starting / stopping containers
+  - Has integrations with the Application Load Balancer
+
+### Fargate
+
+- Launch Docker containers on AWS
+- Do not need to provision the infrastructure (No EC2 Instances)
+  - Serverless offering
+  - AWS just runs containers for you based on the CPU / RAM you need
+
+### Elastic Container Registry
+
+- Private Docker Registry on AWS
+- This is where you store your Docker images
+  - Fargate / ECS looks at the images and creates the containers
+
+### Lambda
+
+- Virtual functions, no servers to manage
+- Limited by time, short executions
+- Run on-demand
+  - Pay per request and compute time
+  - Free tier of a million AWS Lambda requests, and 400,000GBs of compute time
+- Scaling is automated
+- Integrated with the whole AWS suite of services
+- Event-Driven: Functions get invoked by AWS when needed
+- Easy monitoring through AWS CloudWatch
+- Easy to get more resources per function
+  - Up to 10GB of RAM
+  - Increasing RAM will also improve CPU and network
+- Fully integrated with many programming languages
+- Can also run container images
+  - The container image must implement the Lambda Runtime API
+  - ECS / Fargate are still preferred for running arbitrary Docker images
+- Use Cases:
+  - Serverless thumbnail Creation
+  - Serverless CRON job
+
+### API Gateway
+
+- Fully-managed service for developers to easily create, publish, maintain, monitor, and secure APIs
+- Serverless and scalable
+- Supports RESTful APIs and WebSocket APIs
+- Support for security, user authentication, API throttling, API keys, monitoring, etc.
+
+### AWS Batch
+
+- Fully-managed batch processing at _any scale_
+  - A batch job is a job with a start and an end
+  - Unlike Lambda, AWS Batch has no time limit.
+  - Helpful for cost optimizations and focusing less on the infrastructure
+  - You submit / schedule batch jobs, and AWS Batch does the rest.
+- Batch jobs are defined as docker images and run on ECS
+- Efficiently run 100,000s of computing batch jobs on AWS
+  - Batch will dynamically launch EC2 instances or Spot Instances to run the batch jobs
+  - AWS Batch provisions the right amount of computation and memory
+
+### Amazon Lightsail
+
+- Virtual servers, storage, databases, and networking
+- Low and predictable pricing
+- Simpler alternative to using EC2, RDS, ELB, EBS, Route 53, etc.
+- Great for people with little cloud experience
+- Can setup notifications and monitoring of your Lightsail resources
+- Has high availability but no auto-scaling, and has limited AWS integrations.
+- Use Cases:
+  - Simple web applications
+  - Websites
+  - Dev / Test environment
