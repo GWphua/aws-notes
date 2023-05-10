@@ -680,3 +680,77 @@ When we define our objects, we choose its storage class.
 |                                          | S3 Storage Classes                     |
 |                                          | Data encryption at rest and in transit |
 
+### AWS Snow Family
+
+- Highly-secure, portable devices to:
+  1. Collect and process data at the edge
+  2. Migrate data into and out of AWS
+- Data migration
+  1. Snowcone
+  2. Snowball Edge
+  3. Snowmobile
+- Edge Computing
+  1. Snowcone
+  2. Snowball Edge
+
+#### Data Migrations with AWS Snow Family
+
+- AWS Snow Family are offline devices to perform data migrations
+- If it takes more than a week to transfer data over the network, it is advisable to use Snowball devices
+- Targets the following challenges:
+  1. Limited connectivity
+  2. Limited bandwidth
+  3. High network cost
+  4. Shared bandwidth - Cannot maximize the line
+  5. Connection stability
+- Usage Process:
+  1. Request AWS snow device from the AWS console for delivery
+  2. Install the client / AWS OpsHub on your server.
+  3. Connect the snowball to your servers and copy files using the client
+  4. Ship the device back to AWS when you are done.
+  5. Data will be loaded into an S3 bucket
+  6. Snow device is completely wiped
+
+#### Snowball Edge
+
+- Physical data transport solution
+  - Move TBs or PBs of data in or out of AWS
+- Alternative to moving data over the network
+- Pay per data transfer job
+- Provide block storage and Amazon S3-compatible object storage
+- Two types of Snowball Edge devices
+  1. Snowball Edge Storage Optimized
+  2. Snowball Edge Compute Optimized
+- Use Cases:
+  - Large data cloud migrations
+  - DC decommission
+  - Disaster recovery
+
+#### Snowcone
+
+- Small, light
+- Portable computing
+- Rugged and Secure
+- Can withstand harsh environments
+- Must provide your own batteries / cables
+- Can be sent back to AWS offline, or connect it to the internet, and use AWS DataSync to send data.
+- Two types of Snowcone device
+  1. Snowcone
+     - 8 TB of HDD Storage
+  2. Snowcone SSD
+     - 14 TB of SSD Storage
+- Use Cases:
+  - Edge Computing
+  - Storage and data transfer in space-constrained environments
+    - Where the Snowball Edge does not fit.
+
+#### Snowmobile
+
+- Can transfer up to exabytes of data
+- Each Snowmobile has 100PB of capacity
+  - Can use multiple Snowmobiles in parallel
+- High security
+  - Temperature-controlled
+  - GPS
+  - 24/7 video surveillance
+- Better than Snowball if you transfer more than 10PB of data
