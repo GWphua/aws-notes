@@ -754,3 +754,36 @@ When we define our objects, we choose its storage class.
   - GPS
   - 24/7 video surveillance
 - Better than Snowball if you transfer more than 10PB of data
+
+#### Edge Computing
+
+- Process data while it is being created on an edge location
+  - A truck on the road
+  - A ship on the sea
+  - A mining station underground
+- These locations may have 
+  - Limited to no internet access
+  - Limited to no easy access to computing power
+- We can setup a Snowball Edge / Snowcone device to do edge computing
+  - All of these devices can run EC2 Instances & AWS Lambda functions using AWS IoT Greengrass
+  - Long-term deployment options are available:
+    - 1 and 3 years of use at discounted pricing
+- Use Cases of Edge Computing:
+  - Pre-process data
+  - Machine learning at the edge
+  - Transcoding media streams
+- Eventually, we can ship back the device to AWS for storage
+
+#### AWS OpsHub
+
+- A software to be installed on your computer / laptop to manage your Snow Family Device
+  - Unlocking and configuring single or clustered devices
+  - Transferring files
+  - Launching and managing instances running on Snow Family Devices
+  - Monitor device metrics
+    - Storage capacity
+    - Active instances on your device
+  - Launch compatible AWS services on your devices
+    - Amazon EC2 instances
+    - AWS DataSync
+    - Network File system
