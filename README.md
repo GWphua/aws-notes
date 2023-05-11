@@ -1426,6 +1426,30 @@ When we define our objects, we choose its storage class.
 
 ### AWS Outposts
 
+- Server racks that offers the same AWS infrastructure, services, APIs and tools to build your own applications on-premise just as in the cloud.
+  - Hybrid cloud
+- AWS will setup and manage _Outpost Racks_ within your on-premise infrastructure and you can start leveraging AWS services on-premises
+  - Low-latency access to on-premises systems
+  - Local data processing
+  - Data residency
+  - Easier migration from on-premises to the cloud
+  - Fully manages services
+- You are responsible for the physical security of your _Outpost Rack_
+
 ### AWS WaveLength
+
+- Wavelength Zones are infrastructure deployments embedded within the telecommunications providers' data centers at the edge of the 5G networks.
+  - Brings AWS services to the edge of the 5G networks
+  - Ultra-low latency applications through 5G networks
+  - Traffic does not leave the Communication Service Provider's (CSP) network
+  - High-bandwidth and secure connection to the parent AWS Region
+  - No additional charges or services agreements
+- Use Cases:
+  - Smart Cities
+  - ML-assisted diagnostics
+  - Connected Vehicles
+  - Interactive Live Video Streams
+  - AR / VR
+  - Real-time Gaming
 
 ### AWS Local Zones
