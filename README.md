@@ -1273,12 +1273,6 @@ When we define our objects, we choose its storage class.
   - NuGet
 - Developers and CodeBuild can retrieve dependencies straight from CodeArtifact
 
-### AWS CodeStar
-
-- Unified user interface to easily manage software development activities in one place
-- Quick way to get started to correctly set-up CodeCommit, CodePipeline, CodeBuild, CodeDeploy, Elastic Beanstalk, EC2, etc.
-- Can edit the code _in-the-cloud_ using AWS Cloud9
-
 ### AWS Cloud9
 
 - Cloud IDE for writing, running and debugging code
@@ -1286,4 +1280,46 @@ When we define our objects, we choose its storage class.
     - Can work from office, home, or anywhere with internet with no setup necessary
   - Allows for pair programming
 
-### AWS Systems Manager
+### AWS CodeStar
+
+- Unified user interface to easily manage software development activities in one place
+- Quick way to get started to correctly set-up CodeCommit, CodePipeline, CodeBuild, CodeDeploy, Elastic Beanstalk, EC2, etc.
+- Can edit the code _in-the-cloud_ using AWS Cloud9
+
+### AWS Systems Manager (SSM)
+
+- Manages EC2 and On-Premises systems at scale
+  - Hybrid AWS Service
+- Get operational insights about the state of your infrastructure
+- Suite of 10s of products
+  - Patch automation for enhanced compliance
+  - Run commands across an entire fleet of servers
+  - Store parameter configuration with the SSM Parameter Store
+- Works for Linux, Windows, MacOS, and Raspberry Pi OS
+
+#### How SSM works
+
+- SSM Agent need to be installed onto the system we control.
+  - Installed on Amazon Linus AMI & some Ubuntu AMIs by default.
+  - SSM Agent helps us with running commands, patching and configuring our servers.
+- If an instance cannot be controlled with SSM, it is probably an issue with the SSM agent.
+
+#### SSM Session Manager
+
+- Allows you to start a secure shell on your EC2 and on-premises server
+  - Without having ssh access, bastion hosts, or ssh keys.
+  - Without requiring _port 22_.
+    - EC2 Instance has a SSM Agent, which is connected to the Session Manager service
+    - Very secure
+    - User can access through the Session Manager service, and execute commands on it.
+  - Supports Linux, macOS, and Windows.
+- Sends session log data to S3 or CloudWatch Logs.
+
+### AWS OpsWorks
+
+- Automation platform that allows you to use code to automate the configurations of your server
+  - Work great with EC2 and On-Premises VM
+  - Alternative to AWS SSM
+  - Only provision standard AWS resources
+
+## Leveraging the AWS Global Infrastructure
