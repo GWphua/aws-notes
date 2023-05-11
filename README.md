@@ -1094,6 +1094,7 @@ When we define our objects, we choose its storage class.
 
 - Virtual functions, no servers to manage
 - Limited by time, short executions
+  - Invocation time: Up to 15 minutes
 - Run on-demand
   - Pay per request and compute time
   - Free tier of a million AWS Lambda requests, and 400,000GBs of compute time
@@ -1143,3 +1144,146 @@ When we define our objects, we choose its storage class.
   - Simple web applications
   - Websites
   - Dev / Test environment
+
+## Deploying and Managing Infrastructure at Scale
+
+### AWS Cloud Formation
+
+- Declarative way of outlining your AWS infrastructure for any resources
+  - Supports almost all AWS resources
+  - Can use _custom resources_ for resources that are not supported
+  - Creates infrastructure for you in the right order, with the exact configuration that you specify
+- Infrastructure as code
+  - No resources are manually created, which is excellent for control
+  - Changes to infrastructure are reviewed through code
+- Estimable costs for resources using CloudFormation template
+  - Each resource within the stack is tagged with an identifier so you can easily see how much a stack costs you.
+  - An example savings strategy is to automate the deletion of templates at 5PM and recreate it at 8AM safely.
+- Productivity
+  - Ability to destroy and re-create an infrastructure on the cloud on the fly.
+  - Automated generation of diagram for your templates
+  - Declarative programming
+    - No need to figure out ordering and orchestration
+- Leverage on existing templates on the web
+
+#### CloudFormation Stack Designer
+
+- We can see all the resources
+- We can see all the relations between components
+
+### AWS Cloud Development Kit (CDK)
+
+- Define cloud infrastructure using a familiar language instead of _JSON / YAML_ format
+  - JavaScript / TypeSCript
+  - Python
+  - Java
+  - .NET
+- Code is compiled into a CloudFormation template _( JSON / YAML )_
+  - Can deploy infrastructure and application runtime code together
+  - Great for Lambda function
+  - Great for Docker Containers in ECS / EKS
+
+### Developer problems on AWS
+
+- Managing infrastructure
+- Deploying code
+- Configuring all the databases, load balancers, etc.
+- Scaling concerns
+- Most web applications have the same architecture _( ALB + ASG )_
+- All developers want is for their code to run
+  - Possibly, consistently across different applications and environments
+
+### AWS Elastic Beanstalk
+
+- Managed service
+  - Just the application code is the responsibility of the developer
+    - Instance configuration / OS is handled by Beanstalk
+    - Deployment strategy is configurable but performed by Elastic Beanstalk
+    - Capacity provisioning
+    - Load balancing & auto-scaling
+    - Application health-monitoring & responsiveness
+  - A developer-centric view of deploying an application on AWS
+    - Full control over the configuration
+  - Platform-as-a-Service
+    - Free, but you pay for underlying resources
+- Architecture models
+  1. Single Instance Deployment
+     - Good for development
+  2. Load Balancing + Auto-Scaling Groups
+     - Great for production or pre-production web application
+  3. Auto-Scaling Groups only
+     - Great for non-web applications in production
+- Support for many platforms
+  - Python, PHP, Ruby, Node.js, Go
+
+#### Elastic Beanstalk - Health Monitoring
+
+- Health agent pushes metrics to CloudWatch
+  - Checks for application health, publishes health events
+
+### AWS CodeDeploy
+
+- Deploy applications automatically
+  - Hybrid service
+    - Works with EC2 Instances
+    - Works with On-Premises Servers
+- Servers and Instances must be provisioned and configured ahead of time with the CodeDeploy Agent
+
+### AWS CodeCommit
+
+- AWS' competing product against GitHub
+  - Fully managed, scalable and highly available
+  - Private, Secured, and Integrated with AWS
+- Source-control service that hosts Git-based repositories
+- Makes it easy to collaborate with others on code
+- Code changes are automatically versioned
+
+### AWS CodeBuild
+
+- Code building service in the cloud
+- Compiles source code, run tests, and produces packages that are ready to be deployed
+- Fully managed, and serverless
+  - Continuously scalable and highly available
+  - Secure
+  - Pay-as-you-go pricing - Only pay for the build time
+
+### AWS CodePipeline
+
+- Orchestrate the different steps to have the code automatically pushed to production.
+  - Code => Build => Test => Provision => Deploy
+  - Basis for CI/CD
+- Fully managed
+  - Fast Delivery and rapid updates
+  - Compatible with:
+    - Other AWS Services
+    - 3rd-party services such as GitHub
+    - Custom plug-ins
+
+### AWS CodeArtifact
+
+- The storing and retrieving of software dependencies is called artifact management.
+- AWS CodeArtifact is a secure, scalable, and cost-effective artifact management for software development.
+- Works with common dependency management tools
+  - Maven
+  - Gradle
+  - npm
+  - yarn
+  - twine
+  - pip
+  - NuGet
+- Developers and CodeBuild can retrieve dependencies straight from CodeArtifact
+
+### AWS CodeStar
+
+- Unified user interface to easily manage software development activities in one place
+- Quick way to get started to correctly set-up CodeCommit, CodePipeline, CodeBuild, CodeDeploy, Elastic Beanstalk, EC2, etc.
+- Can edit the code _in-the-cloud_ using AWS Cloud9
+
+### AWS Cloud9
+
+- Cloud IDE for writing, running and debugging code
+  - Used within a web browser
+    - Can work from office, home, or anywhere with internet with no setup necessary
+  - Allows for pair programming
+
+### AWS Systems Manager
