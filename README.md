@@ -1428,13 +1428,14 @@ When we define our objects, we choose its storage class.
 
 - Server racks that offers the same AWS infrastructure, services, APIs and tools to build your own applications on-premise just as in the cloud.
   - Hybrid cloud
+  - _Outpost Racks_ are pre-loaded with AWS services
 - AWS will setup and manage _Outpost Racks_ within your on-premise infrastructure and you can start leveraging AWS services on-premises
   - Low-latency access to on-premises systems
   - Local data processing
   - Data residency
   - Easier migration from on-premises to the cloud
   - Fully manages services
-- You are responsible for the physical security of your _Outpost Rack_
+- You are responsible for the physical security of your _Outpost Rack_.
 
 ### AWS WaveLength
 
@@ -1453,3 +1454,8 @@ When we define our objects, we choose its storage class.
   - Real-time Gaming
 
 ### AWS Local Zones
+
+- Places AWS compute, storage, database, and other selected AWS services closer to end users to run latency-sensitive applications.
+- Extend your VPC to more locations
+  - Extension of an AWS Region
+- Compatible with EC2, RDS, ECS, EBS, ElastiCache, Direct Connect, etc.
