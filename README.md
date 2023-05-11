@@ -1326,3 +1326,55 @@ When we define our objects, we choose its storage class.
   - Only provision standard AWS resources
 
 ## Leveraging the AWS Global Infrastructure
+
+### Global Applications
+
+#### Advantages of Global Applications
+
+- A global application in an application deployed in multiple geographies
+  - These multiple geographies can be region / edge Locations in AWS
+- Decreased Latency
+  - Latency is the time it takes for a network packet to reach a server
+  - Deploy your applications closer to your users to decrease latency, and deliver a better user experience
+- Disaster Recover
+  - If an AWS region goes down, we can always fail-over to another region and have the application still working
+  - Important to increase the availability of the application.
+- Attack protection
+  - Distributed global infrastructure is harder to attack.
+
+#### Global AWS Infrastructure
+
+- Regions: For deploying applications and infrastructure
+- Availability Zones: Made of multiple data centers
+- Edge Locations: For content delivery as close as possible to users
+
+### Route 53
+
+- Managed Domain Name System (DNS)
+  - Great to route users to the closest deployment with least latency
+  - Great for disaster recover strategies
+
+#### Route 53 Routing Policies
+
+1. Simple Routing Policy
+   - No health checks.
+2. Weighted Routing Policy
+   - Route to the different instances according to a specified weight.
+3. Latency Routing Policy
+   - Route users to the instances that provide the lowest latency.
+4. Failover Routing Policy
+   - Health check on primary instances to provide disaster recovery.
+
+### CloudFront
+
+- Content Delivery Network
+
+### S3 Transfer Acceleration
+
+### AWS Global Accelerator
+
+### AWS Outposts
+
+### AWS WaveLength
+
+### AWS Local Zones
