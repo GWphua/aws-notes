@@ -1357,21 +1357,72 @@ When we define our objects, we choose its storage class.
 #### Route 53 Routing Policies
 
 1. Simple Routing Policy
-   - No health checks.
+   - Only routing policy without health checks.
 2. Weighted Routing Policy
-   - Route to the different instances according to a specified weight.
+   - Distribute traffic across multiple EC2 instances with a specified weight.
 3. Latency Routing Policy
-   - Route users to the instances that provide the lowest latency.
+   - Route users to the EC2 instances that provide the lowest latency.
 4. Failover Routing Policy
-   - Health check on primary instances to provide disaster recovery.
+   - Health check on primary EC2 instances to provide disaster recovery.
 
 ### CloudFront
 
-- Content Delivery Network
+- Content Delivery Network (CDN)
+- Replicate part of your application to AWS Edge Locations
+  - Decrease Latency
+- Cache content at the edge locations
+  - Improved user experience and decreased latency
+- DDoS protection, integration with Shield, AWS Web Application Firewall
+- CloudFront _Edge Locations_ will connect with your Origin
+  - Once the result is retrieved, the result will be cached in the Edge Location
+
+#### CloudFront - Origins
+
+- S3 bucket
+  - For distributing files and caching them at the edge locations
+  - Enhanced security with CloudFront Origin Access Control (OAC)
+  - CloudFront can be used as an ingress to upload files to S3
+- Custom Origin (HTTP)
+  - Application Load Balancer
+  - EC2 Instance
+  - S3 Website
+  - Any HTTP backend you want
+
+#### Comparison with S3 Cross Region Replication
+
+| CloudFront                                                 | S3 Cross Region Replication                                                        |
+| ---------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| Global Edge network                                        | Must be setup for each region we want the replication in                           |
+| Files are cached for a TTL                                 | Files are updated in near real-time                                                |
+| Great for static content that must be available everywhere | Great for dynamic content that needs to be available at low-latency in few regions |
+|                                                            | Read only                                                                          |
 
 ### S3 Transfer Acceleration
 
+- Accelerate global uploads and downloads into Amazon S3
+  - Transfer file to an AWS edge location, which will forward the data to the S3 bucket in the target region
+
 ### AWS Global Accelerator
+
+- Improve global application availability and performance using the AWS global network
+- Leverage the AWS internal network to optimize the route to your application
+- 2 Anycast IP are created
+  - Application and traffic is sent through Edge Locations
+  - Edge Locations send the traffic to your application
+
+#### Comparison with CloudFront
+
+- Similarities
+  - Both use AWS global network and its edge locations around the world
+  - Both services integrate with AWS Shield for DDoS protection
+- CloudFront - Content Delivery Network
+  - Improves performance for cache-able content
+  - Content is served _at the edge_
+- Global Accelerator
+  - No caching, or proxying packets at the edge to applications running in one or more AWS regions
+  - Improves performance for a wide range of applications over TCP or UDP
+  - Good for HTTP use cases that require static IP addresses
+  - Good for HTTP use cases that required deterministic fast regional failover
 
 ### AWS Outposts
 
