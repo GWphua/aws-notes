@@ -1317,6 +1317,9 @@ When we define our objects, we choose its storage class.
 
 ### AWS OpsWorks
 
+- AWS' handled Chef & Puppet
+- Only reason why you should use OpsWorks is because you are already using Chef & Puppet before migrating to the cloud.
+  - If you want to re-use your Chef & Puppet template.
 - Automation platform that allows you to use code to automate the configurations of your server
   - Work great with EC2 and On-Premises VM
   - Alternative to AWS SSM
