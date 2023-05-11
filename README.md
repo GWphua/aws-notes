@@ -1372,7 +1372,9 @@ When we define our objects, we choose its storage class.
   - Decrease Latency
 - Cache content at the edge locations
   - Improved user experience and decreased latency
-- DDoS protection, integration with Shield, AWS Web Application Firewall
+- DDoS protection
+  - Integration with Shield
+  - AWS Web Application Firewall (WAF)
 - CloudFront _Edge Locations_ will connect with your Origin
   - Once the result is retrieved, the result will be cached in the Edge Location
 
@@ -1459,3 +1461,56 @@ When we define our objects, we choose its storage class.
 - Extend your VPC to more locations
   - Extension of an AWS Region
 - Compatible with EC2, RDS, ECS, EBS, ElastiCache, Direct Connect, etc.
+
+## Cloud Integration
+
+### Cloud Integration Overview
+
+- When we start deploying multiple applications, they will inevitably need to communicate with one another.
+- There are two patterns of application communication
+  1. Synchronous communications
+     - Application to application
+  2. Asynchronous / Event-based
+     - Application to queue to application
+- Synchronous between applications can be problematic if there are sudden spikes of traffic
+  - Better to decouple your applications using:
+    1. SQS: Queue model
+    2. SNS: Publisher / Subscriber model
+    3. Kinesis: Real-time data streaming model
+  - These services can scale independently from our application
+
+### Amazon Simple Queue Service (SQS)
+
+- Fully managed serverless service
+  - Used to decouple applications
+- Scales from 1 message per second to 10,000s per second
+  - Low latency: <10ms on publish and receive
+- No limit to how many messages can be in the queue
+  - Default retention of messages: 4 days, maximum of 14 days
+  - Messages are deleted after they are read by customers
+  - Consumers share the work to read messages and scale horizontally.
+
+### Amazon SNS
+
+- Sending one message to many receivers
+  - Event publishers only send message to one SNS topic
+  - As many event subscribers as we want to listen to the SNS topic notifications
+  - Each subscriber to the topic will get all the messages.
+
+### Amazon Kinesis
+
+- For real-time big data streaming
+- Managed service to collect, process, and analyze real-time streaming data at _any scale_
+
+### Amazon MQ
+
+- Amazon MQ is a managed message broker service for:
+  - RabbitMQ
+  - ActiveMQ
+- SQS and SNS are _cloud-native_ services
+  - Proprietary protocols from AWS
+- Traditional applications running from on-premises may use open protocols.
+- When migrating to the cloud, instead of re-engineering the application to use SQS and SNS, we can also use Amazon MQ
+- Does not scale as much as SQS / SNS
+- Amazon MQ runs on servers, can run in Multi-AZ with failover
+- Amazon MQ has both queue feature (SQS) and topic features (SNS)
