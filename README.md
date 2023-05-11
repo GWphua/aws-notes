@@ -133,7 +133,7 @@
   4. Control of outbound network
 - All inbound traffic is blocked by default
 - All outbound traffic is authorized by default
-- Security groups are locked down to a region/VPC combination
+- Security groups are locked down to a region / Virtual Private Cloud combination
 - Lives _outside_ the EC2 instance
   - If traffic is blocked, the EC2 instance cannot see the inbound network
 - Common errors for EC2 instances:
@@ -990,7 +990,7 @@ When we define our objects, we choose its storage class.
   - Business Intelligence
   - Business Analytics
   - Business Reporting
-  - Analyze and Query VPC Flow Logs
+  - Analyze and Query Virtual Private Cloud (VPC) Flow Logs
   - ELB Logs
   - CloudTrail trails
 
@@ -1458,7 +1458,7 @@ When we define our objects, we choose its storage class.
 ### AWS Local Zones
 
 - Places AWS compute, storage, database, and other selected AWS services closer to end users to run latency-sensitive applications.
-- Extend your VPC to more locations
+- Extend your Virtual Private Cloud (VPC) to more locations
   - Extension of an AWS Region
 - Compatible with EC2, RDS, ECS, EBS, ElastiCache, Direct Connect, etc.
 
@@ -1486,9 +1486,9 @@ When we define our objects, we choose its storage class.
 - Scales from 1 message per second to 10,000s per second
   - Low latency: <10ms on publish and receive
 - No limit to how many messages can be in the queue
-  - Default retention of messages: 4 days, maximum of 14 days
   - Messages are deleted after they are read by customers
   - Consumers share the work to read messages and scale horizontally.
+- Default retention of messages: 4 days, maximum of 14 days
 
 ### Amazon SNS
 
@@ -1496,6 +1496,7 @@ When we define our objects, we choose its storage class.
   - Event publishers only send message to one SNS topic
   - As many event subscribers as we want to listen to the SNS topic notifications
   - Each subscriber to the topic will get all the messages.
+- No message retention
 
 ### Amazon Kinesis
 
@@ -1507,10 +1508,61 @@ When we define our objects, we choose its storage class.
 - Amazon MQ is a managed message broker service for:
   - RabbitMQ
   - ActiveMQ
-- SQS and SNS are _cloud-native_ services
-  - Proprietary protocols from AWS
-- Traditional applications running from on-premises may use open protocols.
-- When migrating to the cloud, instead of re-engineering the application to use SQS and SNS, we can also use Amazon MQ
 - Does not scale as much as SQS / SNS
 - Amazon MQ runs on servers, can run in Multi-AZ with failover
 - Amazon MQ has both queue feature (SQS) and topic features (SNS)
+
+## Cloud Monitoring Services
+
+### Amazon CloudWatch
+
+#### Amazon CloudWatch Metrics
+
+- A metric is a variable to monitor
+  - Metrics have timestamps
+  - Example metrics:
+    1. EC2 Instances
+    2. EBS Volumes
+    3. S3 Buckets
+    4. Billing
+    5. Service Limits
+    6. Custom Metrics
+- CloudWatch provides metrics for every services in AWS
+- Can create CloudWatch dashboards of metrics
+
+#### Amazon CloudWatch Alarms
+
+- Alarms are used to trigger notifications for any metric
+- Alarm actions
+  - Auto-Scaling
+    - Increase / Decrease EC2 instances' "desired" count
+  - EC2 Actions
+    - Stop, terminate, reboot or recover an EC2 Instance
+  - SNS Notifications
+    - Send a notification into an SNS topic
+- Can choose the period on which to evaluate an alarm
+- Alarm States:
+  1. OK
+  2. INSUFFICIENT_DATA
+  3. ALARM
+
+#### Amazon CloudWatch Logs
+
+- Enable real-time monitoring of logs
+- Adjustable CloudWatch Logs retention
+- By default, no logs from your EC2 instance will go to CloudWatch
+  - You will need to run a CloudWatch agent on EC to push the log files you want
+  - Make sure IAM permissions are correct
+  - The CloudWatch log agent can be setup on-premises too
+
+### Amazon EventBridge
+
+- React to events in AWS, or trigger a rule on a schedule
+
+### Amazon CloudTrial
+
+### AWS X-Ray
+
+### Amazon CodeGuru
+
+### AWS Health Dashboard
