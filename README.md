@@ -1760,3 +1760,141 @@ Global Service that monitors the health of your services.
 - Works with Direct Connect Gateway, VPN connections
 
 ## Security & Compliance
+
+### AWS Shared Responsibility Model
+
+- AWS Responsibility
+  - Protecting infrastructure that runs all the AWS services
+  - Managed services
+- Customer Responsibility
+  - For management of the guest OS
+  - Configuring firewall & network configuration
+  - IAM
+  - Encrypting application data according to compliance requirements
+- Shared controls
+  - Patch Management
+  - Configuration Management
+  - Awareness & Training
+
+### DDoS Protection: WAF & Shield
+
+- Distributed Denial-of-Service (DDoS) Attack
+  - Attacker overwhelms the server with a lot of requests.
+  - Users will find server inaccessible and unresponsive.
+- Be ready to scale by using ASG on AWS in event of a DDoS attack.
+- AWS Shield Standard
+  - Free service that is activated for every AWS customer.
+  - Protects against DDoS attack for website at no additional costs
+- AWS Shield Advanced.
+  - Optional DDoS mitigation service
+    - $3000 per month per organization.
+  - Protect against more sophisticated attacks on AWS services.
+  - Protect against higher fees during usage spikes due to DDoS.
+  - 24/7 premium DDoS protection.
+- AWS WAF
+  - Protects your web applications from common web exploits on Layer 7
+    - Layer 7 is HTTP
+    - Deploy on ALB, API Gateway, CloudFront
+  - Define Web Access Control List
+    - Rules can include IP addresses, HTTP headers, HTTP body, or URI strings
+    - Protects from common attacks
+    - Size constraints, geo-match
+    - Rate-based rules for DDoS protection
+  - Filter specific requests based on rules.
+- CloudFront and Route53
+  - Availability protection using global edge network.
+  - Combined with AWS Shield, provides attack mitigation at the edge.
+
+### Penetration Testing
+
+- AWS customers are welcome to carry out security assessments or penetration tests against their AWS infrastructure without prior approval for these services:
+  1. Amazon EC2 instances, NAT Gateways, ELBs
+  2. Amazon RDS
+  3. Amazon CloudFront
+  4. Amazon Aurora
+  5. Amazon API Gateways
+  6. AWS Lambda and Lambda Edge functions
+  7. Amazon Lightsail resources
+  8. Amazon Elastic Beanstalk environments
+- Prohibited Activities
+  - DNS zone walking via Amazon Route 53 Hosted Zones
+  - Simulated Denial-of-Service, Simulated Distributed Denial-of-Service
+  - Port flooding
+  - Protocol flooding
+  - Request flooding
+
+### Encryption with KMS & CloudHSM
+
+### Protecting Data
+
+- Leverage on Encryption keys to protect two types of data
+
+1. Data at rest
+    - Data stored or archived on a device
+    - Not moving because it is stored somewhere.
+2. Data in transit
+    - Data being moved from one location to another
+    - Transfer from on-premises to AWS, EC2 to DynamoDB, etc.
+
+### AWS KMS
+
+- AWS manages the encryption keys for us
+- Encryption Opt-in
+  - EBS Volumes: Encrypt volumes
+  - S3 buckets: Server-side encryption of objects
+  - Redshift database: Encryption of data
+  - RDS database: Encryption of data
+  - EFS drives: Encryption of data
+- Encryption automatically enabled for:
+  - CloudTrail Logs
+  - S3 Glacier
+  - Storage Gateway
+
+### CloudHSM
+
+- AWS provisions encryption hardware, but we are managing the encryption ourselves.
+  - Dedicated Hardware
+  - Hardware Security Module (HSM) device is tamper resistant
+
+#### Types of Customer Master Keys (CMK)
+
+- Customer Managed CMK
+  - Create, manage and used by the customer, can enable or disable
+  - Possibility of rotation policy
+    - New key generated every year, old key preserved
+  - Possibility to bring-your-own-key
+- AWS managed CMK
+  - Created, managed and used on the customer’s behalf by AWS
+  - Used by AWS services
+    - AWS S3
+    - AWS EBS
+    - AWS Redshift
+- AWS owned CMK
+  - Collection of CMKs that an AWS service owns and manages to use in multiple accounts
+  - AWS can use those to protect resources in your account
+    - You cannot view the keys
+- CloudHSM Keys (Custom keystore)
+  - Keys generated from your own CloudHSM hardware device
+  - Cryptographic operations are performed within the CloudHSM cluster
+
+### AWS Certificate Manager (ACM)
+
+- Allows user to easily provision, manage, and deploy SSL/TLS Certificates
+- Used to provide in-flight encryption for website (HTTP)
+- Supports both public and private TLS certificates
+- Free of charge for public TLS certificates
+- Automatic TLS certificate renewal
+- Integrations with load TLS certificates on
+  - Elastic Load Balancers
+  - CloudFront Distributions
+  - APIs on API Gateway
+
+### AWS Secrets Manager
+
+- Newer service, meant for storing secrets
+- Capability to force rotation of secrets every few days
+- Automate generation of secrets on rotation
+  - Uses Lambda
+- Integration with Amazon RDS
+- Secrets are encrypted using KMS
+- Mostly meant for RDS integration
