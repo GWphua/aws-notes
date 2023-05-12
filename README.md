@@ -1543,8 +1543,11 @@ When we define our objects, we choose its storage class.
 - Can choose the period on which to evaluate an alarm
 - Alarm States:
   1. OK
+     - The metric or expression is outside of the defined threshold.
   2. INSUFFICIENT_DATA
+     - The metric or expression is within the defined threshold.
   3. ALARM
+     - The alarm has just started or not enough data is available.
 
 #### Amazon CloudWatch Logs
 
@@ -1558,11 +1561,71 @@ When we define our objects, we choose its storage class.
 ### Amazon EventBridge
 
 - React to events in AWS, or trigger a rule on a schedule
+  - Schedule CRON jobs
+  - Event rules to react to a service doing something
+  - Trigger Lambda functions, send SQS/SNS messages
+- Event Buses
+  - Default Event Bus: Events happening from within AWS Services.
+  - Partner Event Bus: Events happening from partners of AWS.
+  - Custom Event Bus: Events happening from custom applications.
+- Schema Registry
+  - Model the event schema ( See what the data looks like )
+- You can archive events sent to an event bus
+  - Ability to replay archived events
 
 ### Amazon CloudTrial
 
+- Provides governance, compliance, and audit for your AWS Account
+- Enabled by default
+- Get an history of events / API calls made within your AWS Account through
+  1. Console
+  2. SDK
+  3. CLI
+  4. AWS Services
+- Can put logs from CloudTrial into CloudWatch Logs or S3.
+- A trail can be applied to All Regions or a single Region
+- If a resource is deleted in AWS, investigate the CloudTrail first
+
 ### AWS X-Ray
+
+- Trace and get visual analysis of your own application
+- Helps troubleshoot performance and identify bottlenecks
+  - Find if we are meeting our Service Level Agreement (SLA)
+  - Find places where we are throttled
+  - Identify users that are impacted
+- Understand dependencies in a microservice architecture
+- Pinpoint service issues
+  - Review request behavior
+  - Find errors and exceptions
 
 ### Amazon CodeGuru
 
+- Machine Learning-powered service
+- CodeGuru Reviewer
+  - Trained by lessons across millions of code reviews on 1000s of open-source and Amazon repositories
+  - Automated code reviews for static code analysis
+  - Identify critical issues, security, vulnerabilities, and hard-to-find bugs.
+  - Supports strictly Java and Python, and integrates with GitHub, Bitbucket, and AWS CodeCommit
+- CodeGuru Profiler
+  - Helps understand the runtime behavior of your application
+  - Visibility / recommendations about application performance during runtime.
+    - Identify and remove code inefficiencies
+    - Improve application performance
+    - Decrease computational costs
+    - Provides heap summary
+    - Anomaly detection
+  - Supports applications running on AWS or on-premise
+  - Minimal overhead on application
+  
 ### AWS Health Dashboard
+
+Global Service that monitors the health of your services.
+
+1. Service History
+   - Shows all regions, all services health
+   - Shows historical information for each day
+2. Your Account
+   - Provides alerts and remediation guidance when AWS is experiencing events that may impact you.
+   - Gives you a personalized view into the performance and availability of the AWS services underlying your AWS resource
+   - Displays relevant and timely information to help you manage events in progress, and provides proactive notification to help you plan for scheduled activities
+   - Can aggregate data from an entire AWS Organization
