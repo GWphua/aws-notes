@@ -1674,12 +1674,89 @@ Global Service that monitors the health of your services.
 ### Security Groups and Network Access Control List (NACL)
 
 - NACL
-  - First line of defense for EC2 instance
-  - Firewall which controls traffic from and to subnet
+  - First line of defense for EC2 instance.
+  - Firewall which controls traffic to and from the subnet.
   - Are attached at the Subnet level
+  - Supports _ALLOW_ and _DENY_ rules.
   - Rules only include IP addresses.
 
 - Security Groups
-  - A firewall that controls traffic to and from an EC2 instance
-  - Can have only _ALLOW_ rules
+  - A firewall that controls traffic to and from an EC2 instance.
+  - Can have only _ALLOW_ rules.
   - Rules include IP addresses and other security groups.
+
+### VPC Flow Logs
+
+- Capture information about IP traffic going into your interfaces
+- Helps to monitor and troubleshoot connectivity issues
+  - Subnets to internet
+  - Internet to subnets
+  - Subnets to subnets
+- Captures network information from AWS managed interfaces
+  - Elastic Load Balancers
+  - ElastiCache
+  - RDS
+  - Aurora
+- VPC Flow logs data can go to S3, CloudWatch Logs, and Kinesis Data Firehose
+
+### VPC Peering
+
+- Connect two VPC privately using AWS' network.
+- Make them behave as in they were in the same network.
+- Must not have overlapping CIDR (IP address range)
+- VPC Peering connection is not transitive.
+  - If VPC1 -> VPC2, and VPC2 -> VPC3, this does not imply VPC1 -> VPC3.
+  - Must be established for each VPC that need to communicate with one another.
+
+### VPC Endpoints
+
+- Endpoints allow you to connect to AWS Services using a private network in of the public `www` network
+- This gives you enhanced security and lower latency to access AWS services
+- VPC Endpoint Gateway: S3 & DynamoDB
+- VPC Endpoint Interface: Other AWS services
+
+#### AWS PrivateLink
+
+- Most secure & scalable way to expose a service to 1000s of VPCs
+- Does not require VPC peering, internet gateway, NAT, route tables
+- Requires a network load balancer and Elastic Network Interface (ENI)
+  - Establish private link between network load balancer, and ENI
+  - All internet traffic will then go through this private network.
+  - All people need to do is to create more private links
+
+### Direct Connect & Site-to-Site VPN
+
+#### Site to Site VPN
+
+- Connect an on-premises VPN to AWS
+  - Must use a Customer Gateway (CGW) on the on-premise site.
+  - Must use a Virtual Private Gateway (VGW) on the AWS site.
+- Connection is automatically encrypted
+- Goes over the public internet
+  - Limited bandwidth
+  - Security Concerns
+- Takes just a few minutes to establish.
+
+#### Direct Connect
+
+- Establish a physical connection between on-premises and AWS
+- The connection is private, secure and fast
+- Goes over the private network
+  - More secure
+  - Faster
+- Takes at least a month to establish
+
+### Client VPN
+
+- Connect from your computer using OpenVPN to your private network in AWS and on-premises.
+- Allow you to connect to your EC2 instances over a private IP
+  - Just as if you were in the private VPC network
+- Goes over public Internet
+
+### Transit Gateway
+
+- For having transitive peering between thousands of VPC and on-premises, star connection
+- One single Gateway to provide this functionality
+- Works with Direct Connect Gateway, VPN connections
+
+## Security & Compliance
