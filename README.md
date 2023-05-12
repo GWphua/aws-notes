@@ -1586,6 +1586,10 @@ When we define our objects, we choose its storage class.
 - A trail can be applied to All Regions or a single Region
 - If a resource is deleted in AWS, investigate the CloudTrail first
 
+#### CloudTrail Insights
+
+- Provides automated analysis of your CloudTrail Events
+
 ### AWS X-Ray
 
 - Trace and get visual analysis of your own application
@@ -1629,3 +1633,53 @@ Global Service that monitors the health of your services.
    - Gives you a personalized view into the performance and availability of the AWS services underlying your AWS resource
    - Displays relevant and timely information to help you manage events in progress, and provides proactive notification to help you plan for scheduled activities
    - Can aggregate data from an entire AWS Organization
+
+## VPC & Networking
+
+### IP Addresses in AWS
+
+- Internet Protocol version 4 (IPv4)
+  - Private IPv4 is fixed for EC2 instances even if you start/stop them.
+  - EC2 instance gets a new public IP address every time you stop then start it.
+
+- Elastic IP
+  - Allows you to attach a fixed public IPv4 address to EC2 instance
+  - Has ongoing cost if not attached to EC2 instance, or if the EC2 instance is stopped.
+
+- Internet Protocol version 6 (IPv6)
+  - Every IP address is public.
+
+### VPC, Subnet, Internet Gateway, NAT Gateways
+
+#### Virtual Private Cloud (VPC)
+
+- Private network to deploy your resources
+- A VPC is linked to a specific region
+  - Need multiple VPC if we are working in multiple AWS regions.
+
+#### Subnet
+
+- Allow you to partition your network inside your VPC
+- AZ-specific resource
+- A public subnet is a subnet that is accessible from the internet.
+- A Private subnet is a subnet that is not accessible from the internet.
+- To define access to the internet and between subnets, we use Route Tables.
+
+#### Internet Gateway
+
+- Helps our VPC instances connect with the internet
+- Public subnets have a route to the internet gateway.
+- NAT Gateways (AWS-managed) & NAT Instances allow your instances in your Private subnets to access the internet while remaining private.
+
+### Security Groups and Network Access Control List (NACL)
+
+- NACL
+  - First line of defense for EC2 instance
+  - Firewall which controls traffic from and to subnet
+  - Are attached at the Subnet level
+  - Rules only include IP addresses.
+
+- Security Groups
+  - A firewall that controls traffic to and from an EC2 instance
+  - Can have only _ALLOW_ rules
+  - Rules include IP addresses and other security groups.
