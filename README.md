@@ -2016,3 +2016,106 @@ Global Service that monitors the health of your services.
   - Findings are then put onto the console, where the user can then decide to take action against these findings.
 
 ## Machine Learning
+
+### Amazon Rekognition
+
+- Find objects, people, text, scenes in images and videos using Machine Learning.
+- Facial analysis and facial search to do user verification, people-counting, etc.
+- Use Cases:
+  - Labeling
+  - Content Moderation
+  - Text Detection
+  - Face Detection and Analysis
+  - Face Search and Verification
+  - Celebrity Recognition
+  - Pathing
+    - For Sports games analysis
+
+### Amazon Transcribe
+
+- Automatically convert speech to text
+- Uses a deep learning process called automatic speech recognition (ASR) to convert speech to text quickly and accurately.
+- Automatically remove PII using Redaction
+- Supports Automatic Language Identification for multi-lingual audio
+- Use Cases:
+  - Transcribe customer service calls.
+  - Automate closed captioning and subtitling
+  - Generate metadata for media assets to create a fully searchable archive.
+
+### Amazon Polly
+
+- Turn text into speech using deep learning
+- Create applications that talk.
+
+### Amazon Translate
+
+- Natural and accurate language translation
+- Localize content for international users, and to easily translate large volumes of text efficiently.
+
+### Amazon Lex & Connect
+
+#### Amazon Lex
+
+- Automatic Speech Recognition (ASR) to convert speech to text
+- Natural Language Understanding to recognize the intent of text, callers
+- Useful for building chat-bots, and call center bots.
+
+#### Amazon Connect
+
+- Receive calls, create contact flows, cloud-based virtual contact center
+- Can integrate with other CRM systems or AWS
+- No upfront payments, 80% cheaper than traditional contact center solutions.
+
+### Amazon Comprehend
+
+- For Natural Language Processing
+- Fully managed and serverless service
+- Uses machine learning to find insights and relationships in text
+  - Language of the text
+  - Extracts key phrases, places, people, brands or events
+  - Understands how positive or negative the text is
+  - Analyzes text using tokenization and parts of speech
+  - Automatically organizes a collection of text files by topic
+- Use Cases:
+  - Create and group articles by topics
+  - Analyze customer interactions to find what leads to a positive or negative experience
+
+### Amazon SageMaker
+
+- Fully managed service for developers / data scientists to build Machine Learning models
+
+### Amazon Forecast
+
+- Fully managed service that uses Machine Learning to deliver highly accurate forecasts
+- Can use data stored in Amazon S3 to train the model.
+- Use Cases:
+  - Product Demand Planning
+  - Financial Planning
+  - Resource Planning
+
+### Amazon Kendra
+
+- Fully managed document search service powered by Machine Learning
+- Extract answers from within a document
+  - Natural language search capabilities
+  - Learn from user interactions / feedback to promote preferred results
+  - Ability to manually fine-tune search results.
+
+### Amazon Personalize
+
+- Fully managed Machine Learning service to build applications with real-time personalized recommendations.
+- Use Cases:
+  - Retail stores
+  - Media and entertainment
+
+### Amazon Textract
+
+- Automatically extracts text, handwriting, and data from any scanned documents using AI and ML.
+- Extract data from forms and tables.
+- Read and process any type of document
+  - PDF
+  - Images
+- Use Cases:
+  - Financial Services
+  - Healthcare
+  - Public Sector
