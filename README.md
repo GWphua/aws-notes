@@ -639,9 +639,9 @@ When we define our objects, we choose its storage class.
 - Amazon S3 Glacier Flexible Retrieval
   - Formerly known as Amazon S3 Glacier
   - Three levels of retrieval time
-    1. Expedited : 1~5 minutes
-    2. Standard : 3~5 hours
-    3. Bulk: 5~12 hours (free)
+    1. Expedited : 1 ~ 5 minutes
+    2. Standard : 3 ~ 5 hours
+    3. Bulk: 5 ~ 12 hours (free)
   - Minimum storage duration of 90 days
 - Amazon S3 Glacier Deep Archive
   - Two levels of retrieval time
@@ -1389,6 +1389,12 @@ When we define our objects, we choose its storage class.
   - EC2 Instance
   - S3 Website
   - Any HTTP backend you want
+
+#### CloudFront - Pricing
+
+- Pricing is different across different geographic regions
+- Aggregated for each edge location, then applied to the bill.
+- Pay upon data transferring out of CloudFront, and number of HTTP / HTTPS requests.
 
 #### Comparison with S3 Cross Region Replication
 
@@ -2176,6 +2182,54 @@ Global Service that monitors the health of your services.
   - Monitor compliance through an interactive dashboard
 - AWS Control Tower runs on top of AWS Organizations
   - Automatically sets up AWS Organizations to organize accounts and implement SCPs.
+
+### AWS Service Catalog
+
+- For users who want a quick self-service portal to launch a set of authorized products pre-defined by admins.
+
+#### Service Catalog diagram  
+
+- Admin Tasks:
+  - Products are CloudFormation templates.
+  - Portfolios are a collection of products.
+  - Admin control IAM permissions to access portfolios
+- User Tasks:
+  - Have a quick list of all products usable because of the permissions
+  - Get provisioned products via the CloudFormation templates.
+
+### Pricing Models of the Cloud
+
+#### 4 Pricing Models
+
+1. Pay as you go
+    - Pay for what you use, remain agile, responsive, meet scale demands
+2. Save when you reserve
+    - Minimize risks, predictably manage budgets, comply with long-term requirements
+    - Reservations available for:
+      - EC2 Reserved Instances
+      - DynamoDB Reserved Capacity
+      - ElastiCache Reserved Nodes
+      - RDS Reserved Instance
+      - Redshift Reserved Nodes
+3. Pay less by using more
+    - Volume-based discounts
+4. Pay less as AWS grows
+
+#### Networking Costs in AWS per GB
+
+- Traffic incoming
+  - Always free
+- Traffic within same available zone (AZ) using _private_ IP
+  - Always free
+- Traffic in between AZ using _private_ IP
+  - $0.01
+- Traffic in between AZ using _public / elastic_ IP
+  - $0.02
+- Inter-region traffic
+  - $0.02
+- In conclusion, use private IP instead of Public IP for good savings and better network performance.
+- Use same AZ for maximum savings
+  - At the cost of high availability.
 
 ## Advanced Identity
 
