@@ -2157,6 +2157,17 @@ Global Service that monitors the health of your services.
   - Restrict access to certain services
   - Enforce PCI compliance by explicitly disabling services
 
+#### Consolidated Billing
+
+- Can be enabled / disabled.
+- Combined Usage
+  - Combine the usage across all AWS accounts in the AWS Organization to share the volume pricing, Reserved Instances and Savings Plans discounts
+- One Bill
+  - Get one bill for all AWS Accounts in the AWS Organization
+- Management account can turn off Reserved Instances discount sharing for any account in the AWS Organization, including itself.
+
+### AWS Control Tower
+
 ## Advanced Identity
 
 ### AWS Security Token Service (STS)
