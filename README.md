@@ -1836,7 +1836,7 @@ Global Service that monitors the health of your services.
     - Data being moved from one location to another
     - Transfer from on-premises to AWS, EC2 to DynamoDB, etc.
 
-### AWS KMS
+### AWS Key Management Service (KMS)
 
 - AWS manages the encryption keys for us
 - Encryption Opt-in
@@ -1880,21 +1880,139 @@ Global Service that monitors the health of your services.
 ### AWS Certificate Manager (ACM)
 
 - Allows user to easily provision, manage, and deploy SSL/TLS Certificates
-- Used to provide in-flight encryption for website (HTTP)
+  - Used to provide in-flight encryption for website (HTTP)
 - Supports both public and private TLS certificates
 - Free of charge for public TLS certificates
 - Automatic TLS certificate renewal
-- Integrations with load TLS certificates on
+- Integrations with
   - Elastic Load Balancers
   - CloudFront Distributions
   - APIs on API Gateway
+  - Integration done by loading TLS certificates on the services
 
 ### AWS Secrets Manager
 
-- Newer service, meant for storing secrets
-- Capability to force rotation of secrets every few days
-- Automate generation of secrets on rotation
-  - Uses Lambda
-- Integration with Amazon RDS
-- Secrets are encrypted using KMS
-- Mostly meant for RDS integration
+- Newer service, meant for storing secrets.
+  - Paid Service, 40-cents per secret per month.
+- Capability to force rotation of secrets every few days.
+- Automate generation of secrets on rotation using Lambda.
+- Integration with Amazon RDS.
+  - Secrets Manager is used to create passwords for Amazon RDS automatically.
+  - Mostly meant for RDS integration.
+- Secrets are encrypted using KMS.
+
+### AWS Artifact
+
+- Not really a service, but is presented as one in the console.
+- A portal that provides access on-demand to AWS compliance documentation and AWS agreements.
+- Displays Artifact Reports
+  - Allows you to download AWS security and compliance documents from third-party auditors.
+- Displays Artifact Agreements
+  - Allows you to review, accept, and track the status of AWS agreements for an individual account, or in your organization.
+- Can be used to support internal audit or compliance.
+
+### AWS GuardDuty
+
+- Intelligent Threat discovery to protect your AWS Account
+- Uses Machine Learning algorithms
+  - Performs anomaly detection on 3rd party data to detect threats.
+  - Input data for Amazon Guard Duty:
+    1. VPC Flow Logs
+    2. CloudTrail Logs
+    3. AWS DNS Logs
+    4. EKS Audit Logs
+- Can setup EventBridge rules to be notified in case of findings.
+  - EventBridge rules can target AWS Lambda or SNS.
+- Can protect against CryptoCurrency attacks.
+- One click to enable, with no need to install the software.
+
+### AWS Inspector
+
+- Automated Security Assessments only on:
+  - EC2 instances
+    - Leveraging the AWS SSM agent
+    - Analyze against unintended network accessibility.
+    - Analyze the running OS against known vulnerabilities.
+  - Container Image pushes to Amazon ECR
+    - Assessment of Container Images as they are pushed.
+  - Lambda Functions
+    - Identifies software vulnerabilities in function code and package dependencies.
+    - Assessment of functions as they are deployed.
+- Continuous scanning of the infrastructure, only when needed.
+- A risk score is associated with all vulnerabilities for prioritization.
+- Can report its findings into the AWS Security Hub.
+- Sends findings to Amazon EventBridge.
+  - Can use AWS Lambda or SNS for automation.
+
+### AWS Config
+
+- Per-region service that is payable
+  - Can be aggregated across regions and accounts.
+- Helps with auditing and recording compliance of your AWS resources.
+  - View compliance of a resource over time
+  - View CloudTrail API calls if enabled.
+  - Apply configuration rules on the AWS resources in the account.
+- Helps record configurations and changes over time.
+  - View configuration of a resource over time
+- Possibility of storing the configuration data into S3
+- Receive alerts on SNS notifications for any changes done to the infrastructure.
+
+### AWS Macie
+
+- Fully managed data security and data privacy service
+  - Uses ML and pattern matching to discover and protect your sensitive data in AWS
+  - Helps identify and alert you to sensitive data, such as personally identifiable information (PII).
+- Macie will discover sensitive data in your S3 bucket, and notify you via Amazon EventBridge.
+
+### AWS Security Hub
+
+- Central security tool to manage security across several AWS accounts, and automate security checks.
+- Integrated dashboards showing current security and compliance status to quickly take actions.
+  - Makes it way simpler for users to find security issues and remediate them.
+- Automatically aggregates alerts in pre-defined or personal finding formats from various AWS services and AWS partner tools.
+  - Collect potential issues and findings, and then generate events via EventBridge.
+- Must first enable AWS Config Service.
+
+### Amazon Detective
+
+- GuardDuty, Macie and Security Hub are used to identify potential security issues or findings.
+- Detective analyzes, investigates, and quickly identify the _root cause_ of security issues or suspicious activities
+  - Using ML and graphs
+  - Automatically collects and processes events from VPC Flow Logs, CloudTrail, GuardDuty, and create a unified view.
+  - Produces visualizations with details and context to get to the root cause.
+
+### AWS Abuse
+
+- Report suspected AWS resources used for abusive illegal purposes.
+  - Spams
+  - Port scanning
+  - DoS or DDoS attacks
+  - Intrusion attempts
+  - Hosting objectionable or copyrighted content
+  - Distributing malware
+- Contact the AWS Abuse team via an online abuse form, or to _abuse@amazonaws.com_
+
+### Root User Privileges
+
+- Root user has complete access to _all_ AWS services and resources.
+  - Lock away your AWS account root user access keys.
+- Do not use the root account for everyday tasks, even administrative tasks.
+- Only the _root user_ can
+  - Change account settings
+  - View certain tax invoices
+  - Close your AWS account
+  - Restore IAM user permissions
+  - Change or cancel your AWS Support plan
+  - Register as a seller in the Reserved Instance Marketplace
+  - Configure an Amazon S3 bucket to enable MFA
+  - Edit or delete an Amazon S3 bucket policy that includes an invalid VPC ID or VPC endpoint ID
+  - Sign up for GovCloud
+
+### IAM Access Analyzer
+
+- Find out which resources are shared externally.
+- Define Zone of Trust
+  - Anything outside the Zone of Trust that have access to the AWS resources, are going to be reported as findings.
+  - Findings are then put onto the console, where the user can then decide to take action against these findings.
+
+## Machine Learning
