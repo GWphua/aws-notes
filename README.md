@@ -2120,6 +2120,12 @@ Global Service that monitors the health of your services.
   - Healthcare
   - Public Sector
 
+## Account Management, Billing & Support
+
+### Organizations
+
+- Hi
+
 ## Advanced Identity
 
 ### AWS Security Token Service (STS)
@@ -2143,6 +2149,7 @@ Global Service that monitors the health of your services.
 
 ### AWS IAM Identity Center
 
+- Successor to AWS Single Sign-On (SSO)
 - _One login_ for _all_ your AWS accounts in AWS Organizations
 - Identity providers
   - Built-in identity store in IAM Identity Center
