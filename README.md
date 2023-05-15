@@ -2124,7 +2124,38 @@ Global Service that monitors the health of your services.
 
 ### Organizations
 
-- Hi
+- Global service that allows user to manage multiple AWS accounts
+- Main account is the master account
+- Cost Benefits:
+  - Consolidated Billing across all accounts
+    - Single payment method
+  - Pricing benefits from aggregated usage
+    - Volume discount for EC2, S3, etc.
+  - Pooling of Reserved EC2 instances for optimal savings.
+- API is available to automate AWS account creation
+- Restrict account privileges using Service Control Policies (SCP)
+
+#### Multi Account Strategies
+
+- Create Accounts _per department, cost center, dev / test / prod_ based on _regulatory restrictions_, for _better resource isolation_ to have _separate per-account service limits_
+- Creates isolated account for logging.
+  - Use tagging standards for billing purposes
+  - Enable CloudTrail on all accounts, send logs to central S3 account
+  - Send CloudWatch Logs to central logging account
+
+#### Service Control Policies (SCP)
+
+- Whitelist or blacklist IAM actions
+- Applied at the _Organization Unit (OU)_ or _Account_ level
+- Does not apply to the Master Account
+  - All SCP applied to the Master Account is not applied.
+- SCP is applied to all the _Users and Roles_ of the Account, including Root.
+- SCP does not affect service-linked roles
+- Service-linked roles enable other AWS services to integrate with AWS Organizations and cannot be restricted by SCPs.
+- SCOP must have an explicit Allow
+- Use Cases:
+  - Restrict access to certain services
+  - Enforce PCI compliance by explicitly disabling services
 
 ## Advanced Identity
 
