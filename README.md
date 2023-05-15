@@ -2168,6 +2168,15 @@ Global Service that monitors the health of your services.
 
 ### AWS Control Tower
 
+- Easy way to set up and govern a secure and compliant multi-account AWS environment based on best practices.
+- Benefits:
+  - Automate the set up of your environment in a few clicks
+  - Automate ongoing policy management using guardrails
+  - Detect policy violations and remediate them
+  - Monitor compliance through an interactive dashboard
+- AWS Control Tower runs on top of AWS Organizations
+  - Automatically sets up AWS Organizations to organize accounts and implement SCPs.
+
 ## Advanced Identity
 
 ### AWS Security Token Service (STS)
