@@ -2119,3 +2119,34 @@ Global Service that monitors the health of your services.
   - Financial Services
   - Healthcare
   - Public Sector
+
+## Advanced Identity
+
+### AWS Security Token Service (STS)
+
+- Enables you to create temporary, limited privileges credentials to access your AWS resources.
+- Short-term credentials
+  - Configurable expiration period.
+- Use Cases:
+  - Identity federation
+  - IAM Roles for cross/same account access
+  - IAM Roles for Amazon EC2
+
+### Amazon Cognito
+
+- Identity for your Web and Mobile applications users
+- Instead of creating IAM user accounts for these users, we can create a user in Cognito
+
+### Directory Services
+
+- Integrates Microsoft Active Directories into AWS
+
+### AWS IAM Identity Center
+
+- _One login_ for _all_ your AWS accounts in AWS Organizations
+- Identity providers
+  - Built-in identity store in IAM Identity Center
+  - 3rd Party:
+    - Microsoft Active Directory
+    - OneLogin
+    - Okta
