@@ -2732,3 +2732,122 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
   - Select your workload and answer questions
   - Review your answers against the 6 pillars
   - Obtain advice through videos and documentations.
+
+### AWS Cloud Adoption Framework (CAF)
+
+- Not a service, but an e-book.
+- Helps you build and then execute a comprehensive plan for your digital transformation through innovative use of AWS.
+- Created by AWS Professionals by taking advantage of AWS Best Practices and lessons learned from 1000s of customers
+- Identifies specific organizational capabilities that underpin successful cloud transformations
+- Groups its capabilities in 6 perspectives:
+  1. Business
+      - Business Perspective helps ensure that your cloud investments accelerate your digital transformation ambitions and business outcomes
+  2. People
+      - Serves as a bridge between technology and business, accelerating the cloud journey to help organizations more rapidly evolve to a culture of continuous growth and learning.
+  3. Governance
+      - Helps you orchestrate your cloud initiatives while maximizing organizational benefits and minimizing transformation-related risks.
+  4. Platform
+      - Helps you build an enterprise-grade, scalable, hybrid cloud platform
+  5. Security
+      - Helps you achieve the confidentiality, integrity, and availability of your data and cloud workloads
+  6. Operations
+      - Helps ensure that your cloud services are delivered at a level that meets the needs of your business.
+- Transformation Domains:
+  1. Technology
+      - Using the cloud to migrate and modernize legacy infrastructure, applications, data and analytics platforms.
+  2. Process
+      - Digitizing, automating and optimizing your business operations
+  3. Organization
+      - Re-imagining your operating model
+  4. Product
+      - Re-imagining your business model by creating new value propositions and revenue models
+
+### AWS Right Sizing
+
+- EC2 has many instance types, but choosing the most powerful instance type is not the best choice, because the cloud is elastic
+- Right-sizing is the process of matching instance types and sizes to your workload performance and capacity requirements at the lowest possible cost
+- Scaling up is easy so always start small
+- Process of looking at deployed instances and identifying opportunities to eliminate or downsize without compromising capacity or other requirements
+  - Results in lower costs
+- It is important to do Right Sizing
+  - Before a Cloud Migration
+  - Continuously after the cloud onboarding process
+    - Requirements change over time, so we can see if we should size up or down.
+
+### AWS Ecosystem
+
+- Free Resources
+  - AWS Blogs
+  - AWS Forums
+  - AWS Whitepapers & Guides
+  - AWS Knowledge Center
+    - Contains the most frequent & common questions and requests.
+  - AWS Partner Solutions
+    - Automated, gold standard deployments in the AWS Cloud
+    - Build your production environment quickly with templates
+  - AWS Solutions
+    - Vetted Technology Solutions for the AWS Cloud
+    - _Replaced_ by AWS Control Tower
+- AWS Support
+  - g
+- AWS Marketplace
+  - Digital catalog with thousands of software listings from independent software vendors
+  - If you buy through the AWS Marketplace, it goes into your AWS bill
+  - You can sell your own solutions on the AWS Marketplace
+- AWS Training
+  - AWS Digital (Online)
+  - Classroom Training (In-person or virtual)
+  - Training and Certification for the U.S. Government
+  - Training and Certification for the Enterprise
+  - AWS Academy
+    - Helps universities teach AWS
+  - Online Courses
+- Professional Services & Partner Network
+  - The AWS Professional Services organization is a global team of experts
+    - They work alongside your team and a chosen member of the AWS Partner Network (APN)
+  - APN Technology Partners
+    - Provides hardware, connectivity and software
+  - APN Consulting Partners
+    - Professional services firm to helps build on AWS
+  - APN Training Partners
+    - Find who can helps you learn AWS
+  - AWS Competency Program
+    - AWS Competencies are granted to APN Partners who have demonstrated technical proficiency and proven customer success in specialized solution areas.
+  - AWS Navigate Program
+    - Help Partners become better Partners
+
+### AWS IQ
+
+- Quickly find professional help for your AWS projects
+  - Engage and pay AWS Certified 3rd party experts for on-demand project work
+  - Video-conferencing, contract management, secure collaboration, integrated billing
+- Customer Workflow:
+  1. Submit Request - Request your project
+  2. Review Responses - Connect to experts
+  3. Select Expert - Based on rates, experience
+  4. Work Securely - Give experts appropriate access to your AWS account
+  5. Pay per Milestone - Charges added into your AWS Bill
+- Expert Workflow:
+  1. Create Profile
+  2. Connect with Customers
+  3. Start a Proposal - Work description, price, milestones
+  4. Work Securely - Get appropriate access to customer's AWS account
+  5. Get Paid - Request payment after milestones are met
+
+### AWS re:Post
+
+- AWS-managed Q&A service offering crowd-sourced, expert-reviewed answers to your technical questions about AWS
+  - Replaces the original AWS Forums
+  - Part of the AWS Free Tier
+  - Community members can earn reputation points to build up their community expert status by providing accepted answers and reviewing answers from other user
+  - Questions from AWS Premium Support customers that do not receive a response from the community are passed on to AWS Support engineers
+  - Not intended to be used for questions that are time-sensitive or involve any proprietary information
+
+### AWS Managed Services (AMS)
+
+- Fully-managed service that provides infrastructure and application support on AWS
+  - Handles common activities such as change requests, monitoring, patch management, security, and backup services.
+- Offers a team of AWS experts who manage and operate your infrastructure for security, reliability, and availability.
+  - Helps organizations offload routine management tasks and focus on their business objectives
+  - Implements best practices and maintains your AWS infrastructure to reduce your operational overhead and risk
+  - Available at all times.
