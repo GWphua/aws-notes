@@ -2789,7 +2789,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
     - Vetted Technology Solutions for the AWS Cloud
     - _Replaced_ by AWS Control Tower
 - AWS Support
-  - g
+  - Tiered [support plans](#support-plans-for-aws) divided among Developer, Business and Enterprise Levels.
 - AWS Marketplace
   - Digital catalog with thousands of software listings from independent software vendors
   - If you buy through the AWS Marketplace, it goes into your AWS bill
