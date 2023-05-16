@@ -2231,6 +2231,187 @@ Global Service that monitors the health of your services.
 - Use same AZ for maximum savings
   - At the cost of high availability.
 
+#### Savings Plan
+
+- Commit a certain amount per hour for 1 ~ 3 years.
+- Easiest way to set-up long-term commitments on AWS
+- EC2 Savings Plan
+  - Up to 72% discount compared to On-Demand
+  - Commit to usage of individual instance families in a region
+  - Regardless of AZ, Size, OS or Tenancy
+  - Can choose to pay all upfront, partially upfront or no upfront.
+- Compute Savings Plan
+  - Up to 66% discount compared to On-Demand
+  - Regardless of Instance Family, Region, Size, OS, tenancy, Compute Options
+    - Compute Options: EC2, Fargate, Lambda
+- SageMaker Savings Plan
+  - Up to 64% discount compared to On-Demand
+  - Regardless of Instance Family, Size, Component, or AWS region.
+- Set-up from the AWS Cost Explorer console.
+
+### AWS Compute Optimizer
+
+- Reduce costs and improve performance by recommending optimal AWS resources for your workloads.
+- Helps you choose optimal configurations and right-size your workloads.
+- Uses Machine Learning to analyze your resources' configurations and their utilization CloudWatch metrics
+- Recommendations can be exported to S3
+
+### Billing & Costing Tools
+
+#### Estimating Costs in the Cloud - Pricing Calculator
+
+- Estimate the cost for your solution architecture.
+
+#### Tracking Costs in the Cloud - Billing Dashboard
+
+- Shows all the cost associated with the month.
+  - High-level breakdown of all services used for the month.
+- Gives access to free-tier Dashboard
+  - Which shows usage of each free-tier services used for the month.
+
+#### Tracking Costs in the Cloud - Cost Allocation Tags
+
+- Track AWS costs on a _detailed level_
+  - Tags are used for organizing resources.
+  - Tag resources to create detailed reports.
+- AWS-generated tags
+  - Automatically applied to the resource you created
+  - Starts with Prefix _aws_
+- User-defined tags
+  - Defined by the user
+  - Starts with Prefix _user_
+- Manage these tags using the Tag Editor.
+  - Free naming
+  - Tagging and Resource Groups
+    - Tags can be used to create Resource Group
+
+#### Tracking Costs in the Cloud - Cost and Usage Reports
+
+- Dive deeper into AWS costs and usage
+- Contains the _most comprehensive set_ of AWS cost and usage data available on AWS.
+  - Additional metadata about AWS services, pricing and reservations
+  - Lists AWS usage for each service category used by an account and its IAM users in hourly or daily line items, as well as any tags that you have activated for cost allocation purposes.
+- Can be integrated and analyzed with Athena, Redshift or QuickSight
+
+#### Tracking Costs in the Cloud - Cost Explorer
+
+- Visualize, understand, and manage AWS costs and usage over time
+- Create custom reports that analyze cost and usage data.
+  - View total costs and usage across all accounts
+  - View monthly total costs and usage at a resource-level
+  - View hourly total costs and usage at a resource-level
+  - Total costs and usage across all accounts
+- Can access optimal Savings Plan to lower prices on your bill.
+- Forecast usage up to 12 months based on previous usage.
+
+#### Monitoring Against Costs Plans - Billing Alarms
+
+- Billing data are for overall worldwide AWS costs
+- It is for the actual cost, and not for the projected cost.
+- Alarm will notify when the billing data exceeds the specified number.
+
+#### Monitoring Against Costs Plans - Budgets
+
+- Create budget and send alarms when _costs_, or _forecasted cost_ exceeds the budget
+- Up to 5 SNS notifications per budget
+- Four options of Budgets
+  1. Cost Budget
+  2. Usage Budget
+  3. Savings Plan Budget
+  4. Reservation Budget
+- Can add alert thresholds  
+  - Alarms when forecasted cost is greater than the specified threshold.
+
+### AWS Cost Anomaly Detection
+
+- Continuously monitor your cost and usage using Machine Learning to detect unusual spends
+- Learns your unique, historical spend patterns to detect one-time cost spike
+- Monitor AWS services, member accounts, cost allocation tags, or cost categories
+- Sends you the anomaly detection report with root-cause analysis.
+- Get notified with individual alerts, or daily / weekly summary using SNS
+
+### AWS Service Quotas
+
+- Notify you when you are close to a service quota value threshold.
+- Create CloudWatch Alarms on the Service Quotas console.
+  - Get alerted when Lambda concurrent executions are reaching your quota.
+- Request a quota increase from AWS Service Quotas or shutdown resources before limit is reached.
+
+### AWS Trusted Advisor
+
+- Service that runs out of the box
+- Gives a high-level AWS account assessment
+- Analyze your AWS accounts and provides recommendation on 5 categories:
+  1. Cost optimization
+  2. Performance
+  3. Security
+  4. Fault Tolerance
+  5. Service Limits
+- Support Plans
+  - 7 Core Checks on the Basic & Developer Support Plan
+    1. S3 Bucket Permissions
+    2. Security Groups - Specific Ports Unrestricted
+    3. IAM Use (One IAM user minimum)
+    4. MFA on Root Account
+    5. EBS Public Snapshots
+    6. RDS Public Snapshots
+    7. Service Limits
+  - Full Checks for Business & Enterprise Support plan
+    - Full checks available on the 5 categories above
+    - Ability to set CloudWatch alarms when reaching limits
+    - Programmatic Access using AWS Support API
+
+### Support Plans for AWS
+
+#### Basic Support Plan (Free)
+
+- 24/7 Access to customer service, documentation, whitepapers, and support forums
+- AWS Trusted Advisor
+  - Access to the 7 core Trusted Advisor checks and guidance to provision your resources following best practices to increase performance and improve security.
+- AWS Personal Health Dashboard
+  - A personalized view of the health of AWS services, and alerts when your resources are impacted
+
+#### Developer Support Plan
+
+- All Basic Support Plan benefits
+- Business hours email access to Cloud Support Associates
+- Unlimited cases but only 1 primary contact
+- Response time in terms of case severity
+  - General guidance: < 24 business hours in response time
+  - System impairment: < 12 business hours in response time
+
+#### Business Support Plan
+
+- Intended to be used if you have production workloads
+- Trusted Advisor
+  - Full set of checks
+  - API access
+- 24/7 phone, email, and chat access to Cloud Support Engineers
+- Unlimited cases, and unlimited contacts
+- Access to Infrastructure Event Management for additional fees.
+- Response time in terms of case severity
+  - General guidance: < 24 business hours in response time
+  - System impairment: < 12 business hours in response time
+  - Production system impairment: < 4 hours in response time
+  - Production system down: < 1 hour in response time
+
+#### Enterprise On-Ramp Support Plan
+
+- Intended to be used if you have production or business critical workloads
+- All of Business Support Plan benefits
+- Access to a pool of Technical Account Managers (TAM)
+- Concierge Support Team for billing and account best practices
+- Infrastructure Event Management, Well-Architected & Operations Reviews
+- Response time in terms of case severity
+  - Business-critical system down: < 30 minutes in response time
+
+#### Enterprise Support Plan
+
+- Intended to be used if you have mission critical workloads
+- All of Enterprise On-Ramp Support Plan
+- Response time in terms of case severity
+  - Business-critical system down: < 15 minutes in response time
+
 ## Advanced Identity
 
 ### AWS Security Token Service (STS)
