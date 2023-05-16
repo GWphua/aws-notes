@@ -2443,3 +2443,168 @@ Global Service that monitors the health of your services.
     - Microsoft Active Directory
     - OneLogin
     - Okta
+
+## Other AWS Services
+
+### AWS WorkSpaces
+
+- Manages Desktop as a Service solution to easily provision Windows or Linux desktop
+- Great to eliminate management of on-premise Virtual Desktop Infrastructure
+- Fast and quickly scalable to thousands of users
+- Secured data
+  - Integrated with KMS
+  - Pay-as-you-go service with monthly or hourly rates
+- To minimize latency, deploy the workspaces close to our users.
+
+### AWS AppStream 2.0
+
+- Desktop Application Streaming Service
+  - Stream a desktop application to web browser
+  - Works with any device that has a web browser
+- Deliver to any computer without acquiring or provisioning infrastructure
+
+### AWS IoT Core
+
+- Easily connect IoT devices to the AWS Cloud.
+- Serverless, secure and scalable to billions of devices, and trillions of messages
+
+### AWS Elastic Transcoder
+
+- Convert media files stored in S3 into media files in the formats required by consumer playback devices like phones.
+- Benefits:
+  - Easy to use
+  - Highly scalable
+  - Cost effective, duration-based pricing model.
+  - Fully managed & secured, pay-as-you-go.
+
+### AWS AppSync
+
+- _Store and sync data_ across mobile and web applications in real-time.
+- Makes use of GraphQL.
+  - Client Code can be generated automatically
+  - Integrates with DynamoDB / Lambda
+  - Real-time subscriptions for your application
+  - Offline data synchronization
+
+### Amplify
+
+- A set of tools and services that helps you develop and deploy scalable full stack web and mobile applications.
+- Fully managed authentication, Storage, API, CI/CD, Analytics, etc.
+
+### AWS Device Farm
+
+- Fully-managed service that tests your web and mobile applications against desktop browsers, real mobile devices, and tablets.
+- Run tests concurrently on multiple devices
+  - Test on _real_ devices and not _emulators_.
+  - Ability to configure device settings
+
+### AWS Backup
+
+- Fully-managed service to centrally manage and automate backups across AWS services.
+- On-demand and scheduled back-ups
+
+### Disaster Recovery Strategies
+
+- Backup and Restore
+  - Data is backed-up in the cloud
+  - Application is not running
+    - Can only run when we restore the data to wherever we need it
+  - Cheapest Disaster Recovery Strategy.
+- Pilot Light
+  - Run core functions of the application
+  - Ready to scale, but with minimal set-up
+  - Minimal critical functions are set up in the cloud.
+- Warm Standby
+  - Full version of the application ready in the cloud, but at minimum size.
+- Multi-Site / Hot-Site
+  - Full version of the application at full size.
+  - Most expensive Disaster Recovery Strategy.
+
+### AWS Elastic Disaster Recovery (DRS)
+
+- Quickly and easily _recover_ your physical, virtual, and cloud-based servers into AWS
+  - Protect your most critical databases
+  - Protect your data from ransomware attacks
+- Continuous block-level replication for your servers.
+  - Staging done via low-cost EC2 instances & EBS volumes
+  - Failover by using higher-performance EC2 instances & EBS volumes.
+
+### AWS DataSync
+
+- Move large amount of data from on-premises to AWS.
+  - Can synchronize with Amazon S3, Amazon EFS, Amazon FSx for Windows.
+- Replication tasks can be scheduled hourly, daily, and weekly.
+- Replication tasks are incremental after the first load.
+
+### Application Discovery Service
+
+- Plan migration projects by gathering information about on-premises data centers
+  - Server utilization data and dependency mapping
+- Resulting data can be viewed within AWS Migration Hub
+
+#### Agentless Discovery - AWS Agentless Discovery Connector
+
+- VM inventory, configuration and performance history such as CPU, memory, and disk usage
+
+#### Agent-based Discovery - AWS Application Discovery Agent
+
+- System configuration, system performance, running processes, and details of the network connections between systems.
+
+### Application Migration Service (MGN)
+
+- Lift-and-shift _(Re-hosting)_ solution which simplify migrating applications to AWS
+- Converts your physical, virtual, and cloud-based servers to run natively on AWS
+- Supports wide range of platforms, OS and databases
+- Minimum downtime and reduced costs
+  - Automated process, no need to hire engineers
+
+### AWS Fault Injection Simulator (FIS)
+
+- Fully-managed service for running fault injection experiments on AWS workloads
+- Based on Chaos Engineering
+  - Stressing an application by creating disruptive events
+  - Observing how the system responds, and implementing improvements
+- Helps you uncover hidden bugs and performance bottlenecks
+- Supports the following AWS services
+  - EC2
+  - ECS
+  - EKS
+  - RDS
+- Use-prebuilt templates that generate the desired disruptions.
+
+### AWS Step Functions
+
+- Build serverless visual workflow to orchestrate your Lambda functions
+- Features
+  - Sequence, parallel, conditions, timeouts, error-handling
+- Can integrate with EC2, ECS, On-premises servers, API Gateway, SQS queues, etc.
+- Possibility of implementing human approval feature
+- Use Cases:
+  - Order fulfillment
+  - Data processing
+  - Web applications
+
+### AWS Ground Station
+
+- Fully-managed service that lets you control satellite communications, process data, and scale your satellite operations
+- Provides a global network of satellite ground stations near AWS regions
+- Allows you to download satellite data to your AWS VPC within seconds
+- Send satellite data to S3 or EC2 instances.
+- Use Cases:  
+  - Weather forecasting
+  - Surface Imaging
+  - Communications
+  - Video broadcasts
+
+### AWS Pinpoint
+
+- Scalable 2-way marketing communications service
+- Supports email, SMS, push, voice, and in-app messaging
+- Ability to segment and personalize messages with the right content to customers
+- Possibility to receive replies
+  - Scales to billions of messages per day
+- Use Cases:
+  - Run campaigns by sending marketing, bulk, and transactional SMS messages
+- Comparison with SNS or SES
+  - In SNS & SES, you manage each message's audience, content and delivery schedule
+  - In Pinpoint, you create message templates, delivery schedules, highly-targeted segments, and full campaigns.
