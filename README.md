@@ -2608,3 +2608,127 @@ Global Service that monitors the health of your services.
 - Comparison with SNS or SES
   - In SNS & SES, you manage each message's audience, content and delivery schedule
   - In Pinpoint, you create message templates, delivery schedules, highly-targeted segments, and full campaigns.
+
+## Architecture & Ecosystem
+
+### Well-Architected Framework
+
+#### General Guiding Principles
+
+- Stop guessing your capacity needs
+- Test systems at production scale
+- Automate to make architectural experimentation easier
+- Allow for evolutionary architectures
+  - Design based on changing requirements
+- Drive architecture using data
+- Improve through game days
+  - Simulate applications for _flash sale days_
+    - Stressing the system to check if we are doing well
+
+#### AWS Cloud Best Practices
+
+- Scalability
+  - Vertical & Horizontal
+- Disposable Resources
+  - Servers should be disposable and easily configured
+- Automation
+  - Serverless, IaaS, Auto Scaling, etc.
+- Loose Coupling
+  - Changing from large _Monolith_ to smaller, loosely coupled _components_
+  - Change / failure in one component should not cascade to other components
+- Services, not Servers
+  - Use managed services, databases, serverless services, etc.
+
+#### 6 Pillars of the Well Architected Framework
+
+These 6 Pillars are not something to balance, or trade-offs, they are a synergy
+
+1. Operational Excellence
+    - Includes the ability to run and monitor systems to deliver business value and continually improve supporting processes and procedures.
+    - Design Principles
+      - Perform operations as code
+      - Annotate documentation
+      - Make frequent, small, reversible changes
+      - Refine operations procedures frequently
+      - Anticipate failure
+      - Learn from all operational failures
+    - AWS Services
+      - Prepare: AWS CloudFormation, AWS Config
+      - Operate: AWS CloudFormation, AWS Config, AWS CloudTrail, AWS CloudWatch, AWS X-Ray
+      - Evolve: AWS CloudFormation, AWS CodeBuild, AWS CodeCommit, AWS CodeDeploy, AWS CodePipeline
+2. Security
+    - Includes the ability to protect information, systems, and assets, while delivering business value through risk assessments and mitigation strategies.
+    - Design Principles
+      - Implement a strong identity foundation _(IAM)_
+      - Enable traceability
+      - Apply security at all layers
+      - Automate security best practices
+      - Protect data in transit and at rest
+      - Keep people away from data
+      - Prepare for security events
+    - AWS Services
+      - Identity and Access Management: IAM, AWS-STS, MFA token, AWS Organizations
+      - Detective Controls: AWS Config, AWS CloudTrail, Amazon CloudWatch
+      - Infrastructure Protection: Amazon CloudFront, Amazon VPC, AWS Shield, AWS WAF, Amazon Inspector
+      - Data Protection: KMS, S3, ELB, EBS, RDS
+      - Incident Response: IAM, AWS CloudFormation, AWS CloudWatch Events
+3. Reliability
+    - Ability of a system to recover from infrastructure or service disruptions, dynamically acquire computing resources to meet demand, and mitigate disruptions such as misconfigurations or transient network issues.
+    - Design Principles
+      - Test recovery procedures
+      - Automatically recover from failure
+      - Scale horizontally to increase aggregate system availability
+      - Stop guessing capacity
+      - Manage change in automation
+    - AWS Services
+      - Foundations: IAM, Amazon VPC, Service Quotas, AWS Trusted Advisor
+      - Change Management: AWS Auto Scaling, Amazon CloudWatch, AWS CloudTrail, AWS Config
+      - Failure Management: AWS Backups, AWS CloudFormation, Amazon S3, Amazon Route 53
+4. Performance Efficiency
+    - Includes the ability to use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technologies evolve.
+    - Design Principles
+      - Democratize advanced technologies
+      - Go global in minutes
+      - Use serverless architectures
+      - Experiment more often
+      - Mechanical sympathy
+    - AWS Services
+      - Selection: AWS Auto Scaling, AWS Lambda, EBS, S3, Amazon RDS
+      - Review: AWS CloudFormation, AWS News Blog
+      - Monitoring: Amazon CloudWatch, AWS Lambda
+      - Tradeoffs: Amazon RDS, Amazon ElastiCache, AWS Snowball, Amazon CloudFront
+5. Cost Optimization
+    - Includes the ability to run systems to deliver business value at the lowest price point
+    - Design Principles
+      - Adopt a consumption mode
+      - Measure overall efficiency
+      - Stop spending money on data center operations
+      - Analyze and attribute expenditure
+      - Use managed and application level services to reduce cost of ownership
+    - AWS Services
+      - Expenditure Awareness: AWS Budgets, AWS Cost and Usage Report, AWS Cost Explorer, Reserved Instance Reporting
+      - Cost-Effective Resources: Spot Instance, Reserved Instance, Amazon S3 Glacier
+      - Matching supply and demand: AWS Auto Scaling, AWS Lambda
+      - Optimizing Over Time: AWS Trusted Advisor, AWS Cost and Usage Report, AWS News Blog
+6. Sustainability
+    - Focuses on minimizing the environmental impacts of running cloud workloads
+    - Design Principles
+      - Understand your impact
+      - Establish sustainability goals
+      - Maximize utilization
+      - Anticipate and adopt new, more efficient hardware and software offerings
+      - Use managed services
+      - Reduce the downstream impact of your cloud workloads
+    - AWS Services
+      - Serverless Offerings: AWS Lambda, EC2 Auto Scaling, AWS Fargate
+      - Energy-efficiency: AWS Cost Explorer, Spot Instances
+      - Tiering storages: EFS-IA, Amazon S3 Glacier
+      - Data is in the right tier: S3 Intelligent Tiering, Data Lifecycle Manager
+      - Read Local, Write Global: RDS Read Replicas, Aurora, DynamoDB, CloudFront
+
+#### AWS Well-Architected Tool
+
+- Free tool to review your architectures against the 6 pillars of Well-Architected Framework and adopt architectural best practices
+  - Select your workload and answer questions
+  - Review your answers against the 6 pillars
+  - Obtain advice through videos and documentations.
