@@ -151,7 +151,7 @@
 ## Elastic Compute Cloud (EC2)
 
 - One of the most popular of AWS' offering
-- EC2 : Elastic Compute Cloud = IAAS
+  - Infrastructure as a Service (IaaS)
 - Mainly consists in the capability of
   1. Renting virtual machines (EC2)
   2. Storing data on virtual drives (EBS)
