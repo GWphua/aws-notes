@@ -154,9 +154,9 @@
   - Infrastructure as a Service (IaaS)
 - Mainly consists in the capability of
   1. Renting virtual machines (EC2)
-  2. Storing data on virtual drives (EBS)
-  3. Distributing load across machines (ELB)
-  4. Scaling the services using an auto-scaling group (ASG)
+  2. Storing data on virtual drives ([EBS](#elastic-block-store-ebs-volume))
+  3. Distributing load across machines ([ELB](#elastic-load-balancer-elb))
+  4. Scaling the services using an auto-scaling group ([ASG](#auto-scaling-group-asg))
 
 ### EC2 sizing and configuration options
 
@@ -167,7 +167,7 @@
 2. How much compute power and cores (CPU)
 3. How much random-access memory (RAM)
 4. How much storage space:
-   - Network-attached (EBS/EFS)
+   - Network-attached ( [EBS](#elastic-block-store-ebs-volume)/[EFS](#elastic-file-system-efs) )
    - Hardware (EC2 Instance Store)
 5. Network card
    - Speed of the card, Public IP Address
@@ -401,7 +401,7 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 
 ## EC2 Instance Storage
 
-### Elastic Block Store Volume
+### Elastic Block Store (EBS) Volume
 
 - A network drive you can attach to your instances while they run
   - Uses the network to communicate the instance, thus meaning that there might be a bit of latency
@@ -457,7 +457,7 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 - AMI Process
   - Start an EC2 instance and customize it
   - Stop the instance for data integrity
-  - Build an AMI, which will also create EBS snapshots
+  - Build an AMI, which will also create [EBS](#elastic-block-store-ebs-volume) snapshots
   - Launch instances from other AMIs
 
 ### EC2 Image Builder
@@ -475,7 +475,7 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 
 ### EC2 Instance Store
 
-- EC2 Instance Store is a _high-performance hardware disk_ with better I/O performance than EBS volumes
+- EC2 Instance Store is a _high-performance hardware disk_ with better I/O performance than [EBS](#elastic-block-store-ebs-volume) volumes
 - EC2 Instance Store lose their storage if they are stopped ( Ephemeral storage )
   - Risk of data loss if hardware fails
   - Backups and Replications are your responsibility
@@ -1139,7 +1139,7 @@ When we define our objects, we choose its storage class.
   - Business Analytics
   - Business Reporting
   - Analyze and Query [VPC Flow Logs](#vpc-flow-logs)
-  - ELB Logs
+  - [ELB](#elastic-load-balancer-elb) Logs
   - [CloudTrail](#amazon-cloudtrial) trials
 
 ### Amazon Quicksight
@@ -1284,7 +1284,7 @@ When we define our objects, we choose its storage class.
 
 - Virtual servers, storage, databases, and networking
 - Low and predictable pricing
-- Simpler alternative to using [EC2](#elastic-compute-cloud-ec2), RDS, ELB, EBS, Route 53, etc.
+- Simpler alternative to using [EC2](#elastic-compute-cloud-ec2), RDS, [ELB](#elastic-load-balancer-elb), [EBS](#elastic-block-store-ebs-volume), Route 53, etc.
 - Great for people with little cloud experience
 - Can setup notifications and monitoring of your Lightsail resources
 - Has high availability but no auto-scaling, and has limited AWS integrations.
@@ -1614,7 +1614,7 @@ When we define our objects, we choose its storage class.
 - Places AWS compute, storage, database, and other selected AWS services closer to end users to run latency-sensitive applications.
 - Extend your [VPC](#virtual-private-cloud-vpc) to more locations
   - Extension of an AWS Region
-- Compatible with [EC2](#elastic-compute-cloud-ec2), RDS, ECS, EBS, ElastiCache, Direct Connect, etc.
+- Compatible with [EC2](#elastic-compute-cloud-ec2), RDS, ECS, [EBS](#elastic-block-store-ebs-volume), ElastiCache, Direct Connect, etc.
 
 ## Cloud Integration
 
@@ -1676,7 +1676,7 @@ When we define our objects, we choose its storage class.
   - Metrics have timestamps
   - Example metrics:
     1. [EC2](#elastic-compute-cloud-ec2) Instances
-    2. EBS Volumes
+    2. [EBS Volumes](#elastic-block-store-ebs-volume)
     3. [S3 buckets](#amazon-s3-buckets)
     4. Billing
     5. Service Limits
@@ -1958,7 +1958,7 @@ Global Service that monitors the health of your services.
 ### Penetration Testing
 
 - AWS customers are welcome to carry out security assessments or penetration tests against their AWS infrastructure without prior approval for these services:
-  1. Amazon [EC2](#elastic-compute-cloud-ec2) instances, NAT Gateways, ELBs
+  1. Amazon [EC2](#elastic-compute-cloud-ec2) instances, NAT Gateways, [ELBs](#elastic-load-balancer-elb)
   2. Amazon RDS
   3. Amazon CloudFront
   4. Amazon Aurora
@@ -1990,11 +1990,11 @@ Global Service that monitors the health of your services.
 
 - AWS manages the encryption keys for us
 - Encryption Opt-in
-  - EBS Volumes: Encrypt volumes
+  - [EBS Volumes](#elastic-block-store-ebs-volume): Encrypt volumes
   - [S3 buckets](#amazon-s3-buckets): Server-side encryption of objects
   - [Redshift](#redshift) database: Encryption of data
   - RDS database: Encryption of data
-  - EFS drives: Encryption of data
+  - [EFS](#elastic-file-system-efs) drives: Encryption of data
 - Encryption automatically enabled for:
   - [CloudTrail](#amazon-cloudtrial) Logs
   - [S3 Glacier](#s3-glacier-storage-classes)
@@ -2017,7 +2017,7 @@ Global Service that monitors the health of your services.
   - Created, managed and used on the customer’s behalf by AWS
   - Used by AWS services
     - AWS [S3](#amazon-s3)
-    - AWS EBS
+    - AWS [EBS](#elastic-block-store-ebs-volume)
     - AWS [Redshift](#redshift)
 - AWS owned CMK
   - Collection of CMKs that an AWS service owns and manages to use in multiple accounts
@@ -2497,7 +2497,7 @@ Global Service that monitors the health of your services.
     2. Security Groups - Specific Ports Unrestricted
     3. IAM Use (One IAM user minimum)
     4. MFA on Root Account
-    5. EBS Public Snapshots
+    5. [EBS](#elastic-block-store-ebs-volume) Public Snapshots
     6. RDS Public Snapshots
     7. Service Limits
   - Full Checks for Business & Enterprise Support Plan
@@ -2670,13 +2670,13 @@ Global Service that monitors the health of your services.
   - Protect your most critical databases
   - Protect your data from ransomware attacks
 - Continuous block-level replication for your servers.
-  - Staging done via low-cost [EC2](#elastic-compute-cloud-ec2) instances & EBS volumes
+  - Staging done via low-cost [EC2](#elastic-compute-cloud-ec2) instances & [EBS Volumes](#elastic-block-store-ebs-volume)
   - Failover by using higher-performance EC2 instances & EBS volumes.
 
 ### AWS DataSync
 
 - Move large amount of data from on-premises to AWS.
-  - Can synchronize with [S3](#amazon-s3), Amazon EFS, Amazon FSx for Windows.
+  - Can synchronize with [S3](#amazon-s3), [EFS](#elastic-file-system-efs), [Amazon FSx for Windows](#amazon-fsx-for-windows-file-server).
 - Replication tasks can be scheduled hourly, daily, and weekly.
 - Replication tasks are incremental after the first load.
 
@@ -2814,7 +2814,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
      - Identity and Access Management: IAM, AWS-STS, MFA token, AWS Organizations
      - Detective Controls: AWS Config, [CloudTrail](#amazon-cloudtrial), Amazon [CloudWatch](#amazon-cloudwatch)
      - Infrastructure Protection: Amazon CloudFront, [VPC](#virtual-private-cloud-vpc), AWS Shield, AWS WAF, Amazon Inspector
-     - Data Protection: KMS, [S3](#amazon-s3), ELB, EBS, RDS
+     - Data Protection: KMS, [S3](#amazon-s3), [ELB](#elastic-load-balancer-elb), [EBS](#elastic-block-store-ebs-volume), RDS
      - Incident Response: IAM, AWS CloudFormation, AWS CloudWatch Events
 3. Reliability
    - Ability of a system to recover from infrastructure or service disruptions, dynamically acquire computing resources to meet demand, and mitigate disruptions such as misconfigurations or transient network issues.
@@ -2837,7 +2837,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
      - Experiment more often
      - Mechanical sympathy
    - AWS Services
-     - Selection: AWS Auto Scaling, AWS Lambda, EBS, [S3](#amazon-s3), Amazon RDS
+     - Selection: AWS Auto Scaling, AWS Lambda, [EBS](#elastic-block-store-ebs-volume), [S3](#amazon-s3), Amazon RDS
      - Review: AWS CloudFormation, AWS News Blog
      - Monitoring: [CloudWatch](#amazon-cloudwatch), AWS Lambda
      - Tradeoffs: Amazon RDS, Amazon ElastiCache, AWS [Snowball](#snowball-edge), Amazon CloudFront
@@ -2866,7 +2866,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
    - AWS Services
      - Serverless Offerings: AWS Lambda, EC2 Auto Scaling, AWS Fargate
      - Energy-efficiency: AWS Cost Explorer, Spot Instances
-     - Tiering storages: EFS-IA, [S3 Glacier](#s3-glacier-storage-classes)
+     - Tiering storages: [EFS-IA](#efs-infrequent-access-efs-ia), [S3 Glacier](#s3-glacier-storage-classes)
      - Data is in the right tier: [S3 Intelligent Tiering](#s3-intelligent-tiering), Data Lifecycle Manager
      - Read Local, Write Global: RDS Read Replicas, Aurora, DynamoDB, CloudFront
 
