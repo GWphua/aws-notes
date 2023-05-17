@@ -30,28 +30,28 @@
 ### Five Characteristics of Cloud Computing
 
 1. On-demand self service
-    - Users can provision resources and use them without human interaction from the service provider
+   - Users can provision resources and use them without human interaction from the service provider
 2. Broad network access
-    - Resources available over the network, and can be accessed by diverse client platforms
+   - Resources available over the network, and can be accessed by diverse client platforms
 3. Multi-tenancy and resource pooling
-    - Multiple customers can share the same infrastructure and applications with security and privacy
-    - Multiple customers are serviced from the same physical resources
+   - Multiple customers can share the same infrastructure and applications with security and privacy
+   - Multiple customers are serviced from the same physical resources
 4. Rapid elasticity and scalability
-    - Automatically and quickly acquire and dispose resources when needed
-    - Quickly and easily scale based on demand
+   - Automatically and quickly acquire and dispose resources when needed
+   - Quickly and easily scale based on demand
 5. Measured service
-    - Usage is measured, users pay correctly for what they have used.
+   - Usage is measured, users pay correctly for what they have used.
 
 ### Six Advantages of Cloud Computing
 
 1. Trade capital expense for operational expense
-    - Pay On-Demand
-      - No need to own hardware
-    - Reduced Total Cost of Ownership & Operational Expense
+   - Pay On-Demand
+     - No need to own hardware
+   - Reduced Total Cost of Ownership & Operational Expense
 2. Benefit from massive economies of scale
-    - Prices are reduced as AWS is more efficient due to large scale
+   - Prices are reduced as AWS is more efficient due to large scale
 3. Stop guessing capacity
-    - Scale based on actual measured usage
+   - Scale based on actual measured usage
 4. Increase speed and agility
 5. Stop spending money running and maintaining data centers
 6. Go global in minutes
@@ -59,18 +59,17 @@
 ### Problems solved by the Cloud
 
 1. Flexibility
-    - Change resource types when needed
+   - Change resource types when needed
 2. Cost-Effectiveness
-    - Pay as you go, for what you use
-3. Scalability
-    - Accommodate larger loads by making hardware stronger or
-adding additional nodes
+   - Pay as you go, for what you use
+3. Scalability - Accommodate larger loads by making hardware stronger or
+   adding additional nodes
 4. Elasticity
-    - Ability to scale out and scale in when needed
+   - Ability to scale out and scale in when needed
 5. High-availability and fault-tolerance
-    - Build across data centers
+   - Build across data centers
 6. Agility
-    - Rapidly develop, test and launch software applications
+   - Rapidly develop, test and launch software applications
 
 ## Identity and Access Management (IAM)
 
@@ -103,12 +102,12 @@ adding additional nodes
 
 - To access AWS, you have three options:
   1. AWS Management Console
-      - Protected by password + MFA
+     - Protected by password + MFA
   2. AWS Command Line Interface (CLI)
-      - Protected by Access Keys
+     - Protected by Access Keys
   3. AWS Software Developer Kit (SDK)
-      - For accessing and managing AWS services programmatically.
-      - Protected by Access Keys
+     - For accessing and managing AWS services programmatically.
+     - Protected by Access Keys
 
 ### Policies
 
@@ -121,10 +120,10 @@ adding additional nodes
 ### IAM Security Tools
 
 1. IAM Credentials Report (Account-level)
-    - A report that lists all your account's users and the status of their various credentials
+   - A report that lists all your account's users and the status of their various credentials
 2. IAM Access Advisor (User-level)
-    - Shows the service permissions granted to a user and when those services were last accessed
-    - Able to use this information to revise your policies
+   - Shows the service permissions granted to a user and when those services were last accessed
+   - Able to use this information to revise your policies
 
 ### IAM Guidelines & Best Practices
 
@@ -136,18 +135,18 @@ adding additional nodes
 - Create and use Roles for giving permissions to AWS services
 - Use Access Keys for Programmatic Access (CLI / SDK)
 - Audit permissions of your account using IAM Credentials Report & IAM
-Access Advisor
+  Access Advisor
 - Never share IAM users & Access Keys
 
 ### Shared Responsibility Model for IAM
 
-|AWS|User|
-|-|-|
-|Infrastructure|Users, Groups, Roles, Policies management and monitoring|
-|Configuration and Vulnerability Analysis|Enable MFA on all accounts|
-|Compliance Validation|Rotate all your keys often|
-||Use IAM tools to apply appropriate permissions|
-||Analyze access patterns & review permissions|
+| AWS                                      | User                                                     |
+| ---------------------------------------- | -------------------------------------------------------- |
+| Infrastructure                           | Users, Groups, Roles, Policies management and monitoring |
+| Configuration and Vulnerability Analysis | Enable MFA on all accounts                               |
+| Compliance Validation                    | Rotate all your keys often                               |
+|                                          | Use IAM tools to apply appropriate permissions           |
+|                                          | Analyze access patterns & review permissions             |
 
 ## EC2
 
@@ -1775,7 +1774,7 @@ When we define our objects, we choose its storage class.
     - Anomaly detection
   - Supports applications running on AWS or on-premise
   - Minimal overhead on application
-  
+
 ### AWS Health Dashboard
 
 Global Service that monitors the health of your services.
@@ -1796,7 +1795,6 @@ Global Service that monitors the health of your services.
 - Internet Protocol version 4 (IPv4)
   - Private IPv4 is fixed for [EC2](#ec2) instances even if you start/stop them.
   - EC2 instance gets a new public IP address every time you stop then start it.
-
 - Elastic IP
   - Allows you to attach a fixed public IPv4 address to EC2 instance
   - Has ongoing cost if not attached to EC2 instance, or if the EC2 instance is stopped.
@@ -1834,7 +1832,6 @@ Global Service that monitors the health of your services.
   - Are attached at the Subnet level
   - Supports _ALLOW_ and _DENY_ rules.
   - Rules only include IP addresses.
-
 - Security Groups
   - A firewall that controls traffic to and from an EC2 instance.
   - Can have only _ALLOW_ rules.
@@ -1985,11 +1982,11 @@ Global Service that monitors the health of your services.
 - Leverage on Encryption keys to protect two types of data
 
 1. Data at rest
-    - Data stored or archived on a device
-    - Not moving because it is stored somewhere.
+   - Data stored or archived on a device
+   - Not moving because it is stored somewhere.
 2. Data in transit
-    - Data being moved from one location to another
-    - Transfer from on-premises to AWS, [EC2](#ec2) to DynamoDB, etc.
+   - Data being moved from one location to another
+   - Transfer from on-premises to AWS, [EC2](#ec2) to DynamoDB, etc.
 
 ### AWS Key Management Service (KMS)
 
@@ -2336,7 +2333,7 @@ Global Service that monitors the health of your services.
 
 - For users who want a quick self-service portal to launch a set of authorized products pre-defined by admins.
 
-#### Service Catalog diagram  
+#### Service Catalog diagram
 
 - Admin Tasks:
   - Products are CloudFormation templates.
@@ -2351,17 +2348,17 @@ Global Service that monitors the health of your services.
 #### 4 Pricing Models
 
 1. Pay as you go
-    - Pay for what you use, remain agile, responsive, meet scale demands
+   - Pay for what you use, remain agile, responsive, meet scale demands
 2. Save when you reserve
-    - Minimize risks, predictably manage budgets, comply with long-term requirements
-    - Reservations available for:
-      - [EC2](#ec2) Reserved Instances
-      - DynamoDB Reserved Capacity
-      - ElastiCache Reserved Nodes
-      - RDS Reserved Instance
-      - Redshift Reserved Nodes
+   - Minimize risks, predictably manage budgets, comply with long-term requirements
+   - Reservations available for:
+     - [EC2](#ec2) Reserved Instances
+     - DynamoDB Reserved Capacity
+     - ElastiCache Reserved Nodes
+     - RDS Reserved Instance
+     - Redshift Reserved Nodes
 3. Pay less by using more
-    - Volume-based discounts
+   - Volume-based discounts
 4. Pay less as AWS grows
 
 #### Networking Costs in AWS per GB
@@ -2468,7 +2465,7 @@ Global Service that monitors the health of your services.
   2. Usage Budget
   3. Savings Plan Budget
   4. Reservation Budget
-- Can add alert thresholds  
+- Can add alert thresholds
   - Alarms when forecasted cost is greater than the specified threshold.
 
 ### AWS Cost Anomaly Detection
@@ -2739,7 +2736,7 @@ Global Service that monitors the health of your services.
 - Provides a global network of satellite ground stations near AWS regions
 - Allows you to download satellite data to your AWS VPC within seconds
 - Send satellite data to S3 or [EC2](#ec2) instances.
-- Use Cases:  
+- Use Cases:
   - Weather forecasting
   - Surface Imaging
   - Communications
@@ -2793,87 +2790,87 @@ Global Service that monitors the health of your services.
 These 6 Pillars are not something to balance, or trade-offs, they are a synergy
 
 1. Operational Excellence
-    - Includes the ability to run and monitor systems to deliver business value and continually improve supporting processes and procedures.
-    - Design Principles
-      - Perform operations as code
-      - Annotate documentation
-      - Make frequent, small, reversible changes
-      - Refine operations procedures frequently
-      - Anticipate failure
-      - Learn from all operational failures
-    - AWS Services
-      - Prepare: AWS CloudFormation, AWS Config
-      - Operate: AWS CloudFormation, AWS Config, AWS CloudTrail, AWS CloudWatch, AWS X-Ray
-      - Evolve: AWS CloudFormation, AWS CodeBuild, AWS CodeCommit, AWS CodeDeploy, AWS CodePipeline
+   - Includes the ability to run and monitor systems to deliver business value and continually improve supporting processes and procedures.
+   - Design Principles
+     - Perform operations as code
+     - Annotate documentation
+     - Make frequent, small, reversible changes
+     - Refine operations procedures frequently
+     - Anticipate failure
+     - Learn from all operational failures
+   - AWS Services
+     - Prepare: AWS CloudFormation, AWS Config
+     - Operate: AWS CloudFormation, AWS Config, AWS CloudTrail, AWS CloudWatch, AWS X-Ray
+     - Evolve: AWS CloudFormation, AWS CodeBuild, AWS CodeCommit, AWS CodeDeploy, AWS CodePipeline
 2. Security
-    - Includes the ability to protect information, systems, and assets, while delivering business value through risk assessments and mitigation strategies.
-    - Design Principles
-      - Implement a strong identity foundation _(IAM)_
-      - Enable traceability
-      - Apply security at all layers
-      - Automate security best practices
-      - Protect data in transit and at rest
-      - Keep people away from data
-      - Prepare for security events
-    - AWS Services
-      - Identity and Access Management: IAM, AWS-STS, MFA token, AWS Organizations
-      - Detective Controls: AWS Config, AWS CloudTrail, Amazon CloudWatch
-      - Infrastructure Protection: Amazon CloudFront, Amazon VPC, AWS Shield, AWS WAF, Amazon Inspector
-      - Data Protection: KMS, S3, ELB, EBS, RDS
-      - Incident Response: IAM, AWS CloudFormation, AWS CloudWatch Events
+   - Includes the ability to protect information, systems, and assets, while delivering business value through risk assessments and mitigation strategies.
+   - Design Principles
+     - Implement a strong identity foundation _(IAM)_
+     - Enable traceability
+     - Apply security at all layers
+     - Automate security best practices
+     - Protect data in transit and at rest
+     - Keep people away from data
+     - Prepare for security events
+   - AWS Services
+     - Identity and Access Management: IAM, AWS-STS, MFA token, AWS Organizations
+     - Detective Controls: AWS Config, AWS CloudTrail, Amazon CloudWatch
+     - Infrastructure Protection: Amazon CloudFront, Amazon VPC, AWS Shield, AWS WAF, Amazon Inspector
+     - Data Protection: KMS, S3, ELB, EBS, RDS
+     - Incident Response: IAM, AWS CloudFormation, AWS CloudWatch Events
 3. Reliability
-    - Ability of a system to recover from infrastructure or service disruptions, dynamically acquire computing resources to meet demand, and mitigate disruptions such as misconfigurations or transient network issues.
-    - Design Principles
-      - Test recovery procedures
-      - Automatically recover from failure
-      - Scale horizontally to increase aggregate system availability
-      - Stop guessing capacity
-      - Manage change in automation
-    - AWS Services
-      - Foundations: IAM, Amazon VPC, Service Quotas, AWS Trusted Advisor
-      - Change Management: AWS Auto Scaling, Amazon CloudWatch, AWS CloudTrail, AWS Config
-      - Failure Management: AWS Backups, AWS CloudFormation, Amazon S3, Amazon Route 53
+   - Ability of a system to recover from infrastructure or service disruptions, dynamically acquire computing resources to meet demand, and mitigate disruptions such as misconfigurations or transient network issues.
+   - Design Principles
+     - Test recovery procedures
+     - Automatically recover from failure
+     - Scale horizontally to increase aggregate system availability
+     - Stop guessing capacity
+     - Manage change in automation
+   - AWS Services
+     - Foundations: IAM, Amazon VPC, Service Quotas, AWS Trusted Advisor
+     - Change Management: AWS Auto Scaling, Amazon CloudWatch, AWS CloudTrail, AWS Config
+     - Failure Management: AWS Backups, AWS CloudFormation, Amazon S3, Amazon Route 53
 4. Performance Efficiency
-    - Includes the ability to use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technologies evolve.
-    - Design Principles
-      - Democratize advanced technologies
-      - Go global in minutes
-      - Use serverless architectures
-      - Experiment more often
-      - Mechanical sympathy
-    - AWS Services
-      - Selection: AWS Auto Scaling, AWS Lambda, EBS, S3, Amazon RDS
-      - Review: AWS CloudFormation, AWS News Blog
-      - Monitoring: Amazon CloudWatch, AWS Lambda
-      - Tradeoffs: Amazon RDS, Amazon ElastiCache, AWS Snowball, Amazon CloudFront
+   - Includes the ability to use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technologies evolve.
+   - Design Principles
+     - Democratize advanced technologies
+     - Go global in minutes
+     - Use serverless architectures
+     - Experiment more often
+     - Mechanical sympathy
+   - AWS Services
+     - Selection: AWS Auto Scaling, AWS Lambda, EBS, S3, Amazon RDS
+     - Review: AWS CloudFormation, AWS News Blog
+     - Monitoring: Amazon CloudWatch, AWS Lambda
+     - Tradeoffs: Amazon RDS, Amazon ElastiCache, AWS Snowball, Amazon CloudFront
 5. Cost Optimization
-    - Includes the ability to run systems to deliver business value at the lowest price point
-    - Design Principles
-      - Adopt a consumption mode
-      - Measure overall efficiency
-      - Stop spending money on data center operations
-      - Analyze and attribute expenditure
-      - Use managed and application level services to reduce cost of ownership
-    - AWS Services
-      - Expenditure Awareness: AWS Budgets, AWS Cost and Usage Report, AWS Cost Explorer, Reserved Instance Reporting
-      - Cost-Effective Resources: Spot Instance, Reserved Instance, Amazon S3 Glacier
-      - Matching supply and demand: AWS Auto Scaling, AWS Lambda
-      - Optimizing Over Time: AWS Trusted Advisor, AWS Cost and Usage Report, AWS News Blog
+   - Includes the ability to run systems to deliver business value at the lowest price point
+   - Design Principles
+     - Adopt a consumption mode
+     - Measure overall efficiency
+     - Stop spending money on data center operations
+     - Analyze and attribute expenditure
+     - Use managed and application level services to reduce cost of ownership
+   - AWS Services
+     - Expenditure Awareness: AWS Budgets, AWS Cost and Usage Report, AWS Cost Explorer, Reserved Instance Reporting
+     - Cost-Effective Resources: Spot Instance, Reserved Instance, Amazon S3 Glacier
+     - Matching supply and demand: AWS Auto Scaling, AWS Lambda
+     - Optimizing Over Time: AWS Trusted Advisor, AWS Cost and Usage Report, AWS News Blog
 6. Sustainability
-    - Focuses on minimizing the environmental impacts of running cloud workloads
-    - Design Principles
-      - Understand your impact
-      - Establish sustainability goals
-      - Maximize utilization
-      - Anticipate and adopt new, more efficient hardware and software offerings
-      - Use managed services
-      - Reduce the downstream impact of your cloud workloads
-    - AWS Services
-      - Serverless Offerings: AWS Lambda, EC2 Auto Scaling, AWS Fargate
-      - Energy-efficiency: AWS Cost Explorer, Spot Instances
-      - Tiering storages: EFS-IA, Amazon S3 Glacier
-      - Data is in the right tier: S3 Intelligent Tiering, Data Lifecycle Manager
-      - Read Local, Write Global: RDS Read Replicas, Aurora, DynamoDB, CloudFront
+   - Focuses on minimizing the environmental impacts of running cloud workloads
+   - Design Principles
+     - Understand your impact
+     - Establish sustainability goals
+     - Maximize utilization
+     - Anticipate and adopt new, more efficient hardware and software offerings
+     - Use managed services
+     - Reduce the downstream impact of your cloud workloads
+   - AWS Services
+     - Serverless Offerings: AWS Lambda, EC2 Auto Scaling, AWS Fargate
+     - Energy-efficiency: AWS Cost Explorer, Spot Instances
+     - Tiering storages: EFS-IA, Amazon S3 Glacier
+     - Data is in the right tier: S3 Intelligent Tiering, Data Lifecycle Manager
+     - Read Local, Write Global: RDS Read Replicas, Aurora, DynamoDB, CloudFront
 
 #### AWS Well-Architected Tool
 
@@ -2890,26 +2887,26 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
 - Identifies specific organizational capabilities that underpin successful cloud transformations
 - Groups its capabilities in 6 perspectives:
   1. Business
-      - Business Perspective helps ensure that your cloud investments accelerate your digital transformation ambitions and business outcomes
+     - Business Perspective helps ensure that your cloud investments accelerate your digital transformation ambitions and business outcomes
   2. People
-      - Serves as a bridge between technology and business, accelerating the cloud journey to help organizations more rapidly evolve to a culture of continuous growth and learning.
+     - Serves as a bridge between technology and business, accelerating the cloud journey to help organizations more rapidly evolve to a culture of continuous growth and learning.
   3. Governance
-      - Helps you orchestrate your cloud initiatives while maximizing organizational benefits and minimizing transformation-related risks.
+     - Helps you orchestrate your cloud initiatives while maximizing organizational benefits and minimizing transformation-related risks.
   4. Platform
-      - Helps you build an enterprise-grade, scalable, hybrid cloud platform
+     - Helps you build an enterprise-grade, scalable, hybrid cloud platform
   5. Security
-      - Helps you achieve the confidentiality, integrity, and availability of your data and cloud workloads
+     - Helps you achieve the confidentiality, integrity, and availability of your data and cloud workloads
   6. Operations
-      - Helps ensure that your cloud services are delivered at a level that meets the needs of your business.
+     - Helps ensure that your cloud services are delivered at a level that meets the needs of your business.
 - Transformation Domains:
   1. Technology
-      - Using the cloud to migrate and modernize legacy infrastructure, applications, data and analytics platforms.
+     - Using the cloud to migrate and modernize legacy infrastructure, applications, data and analytics platforms.
   2. Process
-      - Digitizing, automating and optimizing your business operations
+     - Digitizing, automating and optimizing your business operations
   3. Organization
-      - Re-imagining your operating model
+     - Re-imagining your operating model
   4. Product
-      - Re-imagining your business model by creating new value propositions and revenue models
+     - Re-imagining your business model by creating new value propositions and revenue models
 
 ### AWS Right Sizing
 
