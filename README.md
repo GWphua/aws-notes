@@ -615,7 +615,7 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 - Manual Scaling - Update the size of an ASG manually
 - Dynamic Scaling - Respond to changing demand
   1. Simple / Step Scaling
-     - When a CloudWatch alarm is triggered, then add 2 units / remove 1 unit.
+     - When [CloudWatch Alarm](#amazon-cloudwatch-alarms) is triggered, then add 2 units / remove 1 unit.
   2. Target Tracking Scaling
      - Set the average ASG CPU to stay at around a target value.
   3. Scheduled Scaling
@@ -1140,13 +1140,13 @@ When we define our objects, we choose its storage class.
   - Business Reporting
   - Analyze and Query [VPC Flow Logs](#vpc-flow-logs)
   - ELB Logs
-  - CloudTrail trails
+  - [CloudTrail](#amazon-cloudtrial) trials
 
 ### Amazon Quicksight
 
 - Serverless machine learning-powered business intelligence service to create interactive dashboards
 - Fast, automatically scalable, embed-able, with per-session pricing
-- Integrated with other services such as RDS, Aurora, [Athena](#amazon-athena), [Redshift](#redshift), S3
+- Integrated with other services such as RDS, Aurora, [Athena](#amazon-athena), [Redshift](#redshift), [S3](#amazon-s3)
 - Use Cases:
   - Business Analytics
   - Building visualizations
@@ -1249,7 +1249,7 @@ When we define our objects, we choose its storage class.
 - Scaling is automated
 - Integrated with the whole AWS suite of services
 - Event-Driven: Functions get invoked by AWS when needed
-- Easy monitoring through AWS CloudWatch
+- Easy monitoring through [CloudWatch](#amazon-cloudwatch)
 - Easy to get more resources per function
   - Up to 10GB of RAM
   - Increasing RAM will also improve CPU and network
@@ -1366,7 +1366,7 @@ When we define our objects, we choose its storage class.
 
 #### Elastic Beanstalk - Health Monitoring
 
-- Health agent pushes metrics to CloudWatch
+- Health agent pushes metrics to [CloudWatch](#amazon-cloudwatch)
   - Checks for application health, publishes health events
 
 ### AWS CodeDeploy
@@ -1461,7 +1461,7 @@ When we define our objects, we choose its storage class.
     - Very secure
     - User can access through the Session Manager service, and execute commands on it.
   - Supports Linux, macOS, and Windows.
-- Sends session log data to [S3](#amazon-s3) or CloudWatch Logs.
+- Sends session log data to [S3](#amazon-s3) or [CloudWatch Logs](#amazon-cloudwatch-logs).
 
 ### AWS OpsWorks
 
@@ -1714,7 +1714,7 @@ When we define our objects, we choose its storage class.
 
 ### Amazon EventBridge
 
-- Formerly CloudWatch Events
+- Formerly _CloudWatch Events_
 - React to events in AWS, or trigger a rule on a schedule
   - Schedule CRON jobs
   - Event rules to react to a service doing something
@@ -1730,20 +1730,17 @@ When we define our objects, we choose its storage class.
 
 ### Amazon CloudTrial
 
-- Provides governance, compliance, and audit for your AWS Account
-- Enabled by default
-- Get an history of events / API calls made within your AWS Account through
+- Provides governance, compliance, and audit for your AWS Account.
+- _Enabled_ by default.
+- Get an history of events / API calls made within your AWS Account through:
   1. Console
   2. SDK
   3. CLI
   4. AWS Services
-- Can put logs from CloudTrial into CloudWatch Logs or [S3](#amazon-s3).
-- A trail can be applied to All Regions or a single Region
-- If a resource is deleted in AWS, investigate the CloudTrail first
-
-#### CloudTrail Insights
-
-- Provides automated analysis of your CloudTrail Events
+- Can put logs from CloudTrial into [CloudWatch Logs](#amazon-cloudwatch-logs) or [S3](#amazon-s3).
+- CloudTrail Insights provides automated analysis of your CloudTrail Events.
+- A trail can be applied to All Regions or a single Region.
+- If a resource is deleted in AWS, investigate the CloudTrail first.
 
 ### AWS X-Ray
 
@@ -1850,7 +1847,7 @@ Global Service that monitors the health of your services.
   - ElastiCache
   - RDS
   - Aurora
-- VPC Flow Logs data can go to [S3](#amazon-s3), CloudWatch Logs, and [Kinesis](#amazon-kinesis) Data Firehose
+- VPC Flow Logs data can go to [S3](#amazon-s3), [CloudWatch Logs](#amazon-cloudwatch-logs), and [Kinesis](#amazon-kinesis) Data Firehose
 
 ### VPC Peering
 
@@ -1999,9 +1996,9 @@ Global Service that monitors the health of your services.
   - RDS database: Encryption of data
   - EFS drives: Encryption of data
 - Encryption automatically enabled for:
-  - CloudTrail Logs
+  - [CloudTrail](#amazon-cloudtrial) Logs
   - [S3 Glacier](#s3-glacier-storage-classes)
-  - Storage Gateway
+  - [Storage Gateway](#aws-storage-gateway)
 
 ### CloudHSM
 
@@ -2071,7 +2068,7 @@ Global Service that monitors the health of your services.
   - Performs anomaly detection on 3rd party data to detect threats.
   - Input data for Amazon Guard Duty:
     1. [VPC Flow Logs](#vpc-flow-logs)
-    2. CloudTrail Logs
+    2. [CloudTrail](#amazon-cloudtrial) Logs
     3. AWS DNS Logs
     4. EKS Audit Logs
 - Can setup EventBridge rules to be notified in case of findings.
@@ -2103,7 +2100,7 @@ Global Service that monitors the health of your services.
   - Can be aggregated across regions and accounts.
 - Helps with auditing and recording compliance of your AWS resources.
   - View compliance of a resource over time
-  - View CloudTrail API calls if enabled.
+  - View [CloudTrail](#amazon-cloudtrial) API calls if enabled.
   - Apply configuration rules on the AWS resources in the account.
 - Helps record configurations and changes over time.
   - View configuration of a resource over time
@@ -2131,7 +2128,7 @@ Global Service that monitors the health of your services.
 - [GuardDuty](#aws-guardduty), Macie and Security Hub are used to identify potential security issues or findings.
 - Detective analyzes, investigates, and quickly identify the _root cause_ of security issues or suspicious activities
   - Using ML and graphs
-  - Automatically collects and processes events from [VPC Flow Logs](#vpc-flow-logs), CloudTrail, GuardDuty, and create a unified view.
+  - Automatically collects and processes events from [VPC Flow Logs](#vpc-flow-logs), [CloudTrail](#amazon-cloudtrial), GuardDuty, and create a unified view.
   - Produces visualizations with details and context to get to the root cause.
 
 ### AWS Abuse
@@ -2293,8 +2290,8 @@ Global Service that monitors the health of your services.
 - Create Accounts _per department, cost center, dev / test / prod_ based on _regulatory restrictions_, for _better resource isolation_ to have _separate per-account service limits_.
 - Creates isolated account for logging.
   - Use tagging standards for billing purposes.
-  - Enable CloudTrail on all accounts, send logs to central [S3](#amazon-s3) account.
-  - Send CloudWatch Logs to central logging account.
+  - Enable [CloudTrail](#amazon-cloudtrial) on all accounts, send logs to central [S3](#amazon-s3) account.
+  - Send [CloudWatch Logs](#amazon-cloudwatch-logs) to central logging account.
 
 #### Service Control Policies (SCP)
 
@@ -2400,7 +2397,7 @@ Global Service that monitors the health of your services.
 
 - Reduce costs and improve performance by recommending optimal AWS resources for your workloads.
 - Helps you choose optimal configurations and right-size your workloads.
-- Uses Machine Learning to analyze your resources' configurations and their utilization CloudWatch metrics.
+- Uses Machine Learning to analyze your resources' configurations and their utilization [CloudWatch Metrics](#amazon-cloudwatch-metrics).
 - Recommendations can be exported to [S3](#amazon-s3).
 
 ### Billing & Costing Tools
@@ -2480,7 +2477,7 @@ Global Service that monitors the health of your services.
 ### AWS Service Quotas
 
 - Notify you when you are close to a service quota value threshold.
-- Create CloudWatch Alarms on the Service Quotas console.
+- Create [CloudWatch Alarms](#amazon-cloudwatch-alarms) on the Service Quotas console.
   - Get alerted when Lambda concurrent executions are reaching your quota.
 - Request a quota increase from AWS Service Quotas or shutdown resources before limit is reached.
 
@@ -2505,7 +2502,7 @@ Global Service that monitors the health of your services.
     7. Service Limits
   - Full Checks for Business & Enterprise Support plan
     - Full checks available on the 5 categories above
-    - Ability to set CloudWatch alarms when reaching limits
+    - Ability to set [CloudWatch Alarms](#amazon-cloudwatch-alarms) when reaching limits
     - Programmatic Access using AWS Support API
 
 ### Support Plans for AWS
@@ -2801,7 +2798,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
      - Learn from all operational failures
    - AWS Services
      - Prepare: AWS CloudFormation, AWS Config
-     - Operate: AWS CloudFormation, AWS Config, AWS CloudTrail, AWS CloudWatch, AWS X-Ray
+     - Operate: AWS CloudFormation, AWS Config, [CloudTrail](#amazon-cloudtrial), [CloudWatch](#amazon-cloudwatch), [AWS X-Ray](#aws-x-ray)
      - Evolve: AWS CloudFormation, AWS CodeBuild, AWS CodeCommit, AWS CodeDeploy, AWS CodePipeline
 2. Security
    - Includes the ability to protect information, systems, and assets, while delivering business value through risk assessments and mitigation strategies.
@@ -2815,7 +2812,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
      - Prepare for security events
    - AWS Services
      - Identity and Access Management: IAM, AWS-STS, MFA token, AWS Organizations
-     - Detective Controls: AWS Config, AWS CloudTrail, Amazon CloudWatch
+     - Detective Controls: AWS Config, [CloudTrail](#amazon-cloudtrial), Amazon [CloudWatch](#amazon-cloudwatch)
      - Infrastructure Protection: Amazon CloudFront, [VPC](#virtual-private-cloud-vpc), AWS Shield, AWS WAF, Amazon Inspector
      - Data Protection: KMS, [S3](#amazon-s3), ELB, EBS, RDS
      - Incident Response: IAM, AWS CloudFormation, AWS CloudWatch Events
@@ -2829,7 +2826,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
      - Manage change in automation
    - AWS Services
      - Foundations: IAM, [VPC](#virtual-private-cloud-vpc), Service Quotas, AWS Trusted Advisor
-     - Change Management: AWS Auto Scaling, Amazon CloudWatch, AWS CloudTrail, AWS Config
+     - Change Management: AWS Auto Scaling, [CloudWatch](#amazon-cloudwatch), [CloudTrail](#amazon-cloudtrial), AWS Config
      - Failure Management: AWS Backups, AWS CloudFormation, [S3](#amazon-s3), Amazon Route 53
 4. Performance Efficiency
    - Includes the ability to use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technologies evolve.
@@ -2842,8 +2839,8 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
    - AWS Services
      - Selection: AWS Auto Scaling, AWS Lambda, EBS, [S3](#amazon-s3), Amazon RDS
      - Review: AWS CloudFormation, AWS News Blog
-     - Monitoring: Amazon CloudWatch, AWS Lambda
-     - Tradeoffs: Amazon RDS, Amazon ElastiCache, AWS Snowball, Amazon CloudFront
+     - Monitoring: [CloudWatch](#amazon-cloudwatch), AWS Lambda
+     - Tradeoffs: Amazon RDS, Amazon ElastiCache, AWS [Snowball](#snowball-edge), Amazon CloudFront
 5. Cost Optimization
    - Includes the ability to run systems to deliver business value at the lowest price point
    - Design Principles
