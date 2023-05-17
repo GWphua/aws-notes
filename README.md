@@ -1,4 +1,6 @@
-# AWS
+# AWS Certified Cloud Practitioner Notes
+
+## Cloud Computing
 
 ## EC2
 
