@@ -1628,8 +1628,8 @@ When we define our objects, we choose its storage class.
      - Application to queue to application
 - Synchronous between applications can be problematic if there are sudden spikes of traffic
   - Better to decouple your applications using:
-    1. SQS: Queue model
-    2. SNS: Publisher / Subscriber model
+    1. [SQS](#amazon-simple-queue-service-sqs): Queue model
+    2. [SNS](#amazon-sns): Publisher / Subscriber model
     3. Kinesis: Real-time data streaming model
   - These services can scale independently from our application
 
@@ -1662,7 +1662,7 @@ When we define our objects, we choose its storage class.
 - Amazon MQ is a managed message broker service for:
   - RabbitMQ
   - ActiveMQ
-- Does not scale as much as SQS / SNS
+- Does not scale as much as [SQS](#amazon-simple-queue-service-sqs) / [SNS](#amazon-sns)
 - Amazon MQ runs on servers, can run in Multi-AZ with failover
 - Amazon MQ has both queue feature (SQS) and topic features (SNS)
 
@@ -1692,7 +1692,7 @@ When we define our objects, we choose its storage class.
     - Increase / Decrease [EC2](#elastic-compute-cloud-ec2) instances' "desired" count
   - EC2 Actions
     - Stop, terminate, reboot or recover an EC2 Instance
-  - SNS Notifications
+  - [SNS](#amazon-sns) Notifications
     - Send a notification into an SNS topic
 - Can choose the period on which to evaluate an alarm
 - Alarm States:
@@ -1718,7 +1718,7 @@ When we define our objects, we choose its storage class.
 - React to events in AWS, or trigger a rule on a schedule
   - Schedule CRON jobs
   - Event rules to react to a service doing something
-  - Trigger Lambda functions, send SQS/SNS messages
+  - Trigger Lambda functions, send [SQS](#amazon-simple-queue-service-sqs)/[SNS](#amazon-sns) messages
 - Event Buses
   - Default Event Bus: Events happening from within AWS Services.
   - Partner Event Bus: Events happening from partners of AWS.
@@ -2075,7 +2075,7 @@ Global Service that monitors the health of your services.
     3. AWS DNS Logs
     4. EKS Audit Logs
 - Can setup EventBridge rules to be notified in case of findings.
-  - EventBridge rules can target AWS Lambda or SNS.
+  - EventBridge rules can target AWS Lambda or [SNS](#amazon-sns).
 - Can protect against CryptoCurrency attacks.
 - One click to enable, with no need to install the software.
 
@@ -2095,7 +2095,7 @@ Global Service that monitors the health of your services.
 - A risk score is associated with all vulnerabilities for prioritization.
 - Can report its findings into the AWS Security Hub.
 - Sends findings to Amazon EventBridge.
-  - Can use AWS Lambda or SNS for automation.
+  - Can use AWS Lambda or [SNS](#amazon-sns) for automation.
 
 ### AWS Config
 
@@ -2108,7 +2108,7 @@ Global Service that monitors the health of your services.
 - Helps record configurations and changes over time.
   - View configuration of a resource over time
 - Possibility of storing the configuration data into S3
-- Receive alerts on SNS notifications for any changes done to the infrastructure.
+- Receive alerts on [SNS](#amazon-sns) notifications for any changes done to the infrastructure.
 
 ### AWS Macie
 
@@ -2460,7 +2460,7 @@ Global Service that monitors the health of your services.
 #### Monitoring Against Costs Plans - Budgets
 
 - Create budget and send alarms when _costs_, or _forecasted cost_ exceeds the budget
-- Up to 5 SNS notifications per budget
+- Up to 5 [SNS](#amazon-sns) notifications per budget
 - Four options of Budgets
   1. Cost Budget
   2. Usage Budget
@@ -2475,7 +2475,7 @@ Global Service that monitors the health of your services.
 - Learns your unique, historical spend patterns to detect one-time cost spike
 - Monitor AWS services, member accounts, cost allocation tags, or cost categories
 - Sends you the anomaly detection report with root-cause analysis.
-- Get notified with individual alerts, or daily / weekly summary using SNS
+- Get notified with individual alerts, or daily / weekly summary using [SNS](#amazon-sns)
 
 ### AWS Service Quotas
 
@@ -2724,7 +2724,7 @@ Global Service that monitors the health of your services.
 - Build serverless visual workflow to orchestrate your Lambda functions
 - Features
   - Sequence, parallel, conditions, timeouts, error-handling
-- Can integrate with [EC2](#elastic-compute-cloud-ec2), ECS, On-premises servers, API Gateway, SQS queues, etc.
+- Can integrate with [EC2](#elastic-compute-cloud-ec2), ECS, On-premises servers, API Gateway, [SQS](#amazon-simple-queue-service-sqs) queues, etc.
 - Possibility of implementing human approval feature
 - Use Cases:
   - Order fulfillment
@@ -2752,7 +2752,7 @@ Global Service that monitors the health of your services.
   - Scales to billions of messages per day
 - Use Cases:
   - Run campaigns by sending marketing, bulk, and transactional SMS messages
-- Comparison with SNS or SES
+- Comparison with [SNS](#amazon-sns) or SES
   - In SNS & SES, you manage each message's audience, content and delivery schedule
   - In Pinpoint, you create message templates, delivery schedules, highly-targeted segments, and full campaigns.
 
