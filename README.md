@@ -452,7 +452,7 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 
   - Public AMI: Provided by AWS
   - Your own AMI: You make and maintain them yourself.
-  - AWS Marketplace AMI: An AMI someone else made, and potentially sells
+  - [AWS Marketplace](#aws-marketplace) AMI: An AMI someone else made, and potentially sells
 
 - AMI Process
   - Start an EC2 instance and customize it
@@ -1812,7 +1812,7 @@ Global Service that monitors the health of your services.
 
 - Allow you to partition your network inside your VPC
 - AZ-specific resource
-- A public subnet is a subnet that is accessible from the internet.
+- A Public subnet is a subnet that is accessible from the internet.
 - A Private subnet is a subnet that is not accessible from the internet.
 - To define access to the internet and between subnets, we use Route Tables.
 
@@ -2147,16 +2147,16 @@ Global Service that monitors the health of your services.
 - Root user has complete access to _all_ AWS services and resources.
   - Lock away your AWS account root user access keys.
 - Do not use the root account for everyday tasks, even administrative tasks.
-- Only the _root user_ can
-  - Change account settings
-  - View certain tax invoices
-  - Close your AWS account
-  - Restore IAM user permissions
-  - Change or cancel your AWS Support plan
-  - Register as a seller in the Reserved Instance Marketplace
-  - Configure an Amazon [S3 bucket](#amazon-s3-buckets) to enable MFA
-  - Edit or delete an Amazon S3 bucket policy that includes an invalid [VPC](#virtual-private-cloud-vpc) ID or VPC endpoint ID
-  - Sign up for GovCloud
+- Only the _root user_ can:
+  - Change account settings.
+  - View certain tax invoices.
+  - Close your AWS account.
+  - Restore IAM user permissions.
+  - Change or cancel your AWS [Support Plans](#support-plans-for-aws).
+  - Register as a seller in the Reserved Instance [Marketplace](#aws-marketplace).
+  - Configure an Amazon [S3 bucket](#amazon-s3-buckets) to enable MFA.
+  - Edit or delete an Amazon S3 bucket policy that includes an invalid [VPC](#virtual-private-cloud-vpc) ID or VPC endpoint ID.
+  - Sign up for GovCloud.
 
 ### IAM Access Analyzer
 
@@ -2491,7 +2491,7 @@ Global Service that monitors the health of your services.
   3. Security
   4. Fault Tolerance
   5. Service Limits
-- Support Plans
+- [Support Plans](#support-plans-for-aws)
   - 7 Core Checks on the Basic & Developer Support Plan
     1. [S3 Bucket Permissions](#s3-bucket-policies)
     2. Security Groups - Specific Ports Unrestricted
@@ -2500,7 +2500,7 @@ Global Service that monitors the health of your services.
     5. EBS Public Snapshots
     6. RDS Public Snapshots
     7. Service Limits
-  - Full Checks for Business & Enterprise Support plan
+  - Full Checks for Business & Enterprise Support Plan
     - Full checks available on the 5 categories above
     - Ability to set [CloudWatch Alarms](#amazon-cloudwatch-alarms) when reaching limits
     - Programmatic Access using AWS Support API
@@ -2949,7 +2949,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
 - AWS Academy
   - Helps universities teach AWS
 - Online Courses
-- Tiered [support plans](#support-plans-for-aws) divided among Developer, Business and Enterprise Levels.
+- Tiered [Support Plans](#support-plans-for-aws) divided among Developer, Business and Enterprise Levels.
 
 #### Professional Services & Partner Network
 
