@@ -855,7 +855,7 @@ When we define our objects, we choose its storage class.
   2. Install the client / AWS OpsHub on your server.
   3. Connect the snowball to your servers and copy files using the client
   4. Ship the device back to AWS when you are done.
-  5. Data will be loaded into an S3 bucket
+  5. Data will be loaded into an [S3 bucket](#amazon-s3-buckets)
   6. Snow device is completely wiped
 
 #### Snowball Edge
@@ -1127,7 +1127,7 @@ When we define our objects, we choose its storage class.
 
 ### Amazon Athena
 
-- Serverless query service to analyze data stored in Amazon S3
+- Serverless query service to analyze data stored in [S3](#amazon-s3)
 - Built on the Presto engine
 - Use standard SQL language to query the files
 - Supports CSV, JSON, ORC, Avro, Parquet
@@ -1146,7 +1146,7 @@ When we define our objects, we choose its storage class.
 
 - Serverless machine learning-powered business intelligence service to create interactive dashboards
 - Fast, automatically scalable, embed-able, with per-session pricing
-- Integrated with other services such as RDS, Aurora, Athena, Redshift, S3
+- Integrated with other services such as RDS, Aurora, [Athena](#amazon-athena), [Redshift](#redshift), S3
 - Use Cases:
   - Business Analytics
   - Building visualizations
@@ -1187,7 +1187,7 @@ When we define our objects, we choose its storage class.
   - Only need to worry about actual data transformation
 - Glue Data Catalog
   - Catalog of datasets
-  - Can be used by Athena, Redshift, EMR
+  - Can be used by [Athena](#amazon-athena), [Redshift](#redshift), EMR
 
 ### Database Migration Service (DMS)
 
@@ -1232,7 +1232,7 @@ When we define our objects, we choose its storage class.
   - Serverless offering
   - AWS just runs containers for you based on the CPU / RAM you need
 
-### Elastic Container Registry
+### Elastic Container Registry (ECR)
 
 - Private Docker Registry on AWS
 - This is where you store your Docker images
@@ -1461,7 +1461,7 @@ When we define our objects, we choose its storage class.
     - Very secure
     - User can access through the Session Manager service, and execute commands on it.
   - Supports Linux, macOS, and Windows.
-- Sends session log data to S3 or CloudWatch Logs.
+- Sends session log data to [S3](#amazon-s3) or CloudWatch Logs.
 
 ### AWS OpsWorks
 
@@ -1470,7 +1470,7 @@ When we define our objects, we choose its storage class.
   - If you want to re-use your Chef & Puppet template.
 - Automation platform that allows you to use code to automate the configurations of your server
   - Work great with [EC2](#elastic-compute-cloud-ec2) and On-Premises VM
-  - Alternative to AWS SSM
+  - Alternative to [SSM](#aws-systems-manager-ssm)
   - Only provision standard AWS resources
 
 ## Leveraging the AWS Global Infrastructure
@@ -1528,7 +1528,7 @@ When we define our objects, we choose its storage class.
 
 #### CloudFront - Origins
 
-- S3 bucket
+- [S3](#amazon-s3) bucket
   - For distributing files and caching them at the edge locations
   - Enhanced security with CloudFront Origin Access Control (OAC)
   - CloudFront can be used as an ingress to upload files to S3
@@ -1555,8 +1555,8 @@ When we define our objects, we choose its storage class.
 
 ### S3 Transfer Acceleration
 
-- Accelerate global uploads and downloads into Amazon S3
-  - Transfer file to an AWS edge location, which will forward the data to the S3 bucket in the target region
+- Accelerate global uploads and downloads into [S3](#amazon-s3)
+  - Transfer file to an AWS edge location, which will forward the data to the [S3 bucket](#amazon-s3-buckets) in the target region
 
 ### AWS Global Accelerator
 
@@ -1630,7 +1630,7 @@ When we define our objects, we choose its storage class.
   - Better to decouple your applications using:
     1. [SQS](#amazon-simple-queue-service-sqs): Queue model
     2. [SNS](#amazon-sns): Publisher / Subscriber model
-    3. Kinesis: Real-time data streaming model
+    3. [Kinesis](#amazon-kinesis): Real-time data streaming model
   - These services can scale independently from our application
 
 ### Amazon Simple Queue Service (SQS)
@@ -1659,7 +1659,7 @@ When we define our objects, we choose its storage class.
 
 ### Amazon MQ
 
-- Amazon MQ is a managed message broker service for:
+- Amazon MQ is a managed _message broker service_ for:
   - RabbitMQ
   - ActiveMQ
 - Does not scale as much as [SQS](#amazon-simple-queue-service-sqs) / [SNS](#amazon-sns)
@@ -1677,7 +1677,7 @@ When we define our objects, we choose its storage class.
   - Example metrics:
     1. [EC2](#elastic-compute-cloud-ec2) Instances
     2. EBS Volumes
-    3. S3 Buckets
+    3. [S3 buckets](#amazon-s3-buckets)
     4. Billing
     5. Service Limits
     6. Custom Metrics
@@ -1737,7 +1737,7 @@ When we define our objects, we choose its storage class.
   2. SDK
   3. CLI
   4. AWS Services
-- Can put logs from CloudTrial into CloudWatch Logs or S3.
+- Can put logs from CloudTrial into CloudWatch Logs or [S3](#amazon-s3).
 - A trail can be applied to All Regions or a single Region
 - If a resource is deleted in AWS, investigate the CloudTrail first
 
@@ -1825,9 +1825,9 @@ Global Service that monitors the health of your services.
 - Public subnets have a route to the internet gateway.
 - NAT Gateways (AWS-managed) & NAT Instances allow your instances in your Private subnets to access the internet while remaining private.
 
-### Security Groups and Network Access Control List (NACL)
+### Security Groups and Network Access Control List
 
-- NACL
+- Network Access Control List (NACL)
   - First line of defense for [EC2](#elastic-compute-cloud-ec2) instance.
   - Firewall which controls traffic to and from the subnet.
   - Are attached at the Subnet level
@@ -1850,7 +1850,7 @@ Global Service that monitors the health of your services.
   - ElastiCache
   - RDS
   - Aurora
-- VPC Flow logs data can go to S3, CloudWatch Logs, and Kinesis Data Firehose
+- VPC Flow logs data can go to [S3](#amazon-s3), CloudWatch Logs, and [Kinesis](#amazon-kinesis) Data Firehose
 
 ### VPC Peering
 
@@ -1865,7 +1865,7 @@ Global Service that monitors the health of your services.
 
 - Endpoints allow you to connect to AWS Services using a private network in of the public `www` network
 - This gives you enhanced security and lower latency to access AWS services
-- VPC Endpoint Gateway: S3 & DynamoDB
+- VPC Endpoint Gateway: [S3](#amazon-s3) & DynamoDB
 - VPC Endpoint Interface: Other AWS services
 
 #### AWS PrivateLink
@@ -1994,13 +1994,13 @@ Global Service that monitors the health of your services.
 - AWS manages the encryption keys for us
 - Encryption Opt-in
   - EBS Volumes: Encrypt volumes
-  - S3 buckets: Server-side encryption of objects
-  - Redshift database: Encryption of data
+  - [S3 buckets](#amazon-s3-buckets): Server-side encryption of objects
+  - [Redshift](#redshift) database: Encryption of data
   - RDS database: Encryption of data
   - EFS drives: Encryption of data
 - Encryption automatically enabled for:
   - CloudTrail Logs
-  - S3 Glacier
+  - [S3 Glacier](#s3-glacier-storage-classes)
   - Storage Gateway
 
 ### CloudHSM
@@ -2019,9 +2019,9 @@ Global Service that monitors the health of your services.
 - AWS managed CMK
   - Created, managed and used on the customer’s behalf by AWS
   - Used by AWS services
-    - AWS S3
+    - AWS [S3](#amazon-s3)
     - AWS EBS
-    - AWS Redshift
+    - AWS [Redshift](#redshift)
 - AWS owned CMK
   - Collection of CMKs that an AWS service owns and manages to use in multiple accounts
   - AWS can use those to protect resources in your account
@@ -2083,10 +2083,10 @@ Global Service that monitors the health of your services.
 
 - Automated Security Assessments only on:
   - [EC2](#elastic-compute-cloud-ec2) instances
-    - Leveraging the AWS SSM agent
+    - Leveraging the [SSM](#aws-systems-manager-ssm) agent
     - Analyze against unintended network accessibility.
     - Analyze the running OS against known vulnerabilities.
-  - Container Image pushes to Amazon ECR
+  - Container Image pushes to [ECR](#elastic-container-registry-ecr)
     - Assessment of Container Images as they are pushed.
   - Lambda Functions
     - Identifies software vulnerabilities in function code and package dependencies.
@@ -2107,7 +2107,7 @@ Global Service that monitors the health of your services.
   - Apply configuration rules on the AWS resources in the account.
 - Helps record configurations and changes over time.
   - View configuration of a resource over time
-- Possibility of storing the configuration data into S3
+- Possibility of storing the configuration data into [S3](#amazon-s3)
 - Receive alerts on [SNS](#amazon-sns) notifications for any changes done to the infrastructure.
 
 ### AWS Macie
@@ -2115,7 +2115,7 @@ Global Service that monitors the health of your services.
 - Fully managed data security and data privacy service
   - Uses ML and pattern matching to discover and protect your sensitive data in AWS
   - Helps identify and alert you to sensitive data, such as personally identifiable information (PII).
-- Macie will discover sensitive data in your S3 bucket, and notify you via Amazon EventBridge.
+- Macie will discover sensitive data in your [S3 bucket](#amazon-s3-buckets), and notify you via Amazon EventBridge.
 
 ### AWS Security Hub
 
@@ -2128,7 +2128,7 @@ Global Service that monitors the health of your services.
 
 ### Amazon Detective
 
-- GuardDuty, Macie and Security Hub are used to identify potential security issues or findings.
+- [GuardDuty](#aws-guardduty), Macie and Security Hub are used to identify potential security issues or findings.
 - Detective analyzes, investigates, and quickly identify the _root cause_ of security issues or suspicious activities
   - Using ML and graphs
   - Automatically collects and processes events from VPC Flow Logs, CloudTrail, GuardDuty, and create a unified view.
@@ -2157,7 +2157,7 @@ Global Service that monitors the health of your services.
   - Restore IAM user permissions
   - Change or cancel your AWS Support plan
   - Register as a seller in the Reserved Instance Marketplace
-  - Configure an Amazon S3 bucket to enable MFA
+  - Configure an Amazon [S3 bucket](#amazon-s3-buckets) to enable MFA
   - Edit or delete an Amazon S3 bucket policy that includes an invalid VPC ID or VPC endpoint ID
   - Sign up for GovCloud
 
@@ -2240,7 +2240,7 @@ Global Service that monitors the health of your services.
 ### Amazon Forecast
 
 - Fully managed service that uses Machine Learning to deliver highly accurate forecasts
-- Can use data stored in Amazon S3 to train the model.
+- Can use data stored in [S3](#amazon-s3) to train the model.
 - Use Cases:
   - Product Demand Planning
   - Financial Planning
@@ -2283,51 +2283,51 @@ Global Service that monitors the health of your services.
   - Consolidated Billing across all accounts
     - Single payment method
   - Pricing benefits from aggregated usage
-    - Volume discount for [EC2](#elastic-compute-cloud-ec2), S3, etc.
+    - Volume discount for [EC2](#elastic-compute-cloud-ec2), [S3](#amazon-s3), etc.
   - Pooling of Reserved EC2 instances for optimal savings.
 - API is available to automate AWS account creation
-- Restrict account privileges using Service Control Policies (SCP)
+- Restrict account privileges using [Service Control Policies](#service-control-policies-scp).
 
 #### Multi Account Strategies
 
-- Create Accounts _per department, cost center, dev / test / prod_ based on _regulatory restrictions_, for _better resource isolation_ to have _separate per-account service limits_
+- Create Accounts _per department, cost center, dev / test / prod_ based on _regulatory restrictions_, for _better resource isolation_ to have _separate per-account service limits_.
 - Creates isolated account for logging.
-  - Use tagging standards for billing purposes
-  - Enable CloudTrail on all accounts, send logs to central S3 account
-  - Send CloudWatch Logs to central logging account
+  - Use tagging standards for billing purposes.
+  - Enable CloudTrail on all accounts, send logs to central [S3](#amazon-s3) account.
+  - Send CloudWatch Logs to central logging account.
 
 #### Service Control Policies (SCP)
 
-- Whitelist or blacklist IAM actions
-- Applied at the _Organization Unit (OU)_ or _Account_ level
-- Does not apply to the Master Account
+- Whitelist or blacklist IAM actions.
+- Applied at the _Organization Unit (OU)_ or _Account_ level.
+- Does not apply to the Master Account.
   - All SCP applied to the Master Account is not applied.
 - SCP is applied to all the _Users and Roles_ of the Account, including Root.
-- SCP does not affect service-linked roles
+- SCP does not affect service-linked roles.
 - Service-linked roles enable other AWS services to integrate with AWS Organizations and cannot be restricted by SCPs.
-- SCOP must have an explicit Allow
+- SCOP must have an explicit Allow.
 - Use Cases:
-  - Restrict access to certain services
-  - Enforce PCI compliance by explicitly disabling services
+  - Restrict access to certain services.
+  - Enforce PCI compliance by explicitly disabling services.
 
 #### Consolidated Billing
 
 - Can be enabled / disabled.
 - Combined Usage
-  - Combine the usage across all AWS accounts in the AWS Organization to share the volume pricing, Reserved Instances and Savings Plans discounts
+  - Combine the usage across all AWS accounts in the AWS Organization to share the volume pricing, Reserved Instances and Savings Plans discounts.
 - One Bill
-  - Get one bill for all AWS Accounts in the AWS Organization
+  - Get one bill for all AWS Accounts in the AWS Organization.
 - Management account can turn off Reserved Instances discount sharing for any account in the AWS Organization, including itself.
 
 ### AWS Control Tower
 
 - Easy way to set up and govern a secure and compliant multi-account AWS environment based on best practices.
 - Benefits:
-  - Automate the set up of your environment in a few clicks
-  - Automate ongoing policy management using guardrails
-  - Detect policy violations and remediate them
-  - Monitor compliance through an interactive dashboard
-- AWS Control Tower runs on top of AWS Organizations
+  - Automate the set up of your environment in a few clicks.
+  - Automate ongoing policy management using guardrails.
+  - Detect policy violations and remediate them.
+  - Monitor compliance through an interactive dashboard.
+- AWS Control Tower runs on top of AWS Organizations.
   - Automatically sets up AWS Organizations to organize accounts and implement SCPs.
 
 ### AWS Service Catalog
@@ -2341,7 +2341,7 @@ Global Service that monitors the health of your services.
   - Portfolios are a collection of products.
   - Admin control IAM permissions to access portfolios
 - User Tasks:
-  - Have a quick list of all products usable because of the permissions
+  - Have a quick list of all products usable because of the permissions.
   - Get provisioned products via the CloudFormation templates.
 
 ### Pricing Models of the Cloud
@@ -2349,17 +2349,17 @@ Global Service that monitors the health of your services.
 #### 4 Pricing Models
 
 1. Pay as you go
-   - Pay for what you use, remain agile, responsive, meet scale demands
+   - Pay for what you use, remain agile, responsive, meet scale demands.
 2. Save when you reserve
-   - Minimize risks, predictably manage budgets, comply with long-term requirements
+   - Minimize risks, predictably manage budgets, comply with long-term requirements.
    - Reservations available for:
      - [EC2](#elastic-compute-cloud-ec2) Reserved Instances
      - DynamoDB Reserved Capacity
      - ElastiCache Reserved Nodes
      - RDS Reserved Instance
-     - Redshift Reserved Nodes
+     - [Redshift](#redshift) Reserved Nodes
 3. Pay less by using more
-   - Volume-based discounts
+   - Volume-based discounts.
 4. Pay less as AWS grows
 
 #### Networking Costs in AWS per GB
@@ -2381,18 +2381,18 @@ Global Service that monitors the health of your services.
 #### Savings Plan
 
 - Commit a certain amount per hour for 1 ~ 3 years.
-- Easiest way to set-up long-term commitments on AWS
+- Easiest way to set-up long-term commitments on AWS.
 - EC2 Savings Plan
-  - Up to 72% discount compared to On-Demand
-  - Commit to usage of individual instance families in a region
-  - Regardless of AZ, Size, OS or Tenancy
+  - Up to 72% discount compared to On-Demand.
+  - Commit to usage of individual instance families in a region.
+  - Regardless of AZ, Size, OS or Tenancy.
   - Can choose to pay all upfront, partially upfront or no upfront.
 - Compute Savings Plan
-  - Up to 66% discount compared to On-Demand
-  - Regardless of Instance Family, Region, Size, OS, tenancy, Compute Options
-    - Compute Options: [EC2](#elastic-compute-cloud-ec2), Fargate, Lambda
+  - Up to 66% discount compared to On-Demand.
+  - Regardless of Instance Family, Region, Size, OS, tenancy, Compute Options.
+    - Compute Options: [EC2](#elastic-compute-cloud-ec2), Fargate, Lambda.
 - SageMaker Savings Plan
-  - Up to 64% discount compared to On-Demand
+  - Up to 64% discount compared to On-Demand.
   - Regardless of Instance Family, Size, Component, or AWS region.
 - Set-up from the AWS Cost Explorer console.
 
@@ -2400,8 +2400,8 @@ Global Service that monitors the health of your services.
 
 - Reduce costs and improve performance by recommending optimal AWS resources for your workloads.
 - Helps you choose optimal configurations and right-size your workloads.
-- Uses Machine Learning to analyze your resources' configurations and their utilization CloudWatch metrics
-- Recommendations can be exported to S3
+- Uses Machine Learning to analyze your resources' configurations and their utilization CloudWatch metrics.
+- Recommendations can be exported to [S3](#amazon-s3).
 
 ### Billing & Costing Tools
 
@@ -2413,32 +2413,32 @@ Global Service that monitors the health of your services.
 
 - Shows all the cost associated with the month.
   - High-level breakdown of all services used for the month.
-- Gives access to free-tier Dashboard
-  - Which shows usage of each free-tier services used for the month.
+- Gives access to free-tier Dashboard.
+  - Shows usage of each free-tier services used for the month.
 
 #### Tracking Costs in the Cloud - Cost Allocation Tags
 
-- Track AWS costs on a _detailed level_
+- Track AWS costs on a _detailed level_.
   - Tags are used for organizing resources.
   - Tag resources to create detailed reports.
-- AWS-generated tags
-  - Automatically applied to the resource you created
-  - Starts with Prefix _aws_
-- User-defined tags
-  - Defined by the user
-  - Starts with Prefix _user_
+- AWS-generated tags.
+  - Automatically applied to the resource you created.
+  - Starts with Prefix _aws_.
+- User-defined tags.
+  - Defined by the user.
+  - Starts with Prefix _user_.
 - Manage these tags using the Tag Editor.
-  - Free naming
-  - Tagging and Resource Groups
-    - Tags can be used to create Resource Group
+  - Free naming.
+  - Tagging and Resource Groups.
+    - Tags can be used to create Resource Group.
 
 #### Tracking Costs in the Cloud - Cost and Usage Reports
 
-- Dive deeper into AWS costs and usage
+- Dive deeper into AWS costs and usage.
 - Contains the _most comprehensive set_ of AWS cost and usage data available on AWS.
-  - Additional metadata about AWS services, pricing and reservations
+  - Additional metadata about AWS services, pricing and reservations.
   - Lists AWS usage for each service category used by an account and its IAM users in hourly or daily line items, as well as any tags that you have activated for cost allocation purposes.
-- Can be integrated and analyzed with Athena, Redshift or QuickSight
+- Can be integrated and analyzed with [Athena](#amazon-athena), [Redshift](#redshift) or QuickSight.
 
 #### Tracking Costs in the Cloud - Cost Explorer
 
@@ -2496,7 +2496,7 @@ Global Service that monitors the health of your services.
   5. Service Limits
 - Support Plans
   - 7 Core Checks on the Basic & Developer Support Plan
-    1. S3 Bucket Permissions
+    1. [S3 Bucket Permissions](#s3-bucket-policies)
     2. Security Groups - Specific Ports Unrestricted
     3. IAM Use (One IAM user minimum)
     4. MFA on Root Account
@@ -2617,7 +2617,7 @@ Global Service that monitors the health of your services.
 
 ### AWS Elastic Transcoder
 
-- Convert media files stored in S3 into media files in the formats required by consumer playback devices like phones.
+- Convert media files stored in [S3](#amazon-s3) into media files in the formats required by consumer playback devices like phones.
 - Benefits:
   - Easy to use
   - Highly scalable
@@ -2679,7 +2679,7 @@ Global Service that monitors the health of your services.
 ### AWS DataSync
 
 - Move large amount of data from on-premises to AWS.
-  - Can synchronize with Amazon S3, Amazon EFS, Amazon FSx for Windows.
+  - Can synchronize with [S3](#amazon-s3), Amazon EFS, Amazon FSx for Windows.
 - Replication tasks can be scheduled hourly, daily, and weekly.
 - Replication tasks are incremental after the first load.
 
@@ -2736,7 +2736,7 @@ Global Service that monitors the health of your services.
 - Fully-managed service that lets you control satellite communications, process data, and scale your satellite operations
 - Provides a global network of satellite ground stations near AWS regions
 - Allows you to download satellite data to your AWS VPC within seconds
-- Send satellite data to S3 or [EC2](#elastic-compute-cloud-ec2) instances.
+- Send satellite data to [S3](#amazon-s3) or [EC2](#elastic-compute-cloud-ec2) instances.
 - Use Cases:
   - Weather forecasting
   - Surface Imaging
@@ -2817,7 +2817,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
      - Identity and Access Management: IAM, AWS-STS, MFA token, AWS Organizations
      - Detective Controls: AWS Config, AWS CloudTrail, Amazon CloudWatch
      - Infrastructure Protection: Amazon CloudFront, Amazon VPC, AWS Shield, AWS WAF, Amazon Inspector
-     - Data Protection: KMS, S3, ELB, EBS, RDS
+     - Data Protection: KMS, [S3](#amazon-s3), ELB, EBS, RDS
      - Incident Response: IAM, AWS CloudFormation, AWS CloudWatch Events
 3. Reliability
    - Ability of a system to recover from infrastructure or service disruptions, dynamically acquire computing resources to meet demand, and mitigate disruptions such as misconfigurations or transient network issues.
@@ -2830,7 +2830,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
    - AWS Services
      - Foundations: IAM, Amazon VPC, Service Quotas, AWS Trusted Advisor
      - Change Management: AWS Auto Scaling, Amazon CloudWatch, AWS CloudTrail, AWS Config
-     - Failure Management: AWS Backups, AWS CloudFormation, Amazon S3, Amazon Route 53
+     - Failure Management: AWS Backups, AWS CloudFormation, [S3](#amazon-s3), Amazon Route 53
 4. Performance Efficiency
    - Includes the ability to use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technologies evolve.
    - Design Principles
@@ -2840,7 +2840,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
      - Experiment more often
      - Mechanical sympathy
    - AWS Services
-     - Selection: AWS Auto Scaling, AWS Lambda, EBS, S3, Amazon RDS
+     - Selection: AWS Auto Scaling, AWS Lambda, EBS, [S3](#amazon-s3), Amazon RDS
      - Review: AWS CloudFormation, AWS News Blog
      - Monitoring: Amazon CloudWatch, AWS Lambda
      - Tradeoffs: Amazon RDS, Amazon ElastiCache, AWS Snowball, Amazon CloudFront
@@ -2854,7 +2854,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
      - Use managed and application level services to reduce cost of ownership
    - AWS Services
      - Expenditure Awareness: AWS Budgets, AWS Cost and Usage Report, AWS Cost Explorer, Reserved Instance Reporting
-     - Cost-Effective Resources: Spot Instance, Reserved Instance, Amazon S3 Glacier
+     - Cost-Effective Resources: Spot Instance, Reserved Instance, [S3 Glacier](#s3-glacier-storage-classes)
      - Matching supply and demand: AWS Auto Scaling, AWS Lambda
      - Optimizing Over Time: AWS Trusted Advisor, AWS Cost and Usage Report, AWS News Blog
 6. Sustainability
@@ -2869,8 +2869,8 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
    - AWS Services
      - Serverless Offerings: AWS Lambda, EC2 Auto Scaling, AWS Fargate
      - Energy-efficiency: AWS Cost Explorer, Spot Instances
-     - Tiering storages: EFS-IA, Amazon S3 Glacier
-     - Data is in the right tier: S3 Intelligent Tiering, Data Lifecycle Manager
+     - Tiering storages: EFS-IA, [S3 Glacier](#s3-glacier-storage-classes)
+     - Data is in the right tier: [S3 Intelligent Tiering](#s3-intelligent-tiering), Data Lifecycle Manager
      - Read Local, Write Global: RDS Read Replicas, Aurora, DynamoDB, CloudFront
 
 #### AWS Well-Architected Tool
