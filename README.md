@@ -148,7 +148,7 @@
 |                                          | Use IAM tools to apply appropriate permissions           |
 |                                          | Analyze access patterns & review permissions             |
 
-## EC2
+## Elastic Compute Cloud (EC2)
 
 - One of the most popular of AWS' offering
 - EC2 : Elastic Compute Cloud = IAAS
@@ -552,7 +552,7 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 - Horizontal Scalability
   - Increasing the number of instances / systems for your application
   - Very common for distributed systems, such as web applications
-  - Easy to scale horizontally thanks to the cloud offerings such as Amazon [EC2](#ec2)
+  - Easy to scale horizontally thanks to the cloud offerings such as Amazon [EC2](#elastic-compute-cloud-ec2)
 
 #### Elasticity
 
@@ -568,7 +568,7 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 
 #### Load Balancer
 
-- Servers that forward internet traffic to multiple services ( [EC2](#ec2) Instances ) downstream
+- Servers that forward internet traffic to multiple services ( [EC2](#elastic-compute-cloud-ec2) Instances ) downstream
 - Spread load across multiple downstream instances
 - Expose a single point of access ( DNS ) to your application
 - Seamlessly handle failures of downstream instances
@@ -593,7 +593,7 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
     - Static IP through Elastic IP
   - Gateway Load Balancer _(Layer 3)_
     - GENEVE Protocol on IP Packets
-    - Use Case: Route Traffic to Firewalls that you manage on [EC2](#ec2) Instances
+    - Use Case: Route Traffic to Firewalls that you manage on [EC2](#elastic-compute-cloud-ec2) Instances
     - Balances the load of the traffic to the virtual appliances that we run the EC2 Instances so that you can analyze the traffic or perform Firewall operations.
     - Traffic then sent back to the Gateway Load Balancer after analyzing the traffic.
     - The traffic is then forwarded to the Application.
@@ -623,7 +623,7 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
      - Increasing the capacity at certain timings
   4. Predictive Scaling
      - Uses ML to predict future traffic ahead of time.
-     - Automatically provisions the right number of EC2 instances in advance to the predicted period
+     - Automatically provisions the right number of [EC2](#elastic-compute-cloud-ec2) instances in advance to the predicted period
      - Useful when your load has predictable time-based patterns
 
 ## Amazon S3
@@ -912,7 +912,7 @@ When we define our objects, we choose its storage class.
   - Limited to no internet access
   - Limited to no easy access to computing power
 - We can setup a Snowball Edge / Snowcone device to do edge computing
-  - All of these devices can run [EC2](#ec2) Instances & AWS Lambda functions using AWS IoT Greengrass
+  - All of these devices can run [EC2](#elastic-compute-cloud-ec2) Instances & AWS Lambda functions using AWS IoT Greengrass
   - Long-term deployment options are available:
     - Borrow for 1 or 3 years at discounted pricing
 - Use Cases of Edge Computing:
@@ -931,7 +931,7 @@ When we define our objects, we choose its storage class.
     - Storage capacity
     - Active instances on your device
   - Launch compatible AWS services on your devices
-    - Amazon [EC2](#ec2) instances
+    - Amazon [EC2](#elastic-compute-cloud-ec2) instances
     - AWS DataSync
     - Network File system
 
@@ -993,7 +993,7 @@ When we define our objects, we choose its storage class.
 | Monitoring, alerting                               |                     |
 | Automated Backup and Restore, Operations, Upgrades |                     |
 
-- Note that you can run your own database technology on [EC2](#ec2), but you must handle the resiliency, backup, patching, high availability, fault tolerance, scaling, etc.
+- Note that you can run your own database technology on [EC2](#elastic-compute-cloud-ec2), but you must handle the resiliency, backup, patching, high availability, fault tolerance, scaling, etc.
 
 ### AWS Relational Database Service (RDS) Overview
 
@@ -1115,7 +1115,7 @@ When we define our objects, we choose its storage class.
 ### Amazon Elastic MapReduce (EMR)
 
 - EMR helps creating Hadoop clusters to analyze and process vast amount of data
-- Clusters can be made of 100s of [EC2](#ec2) instances
+- Clusters can be made of 100s of [EC2](#elastic-compute-cloud-ec2) instances
 - Supports Apache Spark, HBase, Presto, Flink, etc.
 - EMR takes care of all the provisioning and configuration
 - Auto-scaling and integrated with Spot instances
@@ -1221,14 +1221,14 @@ When we define our objects, we choose its storage class.
 ### Elastic Container Service (ECS)
 
 - Launch Docker containers on AWS
-- Must provision and maintain the infrastructure ([EC2](#ec2) Instances)
+- Must provision and maintain the infrastructure ([EC2](#elastic-compute-cloud-ec2) Instances)
   - AWS takes care of starting / stopping containers
   - Has integrations with the Application Load Balancer
 
 ### Fargate
 
 - Launch Docker containers on AWS
-- Do not need to provision the infrastructure (No [EC2](#ec2) Instances)
+- Do not need to provision the infrastructure (No [EC2](#elastic-compute-cloud-ec2) Instances)
   - Serverless offering
   - AWS just runs containers for you based on the CPU / RAM you need
 
@@ -1277,14 +1277,14 @@ When we define our objects, we choose its storage class.
   - You submit / schedule batch jobs, and AWS Batch does the rest.
 - Batch jobs are defined as docker images and run on ECS
 - Efficiently run 100,000s of computing batch jobs on AWS
-  - Batch will dynamically launch [EC2](#ec2) instances or Spot Instances to run the batch jobs
+  - Batch will dynamically launch [EC2](#elastic-compute-cloud-ec2) instances or Spot Instances to run the batch jobs
   - AWS Batch provisions the right amount of computation and memory
 
 ### Amazon Lightsail
 
 - Virtual servers, storage, databases, and networking
 - Low and predictable pricing
-- Simpler alternative to using [EC2](#ec2), RDS, ELB, EBS, Route 53, etc.
+- Simpler alternative to using [EC2](#elastic-compute-cloud-ec2), RDS, ELB, EBS, Route 53, etc.
 - Great for people with little cloud experience
 - Can setup notifications and monitoring of your Lightsail resources
 - Has high availability but no auto-scaling, and has limited AWS integrations.
@@ -1373,7 +1373,7 @@ When we define our objects, we choose its storage class.
 
 - Deploy applications automatically
   - Hybrid service
-    - Works with [EC2](#ec2) Instances
+    - Works with [EC2](#elastic-compute-cloud-ec2) Instances
     - Works with On-Premises Servers
 - Servers and Instances must be provisioned and configured ahead of time with the CodeDeploy Agent
 
@@ -1431,12 +1431,12 @@ When we define our objects, we choose its storage class.
 ### AWS CodeStar
 
 - Unified user interface to easily manage software development activities in one place
-- Quick way to get started to correctly set-up CodeCommit, CodePipeline, CodeBuild, CodeDeploy, Elastic Beanstalk, [EC2](#ec2), etc.
+- Quick way to get started to correctly set-up CodeCommit, CodePipeline, CodeBuild, CodeDeploy, Elastic Beanstalk, [EC2](#elastic-compute-cloud-ec2), etc.
 - Can edit the code _in-the-cloud_ using AWS Cloud9
 
 ### AWS Systems Manager (SSM)
 
-- Manages [EC2](#ec2) and On-Premises systems at scale
+- Manages [EC2](#elastic-compute-cloud-ec2) and On-Premises systems at scale
   - Hybrid AWS Service
 - Get operational insights about the state of your infrastructure
 - Suite of 10s of products
@@ -1454,7 +1454,7 @@ When we define our objects, we choose its storage class.
 
 #### SSM Session Manager
 
-- Allows you to start a secure shell on your [EC2](#ec2) and on-premises server
+- Allows you to start a secure shell on your [EC2](#elastic-compute-cloud-ec2) and on-premises server
   - Without having ssh access, bastion hosts, or ssh keys.
   - Without requiring _port 22_.
     - EC2 Instance has a SSM Agent, which is connected to the Session Manager service
@@ -1469,7 +1469,7 @@ When we define our objects, we choose its storage class.
 - Only reason why you should use OpsWorks is because you are already using Chef & Puppet before migrating to the cloud.
   - If you want to re-use your Chef & Puppet template.
 - Automation platform that allows you to use code to automate the configurations of your server
-  - Work great with [EC2](#ec2) and On-Premises VM
+  - Work great with [EC2](#elastic-compute-cloud-ec2) and On-Premises VM
   - Alternative to AWS SSM
   - Only provision standard AWS resources
 
@@ -1507,7 +1507,7 @@ When we define our objects, we choose its storage class.
 1. Simple Routing Policy
    - Only routing policy without health checks.
 2. Weighted Routing Policy
-   - Distribute traffic across multiple [EC2](#ec2) instances with a specified weight.
+   - Distribute traffic across multiple [EC2](#elastic-compute-cloud-ec2) instances with a specified weight.
 3. Latency Routing Policy
    - Route users to the EC2 instances that provide the lowest latency.
 4. Failover Routing Policy
@@ -1534,7 +1534,7 @@ When we define our objects, we choose its storage class.
   - CloudFront can be used as an ingress to upload files to S3
 - Custom Origin (HTTP)
   - Application Load Balancer
-  - [EC2](#ec2) Instance
+  - [EC2](#elastic-compute-cloud-ec2) Instance
   - S3 Website
   - Any HTTP backend you want
 
@@ -1614,7 +1614,7 @@ When we define our objects, we choose its storage class.
 - Places AWS compute, storage, database, and other selected AWS services closer to end users to run latency-sensitive applications.
 - Extend your Virtual Private Cloud (VPC) to more locations
   - Extension of an AWS Region
-- Compatible with [EC2](#ec2), RDS, ECS, EBS, ElastiCache, Direct Connect, etc.
+- Compatible with [EC2](#elastic-compute-cloud-ec2), RDS, ECS, EBS, ElastiCache, Direct Connect, etc.
 
 ## Cloud Integration
 
@@ -1675,7 +1675,7 @@ When we define our objects, we choose its storage class.
 - A metric is a variable to monitor
   - Metrics have timestamps
   - Example metrics:
-    1. [EC2](#ec2) Instances
+    1. [EC2](#elastic-compute-cloud-ec2) Instances
     2. EBS Volumes
     3. S3 Buckets
     4. Billing
@@ -1689,7 +1689,7 @@ When we define our objects, we choose its storage class.
 - Alarms are used to trigger notifications for any metric
 - Alarm actions
   - Auto-Scaling
-    - Increase / Decrease [EC2](#ec2) instances' "desired" count
+    - Increase / Decrease [EC2](#elastic-compute-cloud-ec2) instances' "desired" count
   - EC2 Actions
     - Stop, terminate, reboot or recover an EC2 Instance
   - SNS Notifications
@@ -1707,13 +1707,14 @@ When we define our objects, we choose its storage class.
 
 - Enable real-time monitoring of logs
 - Adjustable CloudWatch Logs retention
-- By default, no logs from your [EC2](#ec2) instance will go to CloudWatch
-  - You will need to run a CloudWatch agent on EC2<?> to push the log files you want
+- By default, no logs from your [EC2](#elastic-compute-cloud-ec2) instance will go to CloudWatch
+  - You will need to run a CloudWatch agent on EC2 to push the log files you want
   - Make sure IAM permissions are correct
   - The CloudWatch log agent can be setup on-premises too
 
 ### Amazon EventBridge
 
+- Formerly CloudWatch Events
 - React to events in AWS, or trigger a rule on a schedule
   - Schedule CRON jobs
   - Event rules to react to a service doing something
@@ -1793,7 +1794,7 @@ Global Service that monitors the health of your services.
 ### IP Addresses in AWS
 
 - Internet Protocol version 4 (IPv4)
-  - Private IPv4 is fixed for [EC2](#ec2) instances even if you start/stop them.
+  - Private IPv4 is fixed for [EC2](#elastic-compute-cloud-ec2) instances even if you start/stop them.
   - EC2 instance gets a new public IP address every time you stop then start it.
 - Elastic IP
   - Allows you to attach a fixed public IPv4 address to EC2 instance
@@ -1827,7 +1828,7 @@ Global Service that monitors the health of your services.
 ### Security Groups and Network Access Control List (NACL)
 
 - NACL
-  - First line of defense for [EC2](#ec2) instance.
+  - First line of defense for [EC2](#elastic-compute-cloud-ec2) instance.
   - Firewall which controls traffic to and from the subnet.
   - Are attached at the Subnet level
   - Supports _ALLOW_ and _DENY_ rules.
@@ -1901,7 +1902,7 @@ Global Service that monitors the health of your services.
 ### Client VPN
 
 - Connect from your computer using OpenVPN to your private network in AWS and on-premises.
-- Allow you to connect to your [EC2](#ec2) instances over a private IP
+- Allow you to connect to your [EC2](#elastic-compute-cloud-ec2) instances over a private IP
   - Just as if you were in the private VPC network
 - Goes over public Internet
 
@@ -1960,7 +1961,7 @@ Global Service that monitors the health of your services.
 ### Penetration Testing
 
 - AWS customers are welcome to carry out security assessments or penetration tests against their AWS infrastructure without prior approval for these services:
-  1. Amazon [EC2](#ec2) instances, NAT Gateways, ELBs
+  1. Amazon [EC2](#elastic-compute-cloud-ec2) instances, NAT Gateways, ELBs
   2. Amazon RDS
   3. Amazon CloudFront
   4. Amazon Aurora
@@ -1986,7 +1987,7 @@ Global Service that monitors the health of your services.
    - Not moving because it is stored somewhere.
 2. Data in transit
    - Data being moved from one location to another
-   - Transfer from on-premises to AWS, [EC2](#ec2) to DynamoDB, etc.
+   - Transfer from on-premises to AWS, [EC2](#elastic-compute-cloud-ec2) to DynamoDB, etc.
 
 ### AWS Key Management Service (KMS)
 
@@ -2081,7 +2082,7 @@ Global Service that monitors the health of your services.
 ### AWS Inspector
 
 - Automated Security Assessments only on:
-  - [EC2](#ec2) instances
+  - [EC2](#elastic-compute-cloud-ec2) instances
     - Leveraging the AWS SSM agent
     - Analyze against unintended network accessibility.
     - Analyze the running OS against known vulnerabilities.
@@ -2282,8 +2283,8 @@ Global Service that monitors the health of your services.
   - Consolidated Billing across all accounts
     - Single payment method
   - Pricing benefits from aggregated usage
-    - Volume discount for [EC2](#ec2), S3, etc.
-  - Pooling of Reserved [EC2](#ec2) instances for optimal savings.
+    - Volume discount for [EC2](#elastic-compute-cloud-ec2), S3, etc.
+  - Pooling of Reserved EC2 instances for optimal savings.
 - API is available to automate AWS account creation
 - Restrict account privileges using Service Control Policies (SCP)
 
@@ -2352,7 +2353,7 @@ Global Service that monitors the health of your services.
 2. Save when you reserve
    - Minimize risks, predictably manage budgets, comply with long-term requirements
    - Reservations available for:
-     - [EC2](#ec2) Reserved Instances
+     - [EC2](#elastic-compute-cloud-ec2) Reserved Instances
      - DynamoDB Reserved Capacity
      - ElastiCache Reserved Nodes
      - RDS Reserved Instance
@@ -2389,7 +2390,7 @@ Global Service that monitors the health of your services.
 - Compute Savings Plan
   - Up to 66% discount compared to On-Demand
   - Regardless of Instance Family, Region, Size, OS, tenancy, Compute Options
-    - Compute Options: [EC2](#ec2), Fargate, Lambda
+    - Compute Options: [EC2](#elastic-compute-cloud-ec2), Fargate, Lambda
 - SageMaker Savings Plan
   - Up to 64% discount compared to On-Demand
   - Regardless of Instance Family, Size, Component, or AWS region.
@@ -2568,7 +2569,7 @@ Global Service that monitors the health of your services.
 - Use Cases:
   - Identity federation
   - IAM Roles for cross/same account access
-  - IAM Roles for Amazon [EC2](#ec2)
+  - IAM Roles for Amazon [EC2](#elastic-compute-cloud-ec2)
 
 ### Amazon Cognito
 
@@ -2672,7 +2673,7 @@ Global Service that monitors the health of your services.
   - Protect your most critical databases
   - Protect your data from ransomware attacks
 - Continuous block-level replication for your servers.
-  - Staging done via low-cost [EC2](#ec2) instances & EBS volumes
+  - Staging done via low-cost [EC2](#elastic-compute-cloud-ec2) instances & EBS volumes
   - Failover by using higher-performance EC2 instances & EBS volumes.
 
 ### AWS DataSync
@@ -2712,7 +2713,7 @@ Global Service that monitors the health of your services.
   - Observing how the system responds, and implementing improvements
 - Helps you uncover hidden bugs and performance bottlenecks
 - Supports the following AWS services
-  - [EC2](#ec2)
+  - [EC2](#elastic-compute-cloud-ec2)
   - ECS
   - EKS
   - RDS
@@ -2723,7 +2724,7 @@ Global Service that monitors the health of your services.
 - Build serverless visual workflow to orchestrate your Lambda functions
 - Features
   - Sequence, parallel, conditions, timeouts, error-handling
-- Can integrate with [EC2](#ec2), ECS, On-premises servers, API Gateway, SQS queues, etc.
+- Can integrate with [EC2](#elastic-compute-cloud-ec2), ECS, On-premises servers, API Gateway, SQS queues, etc.
 - Possibility of implementing human approval feature
 - Use Cases:
   - Order fulfillment
@@ -2735,7 +2736,7 @@ Global Service that monitors the health of your services.
 - Fully-managed service that lets you control satellite communications, process data, and scale your satellite operations
 - Provides a global network of satellite ground stations near AWS regions
 - Allows you to download satellite data to your AWS VPC within seconds
-- Send satellite data to S3 or [EC2](#ec2) instances.
+- Send satellite data to S3 or [EC2](#elastic-compute-cloud-ec2) instances.
 - Use Cases:
   - Weather forecasting
   - Surface Imaging
