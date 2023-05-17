@@ -2923,45 +2923,51 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
 
 ### AWS Ecosystem
 
-- Free Resources
-  - AWS Blogs
-  - AWS Forums
-  - AWS Whitepapers & Guides
-  - AWS Knowledge Center
-    - Contains the most frequent & common questions and requests.
-  - AWS Partner Solutions
-    - Automated, gold standard deployments in the AWS Cloud
-    - Build your production environment quickly with templates
-  - AWS Solutions
-    - Vetted Technology Solutions for the AWS Cloud
-    - _Replaced_ by AWS Control Tower
-- AWS Support
-  - Tiered [support plans](#support-plans-for-aws) divided among Developer, Business and Enterprise Levels.
-- AWS Marketplace
-  - Digital catalog with thousands of software listings from independent software vendors
-  - If you buy through the AWS Marketplace, it goes into your AWS bill
-  - You can sell your own solutions on the AWS Marketplace
-- AWS Training
-  - AWS Digital (Online)
-  - Classroom Training (In-person or virtual)
-  - Training and Certification for the U.S. Government
-  - Training and Certification for the Enterprise
-  - AWS Academy
-    - Helps universities teach AWS
-  - Online Courses
-- Professional Services & Partner Network
-  - The AWS Professional Services organization is a global team of experts
-    - They work alongside your team and a chosen member of the AWS Partner Network (APN)
-  - APN Technology Partners
-    - Provides hardware, connectivity and software
-  - APN Consulting Partners
-    - Professional services firm to helps build on AWS
-  - APN Training Partners
-    - Find who can helps you learn AWS
-  - AWS Competency Program
-    - AWS Competencies are granted to APN Partners who have demonstrated technical proficiency and proven customer success in specialized solution areas.
-  - AWS Navigate Program
-    - Help Partners become better Partners
+#### Free Resources
+
+- AWS Blogs
+- AWS Forums
+- AWS Whitepapers & Guides
+- AWS Knowledge Center
+  - Contains the most frequent & common questions and requests.
+- AWS Partner Solutions
+  - Automated, gold standard deployments in the AWS Cloud
+  - Build your production environment quickly with templates
+- AWS Solutions
+  - Vetted Technology Solutions for the AWS Cloud
+  - _Replaced_ by AWS Control Tower
+
+#### AWS Marketplace
+
+- Digital catalog with thousands of software listings from independent software vendors
+- If you buy through the AWS Marketplace, it goes into your AWS bill
+- You can sell your own solutions on the AWS Marketplace
+
+#### AWS Training
+
+- AWS Digital (Online)
+- Classroom Training (In-person or virtual)
+- Training and Certification for the U.S. Government
+- Training and Certification for the Enterprise
+- AWS Academy
+  - Helps universities teach AWS
+- Online Courses
+- Tiered [support plans](#support-plans-for-aws) divided among Developer, Business and Enterprise Levels.
+
+#### Professional Services & Partner Network
+
+- The AWS Professional Services organization is a global team of experts
+  - They work alongside your team and a chosen member of the AWS Partner Network (APN)
+- APN Technology Partners
+  - Provides hardware, connectivity and software
+- APN Consulting Partners
+  - Professional services firm to helps build on AWS
+- APN Training Partners
+  - Find who can helps you learn AWS
+- AWS Competency Program
+  - AWS Competencies are granted to APN Partners who have demonstrated technical proficiency and proven customer success in specialized solution areas.
+- AWS Navigate Program
+  - Help Partners become better Partners
 
 ### AWS IQ
 
