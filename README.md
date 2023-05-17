@@ -2,6 +2,153 @@
 
 ## Cloud Computing
 
+- On-demand delivery of compute power, database storage, applications and other IT resources
+- Through a cloud services platform with _pay-as-you-go pricing_
+- Provision exactly the right type and size of computing resources you need
+- Access as many resources as you need, _almost instantly_
+  - Simple way to access servers, storage, databases, and a set of application services
+
+### Deployment Models of the Cloud
+
+#### Private Cloud
+
+- Cloud services used by a single organization, not exposed to the public.
+- Complete Control
+- Security for sensitive applications
+- Meet specific business needs
+
+#### Public Cloud
+
+- Cloud resources owned and operated by a 3rd-party cloud service provider delivered over the Internet
+
+#### Hybrid Cloud
+
+- Keep some servers on premises and extend some capabilities to the Cloud
+- Control over sensitive assets in your private infrastructure
+- Flexibility and cost-effectiveness of the public cloud
+
+### Five Characteristics of Cloud Computing
+
+1. On-demand self service
+    - Users can provision resources and use them without human interaction from the service provider
+2. Broad network access
+    - Resources available over the network, and can be accessed by diverse client platforms
+3. Multi-tenancy and resource pooling
+    - Multiple customers can share the same infrastructure and applications with security and privacy
+    - Multiple customers are serviced from the same physical resources
+4. Rapid elasticity and scalability
+    - Automatically and quickly acquire and dispose resources when needed
+    - Quickly and easily scale based on demand
+5. Measured service
+    - Usage is measured, users pay correctly for what they have used.
+
+### Six Advantages of Cloud Computing
+
+1. Trade capital expense for operational expense
+    - Pay On-Demand
+      - No need to own hardware
+    - Reduced Total Cost of Ownership & Operational Expense
+2. Benefit from massive economies of scale
+    - Prices are reduced as AWS is more efficient due to large scale
+3. Stop guessing capacity
+    - Scale based on actual measured usage
+4. Increase speed and agility
+5. Stop spending money running and maintaining data centers
+6. Go global in minutes
+
+### Problems solved by the Cloud
+
+1. Flexibility
+    - Change resource types when needed
+2. Cost-Effectiveness
+    - Pay as you go, for what you use
+3. Scalability
+    - Accommodate larger loads by making hardware stronger or
+adding additional nodes
+4. Elasticity
+    - Ability to scale out and scale in when needed
+5. High-availability and fault-tolerance
+    - Build across data centers
+6. Agility
+    - Rapidly develop, test and launch software applications
+
+## Identity and Access Management (IAM)
+
+- Global service
+- Root account created by default, and should not be used or shared
+- Users are people within your organization, and can be grouped
+- Groups only container users, not other groups.
+  - Users do not have to belong to a group.
+  - User can belong to multiple groups.
+
+### Multi Factor Authentication (MFA)
+
+- Users who have access to your account can possibly change configurations or delete resources in your AWS account
+- You want to protect your Root Accounts and IAM users
+  - MFA gives access to users who knows the right password, and who owns the right security device.
+  - If a password is stolen or hacked, the account is not compromised.
+
+#### MFA Devices
+
+- Virtual MFA Device
+  - Support for multiple tokens on a single device
+  - Examples: Google Authenticator on phone
+- Universal 2nd Factor (U2F) Security Key
+  - Support for multiple root and IAM users using a single security key
+  - Examples: YubiKey by Yubico
+- Hardware Key Fob MFA Device
+  - Examples: SurePassID for AWS GovCloud users
+
+### Accessing AWS
+
+- To access AWS, you have three options:
+  1. AWS Management Console
+      - Protected by password + MFA
+  2. AWS Command Line Interface (CLI)
+      - Protected by Access Keys
+  3. AWS Software Developer Kit (SDK)
+      - For accessing and managing AWS services programmatically.
+      - Protected by Access Keys
+
+### Policies
+
+- Users or Groups can be assigned JSON documents called _policies_
+  - These policies define the permissions of the users.
+  - Apply the least privilege principle
+    - Do not give more permissions than a user needs.
+  - We can set up our own custom password policy for all IAM users.
+
+### IAM Security Tools
+
+1. IAM Credentials Report (Account-level)
+    - A report that lists all your account's users and the status of their various credentials
+2. IAM Access Advisor (User-level)
+    - Shows the service permissions granted to a user and when those services were last accessed
+    - Able to use this information to revise your policies
+
+### IAM Guidelines & Best Practices
+
+- Don’t use the root account except for AWS account setup
+- One physical user = One AWS user
+- Assign users to groups and assign permissions to groups
+- Create a strong password policy
+- Use and enforce the use of Multi Factor Authentication (MFA)
+- Create and use Roles for giving permissions to AWS services
+- Use Access Keys for Programmatic Access (CLI / SDK)
+- Audit permissions of your account using IAM Credentials Report & IAM
+Access Advisor
+- Never share IAM users & Access Keys
+
+### Shared Responsibility Model for IAM
+
+|AWS|User|
+|-|-|
+|Infrastructure|Users, Groups, Roles, Policies management and monitoring|
+|Configuration and Vulnerability Analysis|Enable MFA on all accounts|
+|Compliance Validation|Rotate all your keys often|
+||Use IAM tools to apply appropriate permissions|
+||Analyze access patterns & review permissions|
+
 ## EC2
 
 - One of the most popular of AWS' offering
