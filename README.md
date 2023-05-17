@@ -1138,7 +1138,7 @@ When we define our objects, we choose its storage class.
   - Business Intelligence
   - Business Analytics
   - Business Reporting
-  - Analyze and Query Virtual Private Cloud (VPC) Flow Logs
+  - Analyze and Query [VPC Flow Logs](#vpc-flow-logs)
   - ELB Logs
   - CloudTrail trails
 
@@ -1612,7 +1612,7 @@ When we define our objects, we choose its storage class.
 ### AWS Local Zones
 
 - Places AWS compute, storage, database, and other selected AWS services closer to end users to run latency-sensitive applications.
-- Extend your Virtual Private Cloud (VPC) to more locations
+- Extend your [VPC](#virtual-private-cloud-vpc) to more locations
   - Extension of an AWS Region
 - Compatible with [EC2](#elastic-compute-cloud-ec2), RDS, ECS, EBS, ElastiCache, Direct Connect, etc.
 
@@ -1850,7 +1850,7 @@ Global Service that monitors the health of your services.
   - ElastiCache
   - RDS
   - Aurora
-- VPC Flow logs data can go to [S3](#amazon-s3), CloudWatch Logs, and [Kinesis](#amazon-kinesis) Data Firehose
+- VPC Flow Logs data can go to [S3](#amazon-s3), CloudWatch Logs, and [Kinesis](#amazon-kinesis) Data Firehose
 
 ### VPC Peering
 
@@ -1863,7 +1863,7 @@ Global Service that monitors the health of your services.
 
 ### VPC Endpoints
 
-- Endpoints allow you to connect to AWS Services using a private network in of the public `www` network
+- Allows connection to AWS Services using a private network instead of the public _www_ network
 - This gives you enhanced security and lower latency to access AWS services
 - VPC Endpoint Gateway: [S3](#amazon-s3) & DynamoDB
 - VPC Endpoint Interface: Other AWS services
@@ -1903,12 +1903,12 @@ Global Service that monitors the health of your services.
 
 - Connect from your computer using OpenVPN to your private network in AWS and on-premises.
 - Allow you to connect to your [EC2](#elastic-compute-cloud-ec2) instances over a private IP
-  - Just as if you were in the private VPC network
+  - Just as if you were in the private [VPC](#virtual-private-cloud-vpc) network
 - Goes over public Internet
 
 ### Transit Gateway
 
-- For having transitive peering between thousands of VPC and on-premises, star connection
+- For having transitive peering between thousands of [VPC](#virtual-private-cloud-vpc) and on-premises, star connection
 - One single Gateway to provide this functionality
 - Works with Direct Connect Gateway, VPN connections
 
@@ -2070,7 +2070,7 @@ Global Service that monitors the health of your services.
 - Uses Machine Learning algorithms
   - Performs anomaly detection on 3rd party data to detect threats.
   - Input data for Amazon Guard Duty:
-    1. VPC Flow Logs
+    1. [VPC Flow Logs](#vpc-flow-logs)
     2. CloudTrail Logs
     3. AWS DNS Logs
     4. EKS Audit Logs
@@ -2131,7 +2131,7 @@ Global Service that monitors the health of your services.
 - [GuardDuty](#aws-guardduty), Macie and Security Hub are used to identify potential security issues or findings.
 - Detective analyzes, investigates, and quickly identify the _root cause_ of security issues or suspicious activities
   - Using ML and graphs
-  - Automatically collects and processes events from VPC Flow Logs, CloudTrail, GuardDuty, and create a unified view.
+  - Automatically collects and processes events from [VPC Flow Logs](#vpc-flow-logs), CloudTrail, GuardDuty, and create a unified view.
   - Produces visualizations with details and context to get to the root cause.
 
 ### AWS Abuse
@@ -2158,7 +2158,7 @@ Global Service that monitors the health of your services.
   - Change or cancel your AWS Support plan
   - Register as a seller in the Reserved Instance Marketplace
   - Configure an Amazon [S3 bucket](#amazon-s3-buckets) to enable MFA
-  - Edit or delete an Amazon S3 bucket policy that includes an invalid VPC ID or VPC endpoint ID
+  - Edit or delete an Amazon S3 bucket policy that includes an invalid [VPC](#virtual-private-cloud-vpc) ID or VPC endpoint ID
   - Sign up for GovCloud
 
 ### IAM Access Analyzer
@@ -2735,7 +2735,7 @@ Global Service that monitors the health of your services.
 
 - Fully-managed service that lets you control satellite communications, process data, and scale your satellite operations
 - Provides a global network of satellite ground stations near AWS regions
-- Allows you to download satellite data to your AWS VPC within seconds
+- Allows you to download satellite data to your [VPC](#virtual-private-cloud-vpc) within seconds
 - Send satellite data to [S3](#amazon-s3) or [EC2](#elastic-compute-cloud-ec2) instances.
 - Use Cases:
   - Weather forecasting
@@ -2816,7 +2816,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
    - AWS Services
      - Identity and Access Management: IAM, AWS-STS, MFA token, AWS Organizations
      - Detective Controls: AWS Config, AWS CloudTrail, Amazon CloudWatch
-     - Infrastructure Protection: Amazon CloudFront, Amazon VPC, AWS Shield, AWS WAF, Amazon Inspector
+     - Infrastructure Protection: Amazon CloudFront, [VPC](#virtual-private-cloud-vpc), AWS Shield, AWS WAF, Amazon Inspector
      - Data Protection: KMS, [S3](#amazon-s3), ELB, EBS, RDS
      - Incident Response: IAM, AWS CloudFormation, AWS CloudWatch Events
 3. Reliability
@@ -2828,7 +2828,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
      - Stop guessing capacity
      - Manage change in automation
    - AWS Services
-     - Foundations: IAM, Amazon VPC, Service Quotas, AWS Trusted Advisor
+     - Foundations: IAM, [VPC](#virtual-private-cloud-vpc), Service Quotas, AWS Trusted Advisor
      - Change Management: AWS Auto Scaling, Amazon CloudWatch, AWS CloudTrail, AWS Config
      - Failure Management: AWS Backups, AWS CloudFormation, [S3](#amazon-s3), Amazon Route 53
 4. Performance Efficiency
