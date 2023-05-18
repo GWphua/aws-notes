@@ -589,20 +589,24 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
   - AWS provides only a few configuration knobs
 - It is less expensive to setup load balancer on your own, but it will take a lot more effort on your end.
 - 4 kinds of load balancers offered by AWS
-  - Application Load Balancer _(Layer 7)_
+  - Application Load Balancer _(ALB)_
     - For HTTP / HTTPS only traffic
+      - Operates in Layer 7
     - Static DNS (URL)
-  - Network Load Balancer _(Layer 4)_
+  - Network Load Balancer
     - _Ultra-high performance_, allows for TCP and UDP only
+      - Operates in Layer 4
     - Millions of requests per seconds, while maintaining ultra-low latency
     - Static IP through Elastic IP
-  - Gateway Load Balancer _(Layer 3)_
+  - Gateway Load Balancer
     - GENEVE Protocol on IP Packets
+      - Operates in Layer 3
     - Use Case: Route Traffic to Firewalls that you manage on [EC2](#elastic-compute-cloud-ec2) Instances
     - Balances the load of the traffic to the virtual appliances that we run the EC2 Instances so that you can analyze the traffic or perform Firewall operations.
     - Traffic then sent back to the Gateway Load Balancer after analyzing the traffic.
     - The traffic is then forwarded to the Application.
-  - Classic Load Balancer _(Layers 4 & 7)_
+  - Classic Load Balancer
+    - Operates in Layers 4 & 7
     - _To be replaced_ by the Application Load Balancer and Network Load Balancer in 2023.
 
 ### Auto-Scaling Group (ASG)
@@ -1228,7 +1232,7 @@ When we define our objects, we choose its storage class.
 - Launch Docker containers on AWS
 - Must provision and maintain the infrastructure ([EC2](#elastic-compute-cloud-ec2) Instances)
   - AWS takes care of starting / stopping containers
-  - Has integrations with the Application Load Balancer
+  - Has integrations with the [Application Load Balancer](#elastic-load-balancer-elb)
 
 ### Fargate
 
@@ -1342,7 +1346,7 @@ When we define our objects, we choose its storage class.
 - Deploying code
 - Configuring all the databases, load balancers, etc.
 - Scaling concerns
-- Most web applications have the same architecture _( ALB + ASG )_
+- Most web applications have the same architecture _( [ALB](#elastic-load-balancer-elb) + [ASG](#auto-scaling-group-asg) )_
 - All developers want is for their code to run
   - Possibly, consistently across different applications and environments
 
@@ -1538,7 +1542,7 @@ When we define our objects, we choose its storage class.
   - Enhanced security with CloudFront Origin Access Control (OAC)
   - CloudFront can be used as an ingress to upload files to S3
 - Custom Origin (HTTP)
-  - Application Load Balancer
+  - [Application Load Balancer](#elastic-load-balancer-elb)
   - [EC2](#elastic-compute-cloud-ec2) Instance
   - S3 Website
   - Any HTTP backend you want
@@ -1680,7 +1684,7 @@ When we define our objects, we choose its storage class.
 - A metric is a variable to monitor
   - Metrics have timestamps
   - Example metrics:
-    1. [EC2](#elastic-compute-cloud-ec2) Instances
+    1. [EC2 Instances](#elastic-compute-cloud-ec2)
     2. [EBS Volumes](#elastic-block-store-ebs-volume)
     3. [S3 buckets](#amazon-s3-buckets)
     4. Billing
@@ -1737,7 +1741,7 @@ When we define our objects, we choose its storage class.
 
 - Provides governance, compliance, and audit for your AWS Account.
 - _Enabled_ by default.
-- Get an history of events / API calls made within your AWS Account through:
+- Get a history of events / API calls made within your AWS Account through:
   1. Console
   2. SDK
   3. CLI
@@ -1963,7 +1967,7 @@ Global Service that monitors the health of your services.
 
 - Protects your web applications from common web exploits on Layer 7
   - Layer 7 is HTTP
-  - Deploy on ALB, API Gateway, [CloudFront](#cloudfront)
+  - Deploy on [ALB](#elastic-load-balancer-elb), [API Gateway](#api-gateway), [CloudFront](#cloudfront)
 - Define Web Access Control List
   - Rules can include IP addresses, HTTP headers, HTTP body, or URI strings
   - Protects from common attacks
@@ -1983,7 +1987,7 @@ Global Service that monitors the health of your services.
   2. [Amazon RDS](#aws-relational-database-service-rds-overview)
   3. [Amazon CloudFront](#cloudfront)
   4. Amazon Aurora
-  5. Amazon API Gateways
+  5. [Amazon API Gateways](#api-gateway)
   6. AWS Lambda and Lambda Edge functions
   7. Amazon Lightsail resources
   8. Amazon Elastic Beanstalk environments
@@ -2056,9 +2060,9 @@ Global Service that monitors the health of your services.
 - Free of charge for public TLS certificates
 - Automatic TLS certificate renewal
 - Integrations with
-  - Elastic Load Balancers
+  - [ELBs](#elastic-load-balancer-elb)
   - [CloudFront](#cloudfront) Distributions
-  - APIs on API Gateway
+  - APIs on [API Gateway](#api-gateway)
   - Integration done by loading TLS certificates on the services
 
 ### AWS Secrets Manager
@@ -2742,7 +2746,7 @@ Global Service that monitors the health of your services.
 - Build serverless visual workflow to orchestrate your Lambda functions
 - Features
   - Sequence, parallel, conditions, timeouts, error-handling
-- Can integrate with [EC2](#elastic-compute-cloud-ec2), ECS, On-premises servers, API Gateway, [SQS](#amazon-simple-queue-service-sqs) queues, etc.
+- Can integrate with [EC2](#elastic-compute-cloud-ec2), ECS, On-premises servers, [API Gateway](#api-gateway), [SQS](#amazon-simple-queue-service-sqs) queues, etc.
 - Possibility of implementing human approval feature
 - Use Cases:
   - Order fulfillment
