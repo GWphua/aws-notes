@@ -1045,7 +1045,7 @@ When we define our objects, we choose its storage class.
 - Aurora is a proprietary technology from AWS
   - Not open-sourced
   - Not in free tier
-  - Aurora costs more than RDS (20% more), but is more efficient
+  - Aurora costs more than [RDS](#aws-relational-database-service-rds-overview) (20% more), but is more efficient
 - Aurora is _AWS cloud optimized_ and claims 5x performance improvement over MySQL on RDS, over 3x the performance of Postgres on RDS
 - Aurora storage automatically grows in increments of 10GB, up to 128TB
 
@@ -1146,7 +1146,7 @@ When we define our objects, we choose its storage class.
 
 - Serverless machine learning-powered business intelligence service to create interactive dashboards
 - Fast, automatically scalable, embed-able, with per-session pricing
-- Integrated with other services such as RDS, Aurora, [Athena](#amazon-athena), [Redshift](#redshift), [S3](#amazon-s3)
+- Integrated with other services such as [RDS](#aws-relational-database-service-rds-overview), Aurora, [Athena](#amazon-athena), [Redshift](#redshift), [S3](#amazon-s3)
 - Use Cases:
   - Business Analytics
   - Building visualizations
@@ -1284,7 +1284,7 @@ When we define our objects, we choose its storage class.
 
 - Virtual servers, storage, databases, and networking
 - Low and predictable pricing
-- Simpler alternative to using [EC2](#elastic-compute-cloud-ec2), RDS, [ELB](#elastic-load-balancer-elb), [EBS](#elastic-block-store-ebs-volume), Route 53, etc.
+- Simpler alternative to using [EC2](#elastic-compute-cloud-ec2), [RDS](#aws-relational-database-service-rds-overview), [ELB](#elastic-load-balancer-elb), [EBS](#elastic-block-store-ebs-volume), Route 53, etc.
 - Great for people with little cloud experience
 - Can setup notifications and monitoring of your Lightsail resources
 - Has high availability but no auto-scaling, and has limited AWS integrations.
@@ -1614,7 +1614,7 @@ When we define our objects, we choose its storage class.
 - Places AWS compute, storage, database, and other selected AWS services closer to end users to run latency-sensitive applications.
 - Extend your [VPC](#virtual-private-cloud-vpc) to more locations
   - Extension of an AWS Region
-- Compatible with [EC2](#elastic-compute-cloud-ec2), RDS, ECS, [EBS](#elastic-block-store-ebs-volume), ElastiCache, Direct Connect, etc.
+- Compatible with [EC2](#elastic-compute-cloud-ec2), [RDS](#aws-relational-database-service-rds-overview), ECS, [EBS](#elastic-block-store-ebs-volume), ElastiCache, Direct Connect, etc.
 
 ## Cloud Integration
 
@@ -1845,7 +1845,7 @@ Global Service that monitors the health of your services.
 - Captures network information from AWS managed interfaces
   - Elastic Load Balancers
   - ElastiCache
-  - RDS
+  - [RDS](#aws-relational-database-service-rds-overview)
   - Aurora
 - VPC Flow Logs data can go to [S3](#amazon-s3), [CloudWatch Logs](#amazon-cloudwatch-logs), and [Kinesis](#amazon-kinesis) Data Firehose
 
@@ -1965,9 +1965,9 @@ Global Service that monitors the health of your services.
 ### Penetration Testing
 
 - AWS customers are welcome to carry out security assessments or penetration tests against their AWS infrastructure without prior approval for these services:
-  1. Amazon [EC2](#elastic-compute-cloud-ec2) instances, NAT Gateways, [ELBs](#elastic-load-balancer-elb)
-  2. Amazon RDS
-  3. Amazon [CloudFront](#cloudfront)
+  1. [Amazon EC2 instances](#elastic-compute-cloud-ec2) instances, NAT Gateways, [ELBs](#elastic-load-balancer-elb)
+  2. [Amazon RDS](#aws-relational-database-service-rds-overview)
+  3. [Amazon CloudFront](#cloudfront)
   4. Amazon Aurora
   5. Amazon API Gateways
   6. AWS Lambda and Lambda Edge functions
@@ -2000,7 +2000,7 @@ Global Service that monitors the health of your services.
   - [EBS Volumes](#elastic-block-store-ebs-volume): Encrypt volumes
   - [S3 buckets](#amazon-s3-buckets): Server-side encryption of objects
   - [Redshift](#redshift) database: Encryption of data
-  - RDS database: Encryption of data
+  - [RDS](#aws-relational-database-service-rds-overview) database: Encryption of data
   - [EFS](#elastic-file-system-efs) drives: Encryption of data
 - Encryption automatically enabled for:
   - [CloudTrail](#amazon-cloudtrial) Logs
@@ -2053,7 +2053,7 @@ Global Service that monitors the health of your services.
   - Paid Service, 40-cents per secret per month.
 - Capability to force rotation of secrets every few days.
 - Automate generation of secrets on rotation using Lambda.
-- Integration with Amazon RDS.
+- Integration with [Amazon RDS](#aws-relational-database-service-rds-overview).
   - Secrets Manager is used to create passwords for Amazon RDS automatically.
   - Mostly meant for RDS integration.
 - Secrets are encrypted using KMS.
@@ -2360,7 +2360,7 @@ Global Service that monitors the health of your services.
      - [EC2](#elastic-compute-cloud-ec2) Reserved Instances
      - DynamoDB Reserved Capacity
      - ElastiCache Reserved Nodes
-     - RDS Reserved Instance
+     - [RDS](#aws-relational-database-service-rds-overview) Reserved Instance
      - [Redshift](#redshift) Reserved Nodes
 3. Pay less by using more
    - Volume-based discounts.
@@ -2505,7 +2505,7 @@ Global Service that monitors the health of your services.
     3. IAM Use (One IAM user minimum)
     4. MFA on Root Account
     5. [EBS](#elastic-block-store-ebs-volume) Public Snapshots
-    6. RDS Public Snapshots
+    6. [RDS](#aws-relational-database-service-rds-overview) Public Snapshots
     7. Service Limits
   - Full Checks for Business & Enterprise Support Plan
     - Full checks available on the 5 categories above
@@ -2720,7 +2720,7 @@ Global Service that monitors the health of your services.
   - [EC2](#elastic-compute-cloud-ec2)
   - ECS
   - EKS
-  - RDS
+  - [RDS](#aws-relational-database-service-rds-overview)
 - Use-prebuilt templates that generate the desired disruptions.
 
 ### AWS Step Functions
@@ -2821,7 +2821,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
      - Identity and Access Management: IAM, AWS-STS, MFA token, AWS Organizations
      - Detective Controls: AWS Config, [CloudTrail](#amazon-cloudtrial), Amazon [CloudWatch](#amazon-cloudwatch)
      - Infrastructure Protection: [CloudFront](#cloudfront), [VPC](#virtual-private-cloud-vpc), [AWS Shield](#aws-shield), [AWS WAF](#aws-web-application-firewall-waf), Amazon Inspector
-     - Data Protection: KMS, [S3](#amazon-s3), [ELB](#elastic-load-balancer-elb), [EBS](#elastic-block-store-ebs-volume), RDS
+     - Data Protection: KMS, [S3](#amazon-s3), [ELB](#elastic-load-balancer-elb), [EBS](#elastic-block-store-ebs-volume), [RDS](#aws-relational-database-service-rds-overview)
      - Incident Response: IAM, AWS CloudFormation, AWS CloudWatch Events
 3. Reliability
    - Ability of a system to recover from infrastructure or service disruptions, dynamically acquire computing resources to meet demand, and mitigate disruptions such as misconfigurations or transient network issues.
@@ -2844,7 +2844,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
      - Experiment more often
      - Mechanical sympathy
    - AWS Services
-     - Selection: AWS Auto Scaling, AWS Lambda, [EBS](#elastic-block-store-ebs-volume), [S3](#amazon-s3), Amazon RDS
+     - Selection: AWS Auto Scaling, AWS Lambda, [EBS](#elastic-block-store-ebs-volume), [S3](#amazon-s3), [RDS](#aws-relational-database-service-rds-overview)
      - Review: AWS CloudFormation, AWS News Blog
      - Monitoring: [CloudWatch](#amazon-cloudwatch), AWS Lambda
      - Tradeoffs: Amazon RDS, Amazon ElastiCache, [Snowball](#snowball-edge), [CloudFront](#cloudfront)
@@ -2875,7 +2875,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
      - Energy-efficiency: AWS Cost Explorer, Spot Instances
      - Tiering storages: [EFS-IA](#efs-infrequent-access-efs-ia), [S3 Glacier](#s3-glacier-storage-classes)
      - Data is in the right tier: [S3 Intelligent Tiering](#s3-intelligent-tiering), Data Lifecycle Manager
-     - Read Local, Write Global: RDS Read Replicas, Aurora, DynamoDB, [CloudFront](#cloudfront)
+     - Read Local, Write Global: [RDS](#aws-relational-database-service-rds-overview) Read Replicas, Aurora, DynamoDB, [CloudFront](#cloudfront)
 
 #### AWS Well-Architected Tool
 
