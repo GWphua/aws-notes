@@ -268,8 +268,15 @@
 - Security Groups are the fundamental of network security in AWS
 - They control how traffic is allowed into or out of our EC2 instance
 - Security groups only contain _allow_ rules
+  - Can specify separate rules for inbound and outbound traffic.
+  - All inbound traffic is blocked by default
+  - All outbound traffic is authorized by default
 - Security groups rules can reference by IP or by security group
 - Security groups can be attached to multiple instances
+- Security groups are stateful
+  - If you send a request from your instance:
+    - The response traffic for that request is allowed to flow in regardless of inbound security group rules.
+    - The responses to allowed inbound traffic are allowed to flow out, regardless of outbound rules.
 
 #### Security Groups as a firewall
 
@@ -279,8 +286,6 @@
   2. Authorized IP ranges - IPv4, IPv6
   3. Control of inbound network
   4. Control of outbound network
-- All inbound traffic is blocked by default
-- All outbound traffic is authorized by default
 - Security groups are locked down to a region / Virtual Private Cloud combination
 - Lives _outside_ the EC2 instance
   - If traffic is blocked, the EC2 instance cannot see the inbound network
@@ -1794,6 +1799,7 @@ Global Service that monitors the health of your services.
   - Private IPv4 is fixed for [EC2](#elastic-compute-cloud-ec2) instances even if you start/stop them.
   - EC2 instance gets a new public IP address every time you stop then start it.
 - Elastic IP
+
   - Allows you to attach a fixed public IPv4 address to EC2 instance
   - Has ongoing cost if not attached to EC2 instance, or if the EC2 instance is stopped.
 
@@ -1822,18 +1828,27 @@ Global Service that monitors the health of your services.
 - Public subnets have a route to the internet gateway.
 - NAT Gateways (AWS-managed) & NAT Instances allow your instances in your Private subnets to access the internet while remaining private.
 
-### Security Groups and Network Access Control List
+### Network Access Control List
 
 - Network Access Control List (NACL)
   - First line of defense for [EC2](#elastic-compute-cloud-ec2) instance.
   - Firewall which controls traffic to and from the subnet.
   - Are attached at the Subnet level
   - Supports _ALLOW_ and _DENY_ rules.
+    - Has separate inbound and outbound rules.
+    - Denies all inbound and outbound traffic by default.
   - Rules only include IP addresses.
-- Security Groups
-  - A firewall that controls traffic to and from an EC2 instance.
-  - Can have only _ALLOW_ rules.
-  - Rules include IP addresses and other security groups.
+  - Stateless
+    - Responses to allowed inbound traffic are subject to the rules for outbound traffic and vice versa.
+
+#### Comparisons with Security Groups
+
+| NACL                                                   | Security Group                                              |
+| ------------------------------------------------------ | ----------------------------------------------------------- |
+| Firewall which controls traffic to and from the subnet | Firewall which controls traffic to and from an EC2 Instance |
+| Supports _ALLOW_ and _DENY_ rules                      | Supports only _ALLOW_ rules                                 |
+| Rules only include IP addresses                        | Rules include IP addresses and other security groups        |
+| Stateless                                              | Stateful                                                    |
 
 ### VPC Flow Logs
 
