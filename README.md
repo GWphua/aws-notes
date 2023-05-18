@@ -480,7 +480,7 @@ EC2 Instance Connect uses the web browser to connect to EC2 Instance, and only w
 
 ### EC2 Instance Store
 
-- EC2 Instance Store is a _high-performance hardware disk_ with better I/O performance than [EBS](#elastic-block-store-ebs-volume) volumes
+- EC2 Instance Store is a _high-performance hardware disk_ with better I/O performance than [EBS volumes](#elastic-block-store-ebs-volume).
 - EC2 Instance Store lose their storage if they are stopped ( Ephemeral storage )
   - Risk of data loss if hardware fails
   - Backups and Replications are your responsibility
@@ -921,7 +921,7 @@ When we define our objects, we choose its storage class.
   - Limited to no internet access
   - Limited to no easy access to computing power
 - We can setup a Snowball Edge / Snowcone device to do edge computing
-  - All of these devices can run [EC2](#elastic-compute-cloud-ec2) Instances & AWS Lambda functions using AWS IoT Greengrass
+  - All of these devices can run [EC2](#elastic-compute-cloud-ec2) Instances & [AWS Lambda](#aws-lambda) functions using AWS IoT Greengrass
   - Long-term deployment options are available:
     - Borrow for 1 or 3 years at discounted pricing
 - Use Cases of Edge Computing:
@@ -1155,7 +1155,7 @@ When we define our objects, we choose its storage class.
 
 - Serverless machine learning-powered business intelligence service to create interactive dashboards
 - Fast, automatically scalable, embed-able, with per-session pricing
-- Integrated with other services such as [RDS](#aws-relational-database-service-rds-overview), Aurora, [Athena](#amazon-athena), [Redshift](#redshift), [S3](#amazon-s3)
+- Integrated with other services such as [RDS](#aws-relational-database-service-rds-overview), [Aurora](#aws-aurora), [Athena](#amazon-athena), [Redshift](#redshift), [S3](#amazon-s3)
 - Use Cases:
   - Business Analytics
   - Building visualizations
@@ -1247,7 +1247,7 @@ When we define our objects, we choose its storage class.
 - This is where you store your Docker images
   - Fargate / ECS looks at the images and creates the containers
 
-### Lambda
+### AWS Lambda
 
 - Virtual functions, no servers to manage
 - Limited by time, short executions
@@ -1281,7 +1281,7 @@ When we define our objects, we choose its storage class.
 
 - Fully-managed batch processing at _any scale_
   - A batch job is a job with a start and an end
-  - Unlike Lambda, AWS Batch has no time limit.
+  - Unlike [AWS Lambda](#aws-lambda), AWS Batch has no time limit.
   - Helpful for cost optimizations and focusing less on the infrastructure
   - You submit / schedule batch jobs, and AWS Batch does the rest.
 - Batch jobs are defined as docker images and run on ECS
@@ -1293,7 +1293,7 @@ When we define our objects, we choose its storage class.
 
 - Virtual servers, storage, databases, and networking
 - Low and predictable pricing
-- Simpler alternative to using [EC2](#elastic-compute-cloud-ec2), [RDS](#aws-relational-database-service-rds-overview), [ELB](#elastic-load-balancer-elb), [EBS](#elastic-block-store-ebs-volume), Route 53, etc.
+- Simpler alternative to using [EC2](#elastic-compute-cloud-ec2), [RDS](#aws-relational-database-service-rds-overview), [ELB](#elastic-load-balancer-elb), [EBS](#elastic-block-store-ebs-volume), [Route 53](#route-53), etc.
 - Great for people with little cloud experience
 - Can setup notifications and monitoring of your Lightsail resources
 - Has high availability but no auto-scaling, and has limited AWS integrations.
@@ -1337,7 +1337,7 @@ When we define our objects, we choose its storage class.
   - .NET
 - Code is compiled into a CloudFormation template _( JSON / YAML )_
   - Can deploy infrastructure and application runtime code together
-  - Great for Lambda function
+  - Great for [Lambda](#aws-lambda) function
   - Great for Docker Containers in ECS / EKS
 
 ### Developer problems on AWS
@@ -1727,7 +1727,7 @@ When we define our objects, we choose its storage class.
 - React to events in AWS, or trigger a rule on a schedule
   - Schedule CRON jobs
   - Event rules to react to a service doing something
-  - Trigger Lambda functions, send [SQS](#amazon-simple-queue-service-sqs)/[SNS](#amazon-sns) messages
+  - Trigger [AWS Lambda](#aws-lambda) functions, send [SQS](#amazon-simple-queue-service-sqs)/[SNS](#amazon-sns) messages
 - Event Buses
   - Default Event Bus: Events happening from within AWS Services.
   - Partner Event Bus: Events happening from partners of AWS.
@@ -1864,7 +1864,7 @@ Global Service that monitors the health of your services.
   - Elastic Load Balancers
   - ElastiCache
   - [RDS](#aws-relational-database-service-rds-overview)
-  - Aurora
+  - [Aurora](#aws-aurora)
 - VPC Flow Logs data can go to [S3](#amazon-s3), [CloudWatch Logs](#amazon-cloudwatch-logs), and [Kinesis](#amazon-kinesis) Data Firehose
 
 ### VPC Peering
@@ -1983,16 +1983,16 @@ Global Service that monitors the health of your services.
 ### Penetration Testing
 
 - AWS customers are welcome to carry out security assessments or penetration tests against their AWS infrastructure without prior approval for these services:
-  1. [Amazon EC2 instances](#elastic-compute-cloud-ec2) instances, NAT Gateways, [ELBs](#elastic-load-balancer-elb)
+  1. [Amazon EC2 instances](#elastic-compute-cloud-ec2), [NAT Gateways](#internet-gateway), [ELBs](#elastic-load-balancer-elb)
   2. [Amazon RDS](#aws-relational-database-service-rds-overview)
   3. [Amazon CloudFront](#cloudfront)
-  4. Amazon Aurora
+  4. [Amazon Aurora](#aws-aurora)
   5. [Amazon API Gateways](#api-gateway)
-  6. AWS Lambda and Lambda Edge functions
-  7. Amazon Lightsail resources
+  6. [AWS Lambda](#aws-lambda) and Lambda Edge functions
+  7. [Amazon Lightsail](#amazon-lightsail) resources
   8. Amazon Elastic Beanstalk environments
 - Prohibited Activities
-  - DNS zone walking via Amazon Route 53 Hosted Zones
+  - DNS zone walking via [Amazon Route 53](#route-53) Hosted Zones
   - Simulated Denial-of-Service, Simulated Distributed Denial-of-Service
   - Port flooding
   - Protocol flooding
@@ -2021,7 +2021,7 @@ Global Service that monitors the health of your services.
   - [RDS](#aws-relational-database-service-rds-overview) database: Encryption of data
   - [EFS](#elastic-file-system-efs) drives: Encryption of data
 - Encryption automatically enabled for:
-  - [CloudTrail](#amazon-cloudtrial) Logs
+  - [CloudTrail Logs](#amazon-cloudtrial)
   - [S3 Glacier](#s3-glacier-storage-classes)
   - [Storage Gateway](#aws-storage-gateway)
 
@@ -2041,9 +2041,9 @@ Global Service that monitors the health of your services.
 - AWS managed CMK
   - Created, managed and used on the customer’s behalf by AWS
   - Used by AWS services
-    - AWS [S3](#amazon-s3)
-    - AWS [EBS](#elastic-block-store-ebs-volume)
-    - AWS [Redshift](#redshift)
+    - [AWS S3](#amazon-s3)
+    - [AWS EBS](#elastic-block-store-ebs-volume)
+    - [AWS Redshift](#redshift)
 - AWS owned CMK
   - Collection of CMKs that an AWS service owns and manages to use in multiple accounts
   - AWS can use those to protect resources in your account
@@ -2070,11 +2070,11 @@ Global Service that monitors the health of your services.
 - Newer service, meant for storing secrets.
   - Paid Service, 40-cents per secret per month.
 - Capability to force rotation of secrets every few days.
-- Automate generation of secrets on rotation using Lambda.
+- Automate generation of secrets on rotation using [AWS Lambda](#aws-lambda).
 - Integration with [Amazon RDS](#aws-relational-database-service-rds-overview).
   - Secrets Manager is used to create passwords for Amazon RDS automatically.
   - Mostly meant for RDS integration.
-- Secrets are encrypted using KMS.
+- Secrets are encrypted using [KMS](#aws-key-management-service-kms).
 
 ### AWS Artifact
 
@@ -2097,7 +2097,7 @@ Global Service that monitors the health of your services.
     3. AWS DNS Logs
     4. EKS Audit Logs
 - Can setup EventBridge rules to be notified in case of findings.
-  - EventBridge rules can target AWS Lambda or [SNS](#amazon-sns).
+  - EventBridge rules can target [AWS Lambda](#aws-lambda) or [SNS](#amazon-sns).
 - Can protect against CryptoCurrency attacks.
 - One click to enable, with no need to install the software.
 
@@ -2110,7 +2110,7 @@ Global Service that monitors the health of your services.
     - Analyze the running OS against known vulnerabilities.
   - Container Image pushes to [ECR](#elastic-container-registry-ecr)
     - Assessment of Container Images as they are pushed.
-  - Lambda Functions
+  - [AWS Lambda](#aws-lambda) Functions
     - Identifies software vulnerabilities in function code and package dependencies.
     - Assessment of functions as they are deployed.
 - Continuous scanning of the infrastructure, only when needed.
@@ -2412,7 +2412,7 @@ Global Service that monitors the health of your services.
 - Compute Savings Plan
   - Up to 66% discount compared to On-Demand.
   - Regardless of Instance Family, Region, Size, OS, tenancy, Compute Options.
-    - Compute Options: [EC2](#elastic-compute-cloud-ec2), Fargate, Lambda.
+    - Compute Options: [EC2](#elastic-compute-cloud-ec2), Fargate, [Lambda](#aws-lambda).
 - SageMaker Savings Plan
   - Up to 64% discount compared to On-Demand.
   - Regardless of Instance Family, Size, Component, or AWS region.
@@ -2503,7 +2503,7 @@ Global Service that monitors the health of your services.
 
 - Notify you when you are close to a service quota value threshold.
 - Create [CloudWatch Alarms](#amazon-cloudwatch-alarms) on the Service Quotas console.
-  - Get alerted when Lambda concurrent executions are reaching your quota.
+  - Get alerted when [AWS Lambda](#aws-lambda) concurrent executions are reaching your quota.
 - Request a quota increase from AWS Service Quotas or shutdown resources before limit is reached.
 
 ### AWS Trusted Advisor
@@ -2651,7 +2651,7 @@ Global Service that monitors the health of your services.
 - _Store and sync data_ across mobile and web applications in real-time.
 - Makes use of GraphQL.
   - Client Code can be generated automatically
-  - Integrates with DynamoDB / Lambda
+  - Integrates with DynamoDB / [AWS Lambda](#aws-lambda)
   - Real-time subscriptions for your application
   - Offline data synchronization
 
@@ -2743,7 +2743,7 @@ Global Service that monitors the health of your services.
 
 ### AWS Step Functions
 
-- Build serverless visual workflow to orchestrate your Lambda functions
+- Build serverless visual workflow to orchestrate your [AWS Lambda](#aws-lambda) functions
 - Features
   - Sequence, parallel, conditions, timeouts, error-handling
 - Can integrate with [EC2](#elastic-compute-cloud-ec2), ECS, On-premises servers, [API Gateway](#api-gateway), [SQS](#amazon-simple-queue-service-sqs) queues, etc.
@@ -2852,7 +2852,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
    - AWS Services
      - Foundations: IAM, [VPC](#virtual-private-cloud-vpc), Service Quotas, AWS Trusted Advisor
      - Change Management: AWS Auto Scaling, [CloudWatch](#amazon-cloudwatch), [CloudTrail](#amazon-cloudtrial), AWS Config
-     - Failure Management: AWS Backups, AWS CloudFormation, [S3](#amazon-s3), Amazon Route 53
+     - Failure Management: AWS Backups, AWS CloudFormation, [S3](#amazon-s3), [Amazon Route 53](#route-53)
 4. Performance Efficiency
    - Includes the ability to use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technologies evolve.
    - Design Principles
@@ -2862,7 +2862,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
      - Experiment more often
      - Mechanical sympathy
    - AWS Services
-     - Selection: AWS Auto Scaling, AWS Lambda, [EBS](#elastic-block-store-ebs-volume), [S3](#amazon-s3), [RDS](#aws-relational-database-service-rds-overview)
+     - Selection: AWS Auto Scaling, [AWS Lambda](#aws-lambda), [EBS](#elastic-block-store-ebs-volume), [S3](#amazon-s3), [RDS](#aws-relational-database-service-rds-overview)
      - Review: AWS CloudFormation, AWS News Blog
      - Monitoring: [CloudWatch](#amazon-cloudwatch), AWS Lambda
      - Tradeoffs: Amazon RDS, Amazon ElastiCache, [Snowball](#snowball-edge), [CloudFront](#cloudfront)
@@ -2877,7 +2877,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
    - AWS Services
      - Expenditure Awareness: AWS Budgets, AWS Cost and Usage Report, AWS Cost Explorer, Reserved Instance Reporting
      - Cost-Effective Resources: Spot Instance, Reserved Instance, [S3 Glacier](#s3-glacier-storage-classes)
-     - Matching supply and demand: AWS Auto Scaling, AWS Lambda
+     - Matching supply and demand: AWS Auto Scaling, [AWS Lambda](#aws-lambda)
      - Optimizing Over Time: AWS Trusted Advisor, AWS Cost and Usage Report, AWS News Blog
 6. Sustainability
    - Focuses on minimizing the environmental impacts of running cloud workloads
@@ -2889,7 +2889,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
      - Use managed services
      - Reduce the downstream impact of your cloud workloads
    - AWS Services
-     - Serverless Offerings: AWS Lambda, EC2 Auto Scaling, AWS Fargate
+     - Serverless Offerings: [AWS Lambda](#aws-lambda), EC2 Auto Scaling, AWS Fargate
      - Energy-efficiency: AWS Cost Explorer, Spot Instances
      - Tiering storages: [EFS-IA](#efs-infrequent-access-efs-ia), [S3 Glacier](#s3-glacier-storage-classes)
      - Data is in the right tier: [S3 Intelligent Tiering](#s3-intelligent-tiering), Data Lifecycle Manager
