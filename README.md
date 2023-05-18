@@ -1828,18 +1828,17 @@ Global Service that monitors the health of your services.
 - Public subnets have a route to the internet gateway.
 - NAT Gateways (AWS-managed) & NAT Instances allow your instances in your Private subnets to access the internet while remaining private.
 
-### Network Access Control List
+### Network Access Control List (NACL)
 
-- Network Access Control List (NACL)
-  - First line of defense for [EC2](#elastic-compute-cloud-ec2) instance.
-  - Firewall which controls traffic to and from the subnet.
-  - Are attached at the Subnet level
-  - Supports _ALLOW_ and _DENY_ rules.
-    - Has separate inbound and outbound rules.
-    - Denies all inbound and outbound traffic by default.
-  - Rules only include IP addresses.
-  - Stateless
-    - Responses to allowed inbound traffic are subject to the rules for outbound traffic and vice versa.
+- First line of defense for [EC2](#elastic-compute-cloud-ec2) instance.
+- Firewall which controls traffic _to and from the subnet_.
+- Are attached at the Subnet level
+- Supports _ALLOW_ and _DENY_ rules.
+  - Has separate inbound and outbound rules.
+  - Denies all inbound and outbound traffic by default.
+- Rules only include IP addresses.
+- Stateless
+  - Responses to allowed inbound traffic are subject to the rules for outbound traffic and vice versa.
 
 #### Comparisons with Security Groups
 
