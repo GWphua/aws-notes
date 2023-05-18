@@ -1097,7 +1097,7 @@ When we define our objects, we choose its storage class.
 - 10x performance improvement when accessing DynamoDB tables
   - Single-digit millisecond latency to microseconds latency
 - Secure, highly scalable and highly available
-- Difference with ElastiCache:
+- Difference with [ElastiCache](#amazon-elasticache):
   - DAX is only used for and is integrated really well with DynamoDB
   - ElastiCache can be used for other databases
 
@@ -1196,7 +1196,7 @@ When we define our objects, we choose its storage class.
   - Only need to worry about actual data transformation
 - Glue Data Catalog
   - Catalog of datasets
-  - Can be used by [Athena](#amazon-athena), [Redshift](#redshift), EMR
+  - Can be used by [Athena](#amazon-athena), [Redshift](#redshift), [EMR](#amazon-elastic-mapreduce-emr)
 
 ### Database Migration Service (DMS)
 
@@ -1623,7 +1623,7 @@ When we define our objects, we choose its storage class.
 - Places AWS compute, storage, database, and other selected AWS services closer to end users to run latency-sensitive applications.
 - Extend your [VPC](#virtual-private-cloud-vpc) to more locations
   - Extension of an AWS Region
-- Compatible with [EC2](#elastic-compute-cloud-ec2), [RDS](#aws-relational-database-service-rds-overview), ECS, [EBS](#elastic-block-store-ebs-volume), ElastiCache, Direct Connect, etc.
+- Compatible with [EC2](#elastic-compute-cloud-ec2), [RDS](#aws-relational-database-service-rds-overview), ECS, [EBS](#elastic-block-store-ebs-volume), [ElastiCache](#amazon-elasticache), Direct Connect, etc.
 
 ## Cloud Integration
 
@@ -1861,8 +1861,8 @@ Global Service that monitors the health of your services.
   - Internet to subnets
   - Subnets to subnets
 - Captures network information from AWS managed interfaces
-  - Elastic Load Balancers
-  - ElastiCache
+  - [Elastic Load Balancers](#elastic-load-balancer-elb)
+  - [ElastiCache](#amazon-elasticache)
   - [RDS](#aws-relational-database-service-rds-overview)
   - [Aurora](#aws-aurora)
 - VPC Flow Logs data can go to [S3](#amazon-s3), [CloudWatch Logs](#amazon-cloudwatch-logs), and [Kinesis](#amazon-kinesis) Data Firehose
@@ -1880,7 +1880,7 @@ Global Service that monitors the health of your services.
 
 - Allows connection to AWS Services using a private network instead of the public _www_ network
 - This gives you enhanced security and lower latency to access AWS services
-- VPC Endpoint Gateway: [S3](#amazon-s3) & DynamoDB
+- VPC Endpoint Gateway: [S3](#amazon-s3) & [DynamoDB](#dynamodb)
 - VPC Endpoint Interface: Other AWS services
 
 #### AWS PrivateLink
@@ -2009,7 +2009,7 @@ Global Service that monitors the health of your services.
    - Not moving because it is stored somewhere.
 2. Data in transit
    - Data being moved from one location to another
-   - Transfer from on-premises to AWS, [EC2](#elastic-compute-cloud-ec2) to DynamoDB, etc.
+   - Transfer from on-premises to AWS, [EC2](#elastic-compute-cloud-ec2) to [DynamoDB](#dynamodb), etc.
 
 ### AWS Key Management Service (KMS)
 
@@ -2376,8 +2376,8 @@ Global Service that monitors the health of your services.
    - Minimize risks, predictably manage budgets, comply with long-term requirements.
    - Reservations available for:
      - [EC2](#elastic-compute-cloud-ec2) Reserved Instances
-     - DynamoDB Reserved Capacity
-     - ElastiCache Reserved Nodes
+     - [DynamoDB](#dynamodb) Reserved Capacity
+     - [ElastiCache](#amazon-elasticache) Reserved Nodes
      - [RDS](#aws-relational-database-service-rds-overview) Reserved Instance
      - [Redshift](#redshift) Reserved Nodes
 3. Pay less by using more
@@ -2651,7 +2651,7 @@ Global Service that monitors the health of your services.
 - _Store and sync data_ across mobile and web applications in real-time.
 - Makes use of GraphQL.
   - Client Code can be generated automatically
-  - Integrates with DynamoDB / [AWS Lambda](#aws-lambda)
+  - Integrates with [DynamoDB](#dynamodb) / [AWS Lambda](#aws-lambda)
   - Real-time subscriptions for your application
   - Offline data synchronization
 
@@ -2865,7 +2865,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
      - Selection: AWS Auto Scaling, [AWS Lambda](#aws-lambda), [EBS](#elastic-block-store-ebs-volume), [S3](#amazon-s3), [RDS](#aws-relational-database-service-rds-overview)
      - Review: AWS CloudFormation, AWS News Blog
      - Monitoring: [CloudWatch](#amazon-cloudwatch), AWS Lambda
-     - Tradeoffs: Amazon RDS, Amazon ElastiCache, [Snowball](#snowball-edge), [CloudFront](#cloudfront)
+     - Tradeoffs: Amazon RDS, [Amazon ElastiCache](#amazon-elasticache), [Snowball](#snowball-edge), [CloudFront](#cloudfront)
 5. Cost Optimization
    - Includes the ability to run systems to deliver business value at the lowest price point
    - Design Principles
@@ -2893,7 +2893,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
      - Energy-efficiency: AWS Cost Explorer, Spot Instances
      - Tiering storages: [EFS-IA](#efs-infrequent-access-efs-ia), [S3 Glacier](#s3-glacier-storage-classes)
      - Data is in the right tier: [S3 Intelligent Tiering](#s3-intelligent-tiering), Data Lifecycle Manager
-     - Read Local, Write Global: [RDS](#aws-relational-database-service-rds-overview) Read Replicas, Aurora, DynamoDB, [CloudFront](#cloudfront)
+     - Read Local, Write Global: [RDS](#aws-relational-database-service-rds-overview) Read Replicas, Aurora, [DynamoDB](#dynamodb), [CloudFront](#cloudfront)
 
 #### AWS Well-Architected Tool
 
