@@ -1521,8 +1521,8 @@ When we define our objects, we choose its storage class.
 - Cache content at the edge locations
   - Improved user experience and decreased latency
 - DDoS protection
-  - Integration with Shield
-  - AWS Web Application Firewall (WAF)
+  - Integration with [AWS Shield](#aws-shield)
+  - [AWS WAF](#aws-web-application-firewall-waf)
 - CloudFront _Edge Locations_ will connect with your Origin
   - Once the result is retrieved, the result will be cached in the Edge Location
 
@@ -1570,8 +1570,8 @@ When we define our objects, we choose its storage class.
 
 - Similarities
   - Both use AWS global network and its edge locations around the world
-  - Both services integrate with AWS Shield for DDoS protection
-- CloudFront - Content Delivery Network
+  - Both services integrate with [AWS Shield](#aws-shield) for DDoS protection
+- [CloudFront](#cloudfront) - Content Delivery Network
   - Improves performance for cache-able content
   - Content is served _at the edge_
 - Global Accelerator
@@ -1926,41 +1926,48 @@ Global Service that monitors the health of your services.
   - Configuration Management
   - Awareness & Training
 
-### DDoS Protection: WAF & Shield
+### DDoS Protection
 
 - Distributed Denial-of-Service (DDoS) Attack
   - Attacker overwhelms the server with a lot of requests.
   - Users will find server inaccessible and unresponsive.
 - Be ready to scale by using ASG on AWS in event of a DDoS attack.
-- AWS Shield Standard
-  - Free service that is activated for every AWS customer.
-  - Protects against DDoS attack for website at no additional costs
-- AWS Shield Advanced.
-  - Optional DDoS mitigation service
-    - $3000 per month per organization.
-  - Protect against more sophisticated attacks on AWS services.
-  - Protect against higher fees during usage spikes due to DDoS.
-  - 24/7 premium DDoS protection.
-- AWS WAF
-  - Protects your web applications from common web exploits on Layer 7
-    - Layer 7 is HTTP
-    - Deploy on ALB, API Gateway, CloudFront
-  - Define Web Access Control List
-    - Rules can include IP addresses, HTTP headers, HTTP body, or URI strings
-    - Protects from common attacks
-    - Size constraints, geo-match
-    - Rate-based rules for DDoS protection
-  - Filter specific requests based on rules.
-- CloudFront and Route53
-  - Availability protection using global edge network.
-  - Combined with AWS Shield, provides attack mitigation at the edge.
+
+#### AWS Shield
+
+1. Standard
+   - Free service that is activated for every AWS customer.
+   - Protects against DDoS attack for website at no additional costs
+2. Advanced
+   - Optional DDoS mitigation service
+     - $3000 per month per organization.
+   - Protect against more sophisticated attacks on AWS services.
+   - Protect against higher fees during usage spikes due to DDoS.
+   - 24/7 premium DDoS protection.
+
+#### AWS Web Application Firewall (WAF)
+
+- Protects your web applications from common web exploits on Layer 7
+  - Layer 7 is HTTP
+  - Deploy on ALB, API Gateway, [CloudFront](#cloudfront)
+- Define Web Access Control List
+  - Rules can include IP addresses, HTTP headers, HTTP body, or URI strings
+  - Protects from common attacks
+  - Size constraints, geo-match
+  - Rate-based rules for DDoS protection
+- Filter specific requests based on rules.
+
+#### CloudFront and Route53
+
+- Availability protection using global edge network.
+- Combined with [AWS Shield](#aws-shield), provides attack mitigation at the edge.
 
 ### Penetration Testing
 
 - AWS customers are welcome to carry out security assessments or penetration tests against their AWS infrastructure without prior approval for these services:
   1. Amazon [EC2](#elastic-compute-cloud-ec2) instances, NAT Gateways, [ELBs](#elastic-load-balancer-elb)
   2. Amazon RDS
-  3. Amazon CloudFront
+  3. Amazon [CloudFront](#cloudfront)
   4. Amazon Aurora
   5. Amazon API Gateways
   6. AWS Lambda and Lambda Edge functions
@@ -2036,7 +2043,7 @@ Global Service that monitors the health of your services.
 - Automatic TLS certificate renewal
 - Integrations with
   - Elastic Load Balancers
-  - CloudFront Distributions
+  - [CloudFront](#cloudfront) Distributions
   - APIs on API Gateway
   - Integration done by loading TLS certificates on the services
 
@@ -2813,7 +2820,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
    - AWS Services
      - Identity and Access Management: IAM, AWS-STS, MFA token, AWS Organizations
      - Detective Controls: AWS Config, [CloudTrail](#amazon-cloudtrial), Amazon [CloudWatch](#amazon-cloudwatch)
-     - Infrastructure Protection: Amazon CloudFront, [VPC](#virtual-private-cloud-vpc), AWS Shield, AWS WAF, Amazon Inspector
+     - Infrastructure Protection: [CloudFront](#cloudfront), [VPC](#virtual-private-cloud-vpc), [AWS Shield](#aws-shield), [AWS WAF](#aws-web-application-firewall-waf), Amazon Inspector
      - Data Protection: KMS, [S3](#amazon-s3), [ELB](#elastic-load-balancer-elb), [EBS](#elastic-block-store-ebs-volume), RDS
      - Incident Response: IAM, AWS CloudFormation, AWS CloudWatch Events
 3. Reliability
@@ -2840,7 +2847,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
      - Selection: AWS Auto Scaling, AWS Lambda, [EBS](#elastic-block-store-ebs-volume), [S3](#amazon-s3), Amazon RDS
      - Review: AWS CloudFormation, AWS News Blog
      - Monitoring: [CloudWatch](#amazon-cloudwatch), AWS Lambda
-     - Tradeoffs: Amazon RDS, Amazon ElastiCache, AWS [Snowball](#snowball-edge), Amazon CloudFront
+     - Tradeoffs: Amazon RDS, Amazon ElastiCache, [Snowball](#snowball-edge), [CloudFront](#cloudfront)
 5. Cost Optimization
    - Includes the ability to run systems to deliver business value at the lowest price point
    - Design Principles
@@ -2868,7 +2875,7 @@ These 6 Pillars are not something to balance, or trade-offs, they are a synergy
      - Energy-efficiency: AWS Cost Explorer, Spot Instances
      - Tiering storages: [EFS-IA](#efs-infrequent-access-efs-ia), [S3 Glacier](#s3-glacier-storage-classes)
      - Data is in the right tier: [S3 Intelligent Tiering](#s3-intelligent-tiering), Data Lifecycle Manager
-     - Read Local, Write Global: RDS Read Replicas, Aurora, DynamoDB, CloudFront
+     - Read Local, Write Global: RDS Read Replicas, Aurora, DynamoDB, [CloudFront](#cloudfront)
 
 #### AWS Well-Architected Tool
 
