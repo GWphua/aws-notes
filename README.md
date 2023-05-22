@@ -1082,8 +1082,8 @@ When we define our objects, we choose its storage class.
 
 ### DynamoDB
 
-- Fully-managed highly available database with replication across 3 AZ
-  - Key/Value NoSQL Database
+- _Fully-managed_ highly available database with _replication across 3 AZ_
+  - Key/Value _NoSQL Database_
 - Scales to massive workloads, distributed _serverless_ database.
   - Millions of requests per seconds, trillions of rows, 100s of TB of storage
   - Fast and consistent in performance
@@ -1093,7 +1093,7 @@ When we define our objects, we choose its storage class.
 
 #### DynamoDB Accelerator - DAX
 
-- Fully-managed in-memory cache for DynamoDB
+- Fully-managed in-memory _cache_ for DynamoDB
 - 10x performance improvement when accessing DynamoDB tables
   - Single-digit millisecond latency to microseconds latency
 - Secure, highly scalable and highly available
@@ -1176,7 +1176,7 @@ When we define our objects, we choose its storage class.
 - Managed service to
   - Join public blockchain networks
   - Create your own scalable private network
-- Compatible with the frameworks Hyperledger Fabric & Ethereum
+- Compatible with the frameworks _Hyperledger Fabric_ & _Ethereum_.
 
 ### Amazon Quantum Ledger Database (QLDB)
 
@@ -1244,7 +1244,7 @@ When we define our objects, we choose its storage class.
 ### Elastic Container Registry (ECR)
 
 - Private Docker Registry on AWS
-- This is where you store your Docker images
+- This is where you _store_ your Docker images
   - Fargate / ECS looks at the images and creates the containers
 
 ### AWS Lambda
